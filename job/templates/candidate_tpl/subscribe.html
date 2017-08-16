@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 一站订阅</title>
+<link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/css/subscribe.css?v=2016011117">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <!-- <script type="text/javascript" src="http://www.cnsalary.com/cache/probie_job.js?_v=1448261439"></script> -->
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/joblist_new.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/misc.js?v=2015121019"></script>
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+<script type="text/javascript">
+  var trade_arr = "";
+  //[TRADE_ARR]
+</script>
+<script type="text/javascript" src="/static/js/subscribe.js?v=2015121019"></script>
+</head>
+<body>
+
+<div class="body_con">
+ <div class="black_overlay" style="width:100%; position:fixed;height:800px"></div>
+ {% include "candidate_tpl/common.html"%}
+<div class="detail_con">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ phonenum }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/logout">退出</a>
+</li>
+</ul>
+	<div class="detail_middle" style="margin-top:0px">
+		<!-- <h1>推荐简历列表<span id="list_more"></span></h1> -->
+       <a id="gotop" title="返回顶部"></a>
+    <script>
+        var arr_jid = [];
+
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>300)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+$(function() {
+  $('label').click(function(){
+     $('input[type="radio"]').attr('checked',false);
+     $('label').removeClass('checked');
+     $(this).prev().attr('checked','checked');
+     $(this).attr('class','checked');
+  });
+});
+    </script>
+
+<style type="text/css">
+
+</style>
+<!--UseTemplete@30050 size=1 param=-->
+  <div class="note_font2" style="margin-left:-3px"><span >NOTE:</span><p>保存职位订阅条件，实现所有招聘网站招聘信息一站式订阅！</p>
+  {% if subscribe_status == 0 %}
+<div class="advanced_search" >
+<p></p>
+  <div class="detail" >
+{% else %}
+<div class="advanced_search" style="height:95px">
+<p></p>
+  <div class="detail" style="height:55px">
+
+{% endif %}
+    {% if subscribe_status == 0 %}
+    <ul class="all_ul" style="display:none">
+    {% else %}
+    <ul class="all_ul">
+    {% endif %}
+
+    <!--
+    <span >更新周期：</span>
+ <li class="show" id="one_t" rel="[.u_time]">[.u_time]天</li>
+-->
+   <span >职位名称：</span>
+   <li class="show" id="zwmc">{{ subscribe['search'] }}</li>
+
+        <span>行业领域：</span>
+        <li class="show" id="hyly">{{ subscribe['trade'] }}</li>
+          <span >工作地点：</span>
+ <li class="show">北京</li>
+           <span>薪资范围：</span>
+           <li class="show">{{ subscribe['salary'] }}</li> 
+        <p>
+        	<span style="color:#029774;cursor: pointer;">修改</span>
+        	<span style="color:#ccc;cursor: pointer;">清空</span>
+        </p>
+  </ul>
+
+
+  <div class="high_search" [.high_search]>
+      {% if subscribe_status == 0 %}
+    <div class="high_search">
+      {% else %}
+    <div class="high_search" style="display:none">
+      {% endif %}
+
+  <div style="float:left;margin-top: 29px;">
+      <!--
+  <div id="range">更新周期：
+<input type="radio" name="identity"  checked="checked" value="3"> <label class="checked" id="t_3">3天</label>
+<input type="radio" name="identity" value="5"><label id="t_5">5天</label>
+<input type="radio" name="identity" value="7"><label id="t_7">7天</label>
+</div>
+-->
+<!-- 职位名称筛选开始 -->
+<div class="condition2" style="margin-top:20px">
+    <div><span>职位名称：</span><p id="zhiwei_id"><input type="text" placeholder="请填写职位名称" value="{{ subscribe['search'] }}">
+  </p></div>
+	<div class="cb_more">
+	<div class="cb_choose">
+	<div class="note">最多可选择5项</div>
+		<table style="width:1062px;border: 1px solid #ccc" border="1" id="zhiwei_str">
+
+<!-- 数据块 -->
+		<tr class="whole">
+		<th style="width:222px;border: 1px solid #ccc;font-size: 14px;">互联网/游戏/软件
+		</th>
+		<td style="border: 1px solid #ccc">
+		<table style="width:100%;margin-bottom:5px">
+		<tr>
+		<td class="list">
+		<span  >互联网/移动互联网/电子商务</span>
+		</td>
+		<td class="list"><span>计算机软件</span></td>
+		<td class="list"><span>计算机软件</span></td>
+		</tr>
+		<tr>
+		<td class="list"><span>计算机软件</span></td>
+		<td class="list"><span>互联网/移动互联网/电子商务</span></td>
+		<td class="list"><span>计算机软件</span></td>
+		</tr>
+		</table>
+		</td>
+		</tr>
+
+<!-- 数据块 -->
+
+
+		</table>
+		</div>
+        <div style="position: absolute;bottom:1px;width:100%"><input type="button" value="提 交" class="btn1"><input type="button" value="取消" class="btn2"></div>
+	</div>
+	
+</div>
+<!-- 职位名称筛选结束 -->
+
+<div class="condition">
+    <div><span>行业领域：</span><p id="trade_id" rel="{{ subscribe['trade'] }}" >
+        {{ subscribe['trade'] if subscribe['trade'] != '' else '请选择行业领域' }}
+    </p></div>
+		<div class="cb_more" style="height: 402px;">
+	<div class="cb_choose" style="height: 335px;">
+	<div class="note">最多可选择5项</div>
+		<table style="width:1062px;border: 1px solid transparent;margin-top:60px" border="1">
+
+<!-- 数据块 -->
+<tr class="whole">
+    <!-- <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">黑龙江省
+    </th> -->
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px" id="tr_trade">
+		 <tr>
+    <td class="list">
+    <span>互联网/电子商务</span></td>
+    <td class="list"><span>移动互联网/O2O/数据服务</span></td>
+    <td class="list"><span>网络游戏/动漫</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>IT服务/网络设备</span></td>
+    <td class="list"><span>智能硬件/可穿戴设备/智能家居</span></td>
+    <td class="list"><span>电子技术/半导体/集成电路</span></td>
+    </tr>
+      <tr>
+    <td class="list"><span>通信/电信/网络设备/手机</span></td>
+    <td class="list"><span>仪器仪表/工业自动化</span></td>
+    <td class="list"><span>银行</span></td>
+    </tr>
+        <tr>
+    <td class="list"><span>保险</span></td>
+    <td class="list"><span>房地产</span></td>
+    <td class="list"><span>建筑/建材/工程</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>公路/桥梁/铁路/市政/园林景观</span></td>
+    <td class="list"><span>家居/装潢/装修</span></td>
+    <td class="list"><span>物业管理/商业中心</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>专业服务/咨询</span></td>
+    <td class="list"><span>中介/外包/代理服务</span></td>
+    <td class="list"><span>媒体/出版/文化传播</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>文体/影视/艺术/表演</span></td>
+    <td class="list"><span>体育/娱乐/休闲</span></td>
+    <td class="list"><span>广告/会展/公关</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>印刷/包装/造纸</span></td>
+    <td class="list"><span>日化/食品/饮料/烟酒</span></td>
+    <td class="list"><span>服饰/纺织/皮革</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>家电/家具</span></td>
+    <td class="list"><span>奢侈品/工艺品/玩具/收藏品/珠宝</span></td>
+    <td class="list"><span>五金/灯饰</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>轮胎/橡胶</span></td>
+    <td class="list"><span>办公用品及设备</span></td>
+    <td class="list"><span>超市/百货/零售/批发</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>贸易/进出口/租赁</span></td>
+    <td class="list"><span>生产/加工/制造</span></td>
+    <td class="list"><span>车辆/配件</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>大型设备/钢铁/机械/机电设备/重工</span></td>
+    <td class="list"><span>交通/运输</span></td>
+    <td class="list"><span>物流/仓储</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>航空/航天</span></td>
+    <td class="list"><span>能源/矿产/采掘/冶炼</span></td>
+    <td class="list"><span>新能源</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>勘察/测绘/GIS/设计</span></td>
+    <td class="list"><span>石油/石化/化工/塑料</span></td>
+    <td class="list"><span>电气/电力/水利</span></td>
+    </tr>
+             <tr>
+    <td class="list"><span>环保/环境工程</span></td>
+    <td class="list"><span>船舶/海洋</span></td>
+    <td class="list"><span>医药/制药/生物工程</span></td>
+    </tr>
+    
+             <tr>
+    <td class="list"><span>医疗设备/器械</span></td>
+    <td class="list"><span>医疗/护理</span></td>
+    <td class="list"><span>酒店/餐饮/旅游/度假</span></td>
+    </tr>
+    
+             <tr>
+    <td class="list"><span>生活服务</span></td>
+    <td class="list"><span>农/林/牧/渔</span></td>
+    <td class="list"><span>教育/培训/院校</span></td>
+    </tr>
+    
+
+    </table>
+    </td>
+    </tr>
+
+<!-- 数据块 -->
+
+
+		</table>
+		</div>
+        <div style="position:absolute;width:1062px;border-top:1px solid #ccc;left:10px;bottom:0"><input type="button" value="提 交" class="btn1"><input type="button" value="取消" class="btn2"></div>
+	</div>
+</div>
+<div class="condition">
+	<div><span>工作地点：</span><p>北京</p></div>
+ 		<div class="cb_more">
+	<div class="cb_choose">
+	<div class="note">最多可选择5项</div>
+		<table style="width:1062px;border: 1px solid #ccc" border="1">
+
+<!-- 数据块 -->
+		<tr class="whole">
+		<th style="width:222px;border: 1px solid #ccc">黑龙江省
+		</th>
+		<td style="border: 1px solid #ccc">
+		<table style="width:100%;margin-bottom:5px">
+		<tr>
+		<td class="list">
+		<span>哈尔滨市</span>
+		</td>
+		<td class="list"><span>哈尔滨市</span></td>
+		<td class="list"><span>哈尔滨市</span></td>
+		</tr>
+		<tr>
+		<td class="list"><span>哈尔滨市</span></td>
+		<td class="list"><span>哈尔滨市</span></td>
+		<td class="list"><span>哈尔滨市</span></td>
+		</tr>
+		</table>
+		</td>
+		</tr>
+
+<!-- 数据块 -->
+
+
+		</table>
+		</div>
+        <div style="position:absolute;width:1062px;border-top:1px solid #ccc;left:10px;"><input type="button" value="提 交" class="btn1"><input type="button" value="取消" class="btn2">
+        </div>
+	</div>
+</div>
+
+<div class="condition1" >
+    <div><span>薪资范围：</span><p rel="{{ subscribe['salary'] }}">
+        {{ subscribe['salary'] if subscribe['salary'] != '' else '请选择薪资范围' }}
+    </p></div>
+	<!-- <div class="cb_more">4</div> -->
+	<div class="cb_list">
+	<span rel="3">不限</span>
+	  <span rel="3">3k以下</span>
+		<span rel="3,5">3k-5k</span>
+    <span rel="5,10">5k-10k</span>
+    <span rel="10,20">10k-20k</span>
+    <span rel="20,50">20k-50k</span>
+    <span rel="50">50k以上</span>
+	</div>
+</div>
+<div class="condition">
+	<button id="form_button">保 存</button>
+</div>
+</div>
+<div class="bar">
+<div>覆盖所有招聘网站</div>
+<div>
+	<p><img src="/static/images/data_08.jpg" style="margin-top:5px"></p>
+	<p>一站式收到所有招聘网站招聘信息，便捷高效。</p>
+</div>
+<div>
+	<p><img src="/static/images/data_03.jpg" style="margin-top:15px"></p>
+	<p>第一时间收到意向工作机会，不容错过任何一条优质工作信息。</p>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+
+     {% if subscribe_status == 0 %}
+ <div class="sear_c" style="display:none">
+     {% else %}
+ <div class="sear_c">
+     {% endif %}
+
+
+<p class="select_font"> 招聘头条为您搜索到 
+<span id="search_num">
+    {{ total_all }}
+</span></p>
+{% if job_list | length > 0 %}
+<p class="select_font">个相关职位,我们为您挑选了<span style="color:red">{{ job_list | length }}</span>条</p>
+{% else %}
+<p class="select_font">个相关职位</p>
+{% endif %}
+
+</div>
+
+<!-- 搜索到的职位 -->
+    {% if subscribe_status == 0 %}
+    <div class="found_jobs" style="display:none">
+    {% else %}
+    <div class="found_jobs">
+    {% endif %}
+
+<!-- Wrap@30050 -->
+<!-- Fill@30050 -->
+<!-- Null@30050 -->
+<!-- UseTemplete@30050; -->
+  <ul>
+
+<!--UseTemplete@30060 pagesize=20 param=-->
+{% for job in job_list %}
+
+   <script type="text/javascript">
+arr_jid[arr_jid.length] = {{ job.id  }};
+   </script>
+
+    <li>
+      <div class="all_jobs left_jobinfo">
+          <p class="p_first job_name"><a href="/job_detail?job_id={{ job.id }}" title="{{ job.job_name }}">{{ job.job_name }}</a></p>
+        <p class="p_two job_condition">
+        <span id="c_salary{{ job.id }}" class="c_trade">{{ job.salary_str }}</span>
+        <span id="c_city{{ job.id }}"><script type="text/javascript">get_substr('{{ job.job_city }}')</script></span>
+            <span id="c_year{{ job.id }}">{{ job.work_years_str }}</span>
+            <span id="c_edu{{ job.id }}">{{ job.education_str }}</span>  
+        </p>
+        <p class="job_pubtime" style="margin-bottom:0;">发布于：<script type="text/javascript">getLocalTime('{{ job.post_time }}')</script></p>
+      </div>
+      <div class="all_jobs right_gsinfo">
+          <p class="p_first gs_name" style="overflow: hidden;height: 25px;"><a href="javascript:void(0);" title="[.company_name]">{{ job.company_name }}</a></p>
+        <p class="p_two gs_condition">
+        <span id="c_trade{{ job.id }}" class="c_trade">{{ job.trade }}</span>
+        <span id="gs_nature{{ job.id }} ">{{ job.company_type }}</span>
+        <span id="gs_size{{ job.id }}">{{ job.scale_str }}</span>
+        </p>
+        <p class="job_op" rel="{{ job.id }}" style="margin-bottom:6px;" ws='[JIANLI]' cp="{{ job.company_id }}" jn='{{ job.job_name }}' id="job_select{{ job.id }}">
+        {% if job.post_status == 0 %}
+          <a class="lock_applyjob" href="javascript:void(0);" title="立即申请" rel="1">立即申请</a>
+        {% elif job.post_status == 'post' %}
+          <a class="lock_applyjob apchange" href="javascript:void(0);" title="已申请" rel="1">已申请</a>
+        {% elif job.post_status == 'viewed' %}
+          <a class="lock_applyjob apchange" href="javascript:void(0);" title="已查看" rel="1">已查看</a>
+        {% elif job.post_status == 'apply' %}
+          <a class="lock_applyjob apchange" href="javascript:void(0);" title="邀请面试" rel="1">邀请面试</a>
+        {% elif job.post_status == 'deny' %}
+          <a class="lock_applyjob apchange" href="javascript:void(0);" title="不合适" rel="1">不合适</a>
+
+        {% endif %}
+
+        {% if job.collect_status == 0 %}
+            <a class="lock_like" href="javascript:void(0);" title="感兴趣" rel="2">&nbsp;&nbsp;收藏&nbsp;&nbsp;</a>
+        {% else %}
+            <a class="lock_like apchange" href="javascript:void(0);" title="感兴趣" rel="2">&nbsp;&nbsp;已收藏&nbsp;&nbsp;</a>
+        {% endif %}
+            <!--
+          <a class="lock_notlike" href="javascript:void(0);" title="不感兴趣" rel="3">不感兴趣</a>
+            -->
+          <a class="lock_source" href="{{ job.post_url}}" title="查看来源" rel="0" target="_blank">查看来源</a>
+        </p>
+      </div>
+    </li>
+{% endfor %}
+    
+
+
+<!-- Wrap@30060 -->
+<!-- Fill@30060 -->
+<!-- Null@30060 -->
+<!-- UseTemplete@30060; --> 
+  </ul>
+
+</div>
+		</div>
+	
+	</div>
+</div>
+
+</div>
+<!-- <script src="/static/js/action.js" cid="ZZ716326956C966A86A7E771FEA0F093" qid="0001" charset="utf-8" type="text/javascript" id="J_QDDScript_XYZ"></script> -->
+<script type="text/javascript">
+ // 点击空白，不显示下拉框   薪资范围
+    $(".condition1>div>p").click(function(e){
+        e.stopPropagation();
+        // alert("ff");
+    });
+  $(document).click(function(){
+  	// alert($(".cb_list").css('display'))
+        if($(".cb_list").css('display')=='block'){
+        	// alert("p");
+            $(".cb_list").hide();
+        }               
+    });
+// 职位名称
+//     $("#zhiwei_id").click(function(e){
+//         e.stopPropagation();
+
+//     });
+//   $(document).click(function(){
+
+//         if($(".black_overlay").css('display')=='block'&&$(".cb_more").css('display')=='block'){
+//           // alert("p");
+//             $(".black_overlay").hide();
+//              $(".cb_more").hide();
+//         }               
+//     });
+// // 行业领域
+//  $("#trade_id").click(function(e){
+//         e.stopPropagation();
+
+//     });
+//   $(document).click(function(){
+//     // alert('hnorg');
+//         if($(".black_overlay").css('display')=='block' && $(".cb_more").css('display')=='block'){
+//           alert('jhgoergj');
+
+//             $(".black_overlay").hide();
+//              $(".cb_more").hide();
+//         }               
+//     });
+  
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

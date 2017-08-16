@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>招聘头条 - 我的简历</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/hrindex.css"/>
+      <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+  <link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+  <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+  <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/static/css/resume_info.css">
+  <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.json.js"></script>
+  <!-- <script type="text/javascript" src="http://www.cnsalary.com/cache/probie_job.js?_v=1448261439"></script></script> -->
+  <script src="/static/js/layer/layer.js"></script>
+
+<script type="text/javascript">
+  var trade_arr = "";
+  //[TRADE_ARR]
+</script>
+  <script type="text/javascript" src="/static/js/user_cv.js?v=20160323"></script>
+  <script type="text/javascript" src="/static/js/user_cv2.js?v=20160323"></script>
+  <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+  <script type="text/javascript" src="/static/js/misc.js?v=2015121019"></script>
+</head>
+<body>
+<div class="body_con">
+   <a id="gotop" title="返回顶部"></a>
+    <script>
+
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>300)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+        </script>
+ <div class="black_overlay" style="width:100%; position:fixed;height:800px" rel="[RESUME_URL]"></div>
+
+<!-- 弹出框  行业（开始） -->
+  <div class="cb_more" rel="" style="height:402px;">
+  <div class="cb_choose" style="height:340px;">
+  <div class="note2">最多可选择5项</div>
+  <table style="width:1062px;border: 1px solid #ccc;margin-top:60px" border="1" >
+
+<!-- 数据块 -->
+    <tr class="whole">
+    <!-- <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">黑龙江省
+    </th> -->
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px" id="tr_trade">
+    <tr>
+    <td class="list">
+    <span>互联网/电子商务</span></td>
+    <td class="list"><span>移动互联网/O2O/数据服务</span></td>
+    <td class="list"><span>网络游戏/动漫</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>IT服务/网络设备</span></td>
+    <td class="list"><span>智能硬件/可穿戴设备/智能家居</span></td>
+    <td class="list"><span>电子技术/半导体/集成电路</span></td>
+    </tr>
+      <tr>
+    <td class="list"><span>通信/电信/网络设备/手机</span></td>
+    <td class="list"><span>仪器仪表/工业自动化</span></td>
+    <td class="list"><span>银行</span></td>
+    </tr>
+        <tr>
+    <td class="list"><span>保险</span></td>
+    <td class="list"><span>房地产</span></td>
+    <td class="list"><span>建筑/建材/工程</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>公路/桥梁/铁路/市政/园林景观</span></td>
+    <td class="list"><span>家居/装潢/装修</span></td>
+    <td class="list"><span>物业管理/商业中心</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>专业服务/咨询</span></td>
+    <td class="list"><span>中介/外包/代理服务</span></td>
+    <td class="list"><span>媒体/出版/文化传播</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>文体/影视/艺术/表演</span></td>
+    <td class="list"><span>体育/娱乐/休闲</span></td>
+    <td class="list"><span>广告/会展/公关</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>印刷/包装/造纸</span></td>
+    <td class="list"><span>日化/食品/饮料/烟酒</span></td>
+    <td class="list"><span>服饰/纺织/皮革</span></td>
+    </tr>
+         <tr>
+    <td class="list"><span>家电/家具</span></td>
+    <td class="list"><span>奢侈品/工艺品/玩具/收藏品/珠宝</span></td>
+    <td class="list"><span>五金/灯饰</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>轮胎/橡胶</span></td>
+    <td class="list"><span>办公用品及设备</span></td>
+    <td class="list"><span>超市/百货/零售/批发</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>贸易/进出口/租赁</span></td>
+    <td class="list"><span>生产/加工/制造</span></td>
+    <td class="list"><span>车辆/配件</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>大型设备/钢铁/机械/机电设备/重工</span></td>
+    <td class="list"><span>交通/运输</span></td>
+    <td class="list"><span>物流/仓储</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>航空/航天</span></td>
+    <td class="list"><span>能源/矿产/采掘/冶炼</span></td>
+    <td class="list"><span>新能源</span></td>
+    </tr>
+           <tr>
+    <td class="list"><span>勘察/测绘/GIS/设计</span></td>
+    <td class="list"><span>石油/石化/化工/塑料</span></td>
+    <td class="list"><span>电气/电力/水利</span></td>
+    </tr>
+             <tr>
+    <td class="list"><span>环保/环境工程</span></td>
+    <td class="list"><span>船舶/海洋</span></td>
+    <td class="list"><span>医药/制药/生物工程</span></td>
+    </tr>
+    
+             <tr>
+    <td class="list"><span>医疗设备/器械</span></td>
+    <td class="list"><span>医疗/护理</span></td>
+    <td class="list"><span>酒店/餐饮/旅游/度假</span></td>
+    </tr>
+    
+             <tr>
+    <td class="list"><span>生活服务</span></td>
+    <td class="list"><span>农/林/牧/渔</span></td>
+    <td class="list"><span>教育/培训/院校</span></td>
+    </tr>
+    
+
+    </table>
+    </td>
+    </tr>
+
+<!-- 数据块 -->
+
+
+    </table>
+    </div>
+        <div style="position: absolute;width: 1062px;border-top: 1px solid rgb(204, 204, 204);bottom:11px;text-align:center;left:10px"><input type="button" value="提交" class="btn1"><input type="button" value="取消" class="btn2"></div>
+  </div>
+
+  <!-- 弹出框  行业（结束） -->
+
+
+<!-- 弹出框  地区（开始） -->
+  <div class="cb_more_area" rel="" >
+  <div class="cb_choose">
+  <div class="note2">请选择地区</div>
+    <table style="width:1062px;border: 1px solid #ccc;margin-top:60px" border="1">
+
+<!-- 热门城市 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">热门城市</th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>北京</span></td>
+    <td class="list"><span>上海</span></td>
+    <td class="list"><span>广州</span></td>
+    <td class="list"><span>深圳</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>杭州</span></td>
+    <td class="list"><span>成都</span></td>
+    <td class="list"><span>西安</span></td>
+    <td class="list"><span>厦门</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>武汉</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+<!-- 北京 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">北京
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>北京</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+        <td class="list"><span></span></td>
+    </tr>
+  
+    </table>
+    </td>
+    </tr>
+
+<!-- 上海 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">上海
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>上海</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+        <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+<!-- 天津 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">天津
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>天津</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+        <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 重庆 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">重庆
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>重庆</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+        <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+<!-- 河北 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">河北省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>石家庄</span></td>
+    <td class="list"><span>唐山</span></td>
+    <td class="list"><span>秦皇岛</span></td>
+        <td class="list"><span>邯郸</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>邢台</span></td>
+    <td class="list"><span>保定</span></td>
+    <td class="list"><span>张家口</span></td>
+    <td class="list"><span>承德</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>沧州</span></td>
+    <td class="list"><span>廊坊</span></td>
+    <td class="list"><span>衡水</span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 山西 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">山西省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>太原</span></td>
+    <td class="list"><span>大同</span></td>
+    <td class="list"><span>阳泉</span></td>
+        <td class="list"><span>长治</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>晋城</span></td>
+    <td class="list"><span>朔州</span></td>
+    <td class="list"><span>晋中</span></td>
+    <td class="list"><span>运城</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>忻州</span></td>
+    <td class="list"><span>临汾</span></td>
+    <td class="list"><span>吕梁</span></td>
+    <td class="list"><span>永济市</span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 内蒙古 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">内蒙古省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>呼和浩特</span></td>
+    <td class="list"><span>包头</span></td>
+    <td class="list"><span>乌海</span></td>
+        <td class="list"><span>赤峰</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>通辽</span></td>
+    <td class="list"><span>鄂尔多斯</span></td>
+    <td class="list"><span>呼伦贝尔</span></td>
+    <td class="list"><span>兴安盟</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>锡林郭勒盟</span></td>
+    <td class="list"><span>乌兰察布</span></td>
+    <td class="list"><span>巴彦淖尔</span></td>
+    <td class="list"><span>阿拉善盟</span></td>
+    </tr>
+ 
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 辽宁 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">辽宁省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>沈阳</span></td>
+    <td class="list"><span>大连</span></td>
+    <td class="list"><span>鞍山</span></td>
+    <td class="list"><span>抚顺</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>本溪</span></td>
+    <td class="list"><span>丹东</span></td>
+    <td class="list"><span>锦州</span></td>
+    <td class="list"><span>营口</span></td>
+    </tr>
+      <tr>
+    <td class="list"><span>阜新</span></td>
+    <td class="list"><span>辽阳</span></td>
+    <td class="list"><span>盘锦</span></td>
+    <td class="list"><span>铁岭</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>朝阳</span></td>
+    <td class="list"><span>葫芦岛</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 吉林 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">吉林省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>长春</span></td>
+    <td class="list"><span>吉林</span></td>
+    <td class="list"><span>四平</span></td>
+        <td class="list"><span>辽源</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>同化</span></td>
+    <td class="list"><span>白山</span></td>
+    <td class="list"><span>松原</span></td>
+    <td class="list"><span>白城</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>延边朝鲜族自治区</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 黑龙江 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">黑龙江省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>哈尔滨</span></td>
+    <td class="list"><span>齐齐哈尔</span></td>
+    <td class="list"><span>鸡西</span></td>
+        <td class="list"><span>鹤岗</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>双鸭山</span></td>
+    <td class="list"><span>大庆</span></td>
+    <td class="list"><span>伊春</span></td>
+    <td class="list"><span>佳木斯</span></td>
+    </tr>
+      <tr>
+    <td class="list"><span>七台河</span></td>
+    <td class="list"><span>牡丹江</span></td>
+    <td class="list"><span>黑河</span></td>
+    <td class="list"><span>绥化</span></td>
+    </tr>
+      <tr>
+    <td class="list"><span>大兴安岭地区</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+<!-- 江苏 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">江苏
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>南京</span></td>
+    <td class="list"><span>苏州</span></td>
+    <td class="list"><span>昆山</span></td>
+        <td class="list"><span>常熟</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>张家港</span></td>
+    <td class="list"><span>无锡</span></td>
+    <td class="list"><span>江阴</span></td>
+    <td class="list"><span>徐州</span></td>
+    </tr>
+        <tr>
+    <td class="list"><span>常州</span></td>
+    <td class="list"><span>南通</span></td>
+    <td class="list"><span>连云港</span></td>
+    <td class="list"><span>淮安</span></td>
+    </tr>
+        <tr>
+    <td class="list"><span>盐城</span></td>
+    <td class="list"><span>扬州</span></td>
+    <td class="list"><span>镇江</span></td>
+    <td class="list"><span>泰州</span></td>
+    </tr>
+        <tr>
+    <td class="list"><span>靖江</span></td>
+    <td class="list"><span>宿迁</span></td>
+    <td class="list"><span>太仓</span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+
+<!-- 浙江 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">浙江
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>杭州</span></td>
+    <td class="list"><span>宁波</span></td>
+    <td class="list"><span>温州</span></td>
+        <td class="list"><span>海宁</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>嘉兴</span></td>
+    <td class="list"><span>湖州</span></td>
+    <td class="list"><span>绍兴</span></td>
+    <td class="list"><span>金华</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>衢州</span></td>
+    <td class="list"><span>舟山</span></td>
+    <td class="list"><span>台州</span></td>
+    <td class="list"><span>丽水</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>玉怀县</span></td>
+    <td class="list"><span>方家山</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+
+
+
+
+<!-- 安徽 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">安徽
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>福州</span></td>
+    <td class="list"><span>厦门</span></td>
+    <td class="list"><span>莆田</span></td>
+        <td class="list"><span>三阳</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>泉州</span></td>
+    <td class="list"><span>泉港区</span></td>
+    <td class="list"><span>漳州</span></td>
+    <td class="list"><span>南平</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>龙岩</span></td>
+    <td class="list"><span>宁德</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+<!-- 江西 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">江西
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>南昌</span></td>
+    <td class="list"><span>景德镇</span></td>
+    <td class="list"><span>萍乡</span></td>
+        <td class="list"><span>九江</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>新余</span></td>
+    <td class="list"><span>鹰潭</span></td>
+    <td class="list"><span>赣州</span></td>
+    <td class="list"><span>吉安</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>宜春</span></td>
+    <td class="list"><span>抚州</span></td>
+    <td class="list"><span>上饶</span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+
+<!-- 山东 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">山东
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>济南</span></td>
+    <td class="list"><span>青岛</span></td>
+    <td class="list"><span>淄博</span></td>
+        <td class="list"><span>枣庄</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>东营</span></td>
+    <td class="list"><span>烟台</span></td>
+    <td class="list"><span>潍坊</span></td>
+    <td class="list"><span>济宁</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>泰安</span></td>
+    <td class="list"><span>威海</span></td>
+    <td class="list"><span>日照</span></td>
+    <td class="list"><span>莱芜</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>临沂</span></td>
+    <td class="list"><span>德州</span></td>
+    <td class="list"><span>聊城</span></td>
+    <td class="list"><span>滨州</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>菏泽</span></td>
+    <td class="list"><span>章丘</span></td>
+    <td class="list"><span>荣成</span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+<!-- 河南 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">河南
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>郑州</span></td>
+    <td class="list"><span>开封</span></td>
+    <td class="list"><span>洛阳</span></td>
+        <td class="list"><span>平顶山</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>安阳</span></td>
+    <td class="list"><span>鹤壁</span></td>
+    <td class="list"><span>新乡</span></td>
+    <td class="list"><span>焦作</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>濮阳</span></td>
+    <td class="list"><span>许昌</span></td>
+    <td class="list"><span>商丘</span></td>
+    <td class="list"><span>信阳</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>周口</span></td>
+    <td class="list"><span>驻马口</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+
+    </table>
+    </td>
+    </tr>
+<!-- 湖北 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">湖北
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>武汉</span></td>
+    <td class="list"><span>黄石</span></td>
+    <td class="list"><span>十堰</span></td>
+        <td class="list"><span>宜昌</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>襄樊</span></td>
+    <td class="list"><span>鄂州</span></td>
+    <td class="list"><span>荆门</span></td>
+    <td class="list"><span>孝感</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>荆州</span></td>
+    <td class="list"><span>黄冈</span></td>
+    <td class="list"><span>咸宁</span></td>
+    <td class="list"><span>随州</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>恩施土家族苗族自治州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+ </table>
+    </td>
+    </tr>
+
+
+<!-- 湖南 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">湖南
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>长沙</span></td>
+    <td class="list"><span>株洲</span></td>
+    <td class="list"><span>湘潭</span></td>
+        <td class="list"><span>衡阳</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>邵阳</span></td>
+    <td class="list"><span>岳阳</span></td>
+    <td class="list"><span>常德</span></td>
+    <td class="list"><span>张家界</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>益阳</span></td>
+    <td class="list"><span>郴州</span></td>
+    <td class="list"><span>永州</span></td>
+    <td class="list"><span>怀化</span></td>
+    </tr>
+     <tr>
+    <td class="list"><span>娄底</span></td>
+    <td class="list"><span>湘西土家族苗族自治州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+      <!-- 广东 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">广东
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>广州</span></td>
+    <td class="list"><span>深圳</span></td>
+    <td class="list"><span>韶关</span></td>
+        <td class="list"><span>珠海</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>汕头</span></td>
+    <td class="list"><span>佛山</span></td>
+    <td class="list"><span>南海区</span></td>
+    <td class="list"><span>江门</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>湛江</span></td>
+    <td class="list"><span>茂名</span></td>
+    <td class="list"><span>肇庆</span></td>
+    <td class="list"><span>惠州</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>梅州</span></td>
+    <td class="list"><span>汕尾</span></td>
+    <td class="list"><span>河源</span></td>
+    <td class="list"><span>阳江</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>清远</span></td>
+    <td class="list"><span>东莞</span></td>
+    <td class="list"><span>中山</span></td>
+    <td class="list"><span>潮州</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>揭阳</span></td>
+    <td class="list"><span>云浮</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+      <!-- 广西 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">广西
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>南宁</span></td>
+    <td class="list"><span>柳州</span></td>
+    <td class="list"><span>桂林</span></td>
+        <td class="list"><span>梧州</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>北海</span></td>
+    <td class="list"><span>防城港</span></td>
+    <td class="list"><span>钦州</span></td>
+    <td class="list"><span>贵港</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>玉林</span></td>
+    <td class="list"><span>百色</span></td>
+    <td class="list"><span>贺州</span></td>
+    <td class="list"><span>河池</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>来宾</span></td>
+    <td class="list"><span>崇左</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+     <!-- 海南 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">海南
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>海口</span></td>
+    <td class="list"><span>三亚</span></td>
+    <td class="list"><span>洋浦市</span></td>
+        <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+   
+  
+  <!-- 四川 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">四川
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>成都</span></td>
+    <td class="list"><span>自贡</span></td>
+    <td class="list"><span>攀枝花</span></td>
+        <td class="list"><span>泸州</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>德阳</span></td>
+    <td class="list"><span>绵阳</span></td>
+    <td class="list"><span>广元</span></td>
+    <td class="list"><span>遂宁</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>内江</span></td>
+    <td class="list"><span>乐山</span></td>
+    <td class="list"><span>南充</span></td>
+    <td class="list"><span>眉山</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>宜宾</span></td>
+    <td class="list"><span>广安</span></td>
+    <td class="list"><span>达州</span></td>
+    <td class="list"><span>雅安</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>巴中</span></td>
+    <td class="list"><span>资阳</span></td>
+    <td class="list"><span>阿坝藏族羌族自治州</span></td>
+    <td class="list"><span>甘孜藏族自治州</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>凉山彝族自治州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    <!-- 贵州 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">贵州
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>贵阳</span></td>
+    <td class="list"><span>六盘水</span></td>
+    <td class="list"><span>遵义</span></td>
+        <td class="list"><span>安顺</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>铜仁地区</span></td>
+    <td class="list"><span>黔西南布依族苗族自治州</span></td>
+    <td class="list"><span>毕节地区</span></td>
+    <td class="list"><span>黔东南苗族侗族自治州</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>黔南布依族苗族自治州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+ 
+  
+
+  
+
+
+<!-- 云南 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">云南
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>昆明</span></td>
+    <td class="list"><span>曲靖</span></td>
+    <td class="list"><span>玉溪</span></td>
+        <td class="list"><span>保山</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>邵通</span></td>
+    <td class="list"><span>西双版纳傣族自治州</span></td>
+    <td class="list"><span>德宏傣族景颇族自治州</span></td>
+    <td class="list"><span>大理白族自治州</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>丽江</span></td>
+    <td class="list"><span>怒江傈僳族自治州</span></td>
+    <td class="list"><span>迪庆藏族自治州</span></td>
+    <td class="list"><span>临沧</span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+
+  <!-- 陕西 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">陕西
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>西安</span></td>
+    <td class="list"><span>铜川</span></td>
+    <td class="list"><span>宝鸡</span></td>
+        <td class="list"><span>咸阳</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>渭南</span></td>
+    <td class="list"><span>延安</span></td>
+    <td class="list"><span>汉中</span></td>
+    <td class="list"><span>榆林</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>安康</span></td>
+    <td class="list"><span>商洛</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 西藏 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">西藏
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>拉萨</span></td>
+    <td class="list"><span>昌都</span></td>
+    <td class="list"><span>日喀则</span></td>
+        <td class="list"><span>那曲</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>阿里</span></td>
+    <td class="list"><span>林芝</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 甘肃 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">甘肃
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>兰州</span></td>
+    <td class="list"><span>嘉峪关</span></td>
+    <td class="list"><span>金昌</span></td>
+        <td class="list"><span>白银</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>天水</span></td>
+    <td class="list"><span>武威</span></td>
+    <td class="list"><span>张掖</span></td>
+    <td class="list"><span>平凉</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>酒泉</span></td>
+    <td class="list"><span>庆阳</span></td>
+    <td class="list"><span>定西</span></td>
+    <td class="list"><span>陇南</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>临夏回族自治州</span></td>
+    <td class="list"><span>甘南藏族自治州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 青海 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">青海
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>西宁</span></td>
+    <td class="list"><span>海晏</span></td>
+    <td class="list"><span>海东</span></td>
+        <td class="list"><span>海北</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>黄南</span></td>
+    <td class="list"><span>海南</span></td>
+    <td class="list"><span>果洛</span></td>
+    <td class="list"><span>玉树</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>海西</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 宁夏 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">宁夏
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>银川</span></td>
+    <td class="list"><span>石嘴山</span></td>
+    <td class="list"><span>吴忠</span></td>
+        <td class="list"><span>固原</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>中卫</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 新疆 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">新疆
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>乌鲁木齐</span></td>
+    <td class="list"><span>石河子</span></td>
+    <td class="list"><span>克拉玛依</span></td>
+    <td class="list"><span>哈密</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>昌吉</span></td>
+    <td class="list"><span>博乐</span></td>
+    <td class="list"><span>和田</span></td>
+    <td class="list"><span>阿克苏</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>阿勒</span></td>
+    <td class="list"><span>喀什</span></td>
+    <td class="list"><span>塔城</span></td>
+    <td class="list"><span>库尔勒</span></td>
+    </tr>
+  <tr>
+    <td class="list"><span>伊犁</span></td>
+    <td class="list"><span>克州</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 香港 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">香港
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>香港</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 澳门 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">澳门
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>澳门</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+  
+  <!-- 台湾 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">台湾
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list"><span>台湾</span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    <td class="list"><span></span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    </table>
+    </div>
+        <div style="position: absolute;bottom:11px;width:100%;text-align:center;"><input type="button" value="取消" class="btn2"></div>
+  </div>
+
+  <!-- 弹出框  地区（结束） -->
+
+
+<!-- 弹出框  职位（开始） -->
+  <div class="cb_more_zw" rel="">
+  <div class="cb_choose">
+  <div class="note2">最多可选择5项(职位)</div>
+    <table style="width:1062px;border: 1px solid #ccc" border="1" id="zhiwei_str">
+
+<!-- 数据块 -->
+    <tr class="whole">
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">黑龙江省
+    </th>
+    <td style="border: 1px solid #ccc">
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+    <td class="list">
+    <span>哈尔滨市</span>
+    </td>
+    <td class="list"><span>哈尔滨市</span></td>
+    <td class="list"><span>哈尔滨市</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>哈尔滨市</span></td>
+    <td class="list"><span>哈尔滨市</span></td>
+    <td class="list"><span>哈尔滨市</span></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+<!-- 数据块 -->
+
+
+    </table>
+
+    </div>
+        <div style="position: absolute;bottom:11px;width:100%;text-align:center;"><input type="button" value="提交" class="btn1"><input type="button" value="取消" class="btn2"></div>
+  </div>
+
+  <!-- 弹出框  职位（结束） -->
+
+
+
+  <!-- 修改头像弹出框 -->
+  <form action="/upload_file" method="post" accept="image/gif, image/jpg, image/png, image/jpeg,"  enctype="multipart/form-data" id="imageform" target="saveinfo">
+  <div class="pop_modify_pic">     
+    <p class="p_title">上传头像</p>
+    <p style="margin-top:25px;position:relative;">
+      <input type="file" class="upload_pic" name="photoimg" id="photoimg" onchange="document.getElementById('img_text').value=this.value" />
+      <input type="text" name="img_name" id="img_text" />
+      <a class="btn_upload">浏览...</a>
+      <input class="btn_savepic" value="上传" type="submit" />
+      <!-- <span>支持JPG、GIF、PNG格式，图片小于2M</span> -->
+    </p>
+    <!-- <div class="pic_show" id="pic_show"></div> -->
+    <input type="hidden" name="cv_id" value="{{ cv_id }}">
+    <div style="text-align:center; margin-top:30px;"><!-- <input class="btn_savepic" value="保存头像" type="submit" /> --><span>支持JPG、GIF、PNG格式，图片小于2M</span>
+     
+    </div>
+
+    <div class="op"></div>
+  </div>
+</form>
+
+
+  <!-- 上传文件 -->
+ <!--  <form action="ajax_no.htm" method="post"  enctype="multipart/form-data" id="imageform2" target="saveinfo">
+  <div class="pop_modify_pic_t">     
+    <p class="p_title">上传文件</p>
+    <p style="margin-top:25px;position:relative;">
+      <input type="file" class="upload_pic" name="photoimg" id="photoimg_t" onchange="document.getElementById('img_text_t').value=this.value" />
+      <input type="text" name="img_name" id="img_text_t" />
+      <a class="btn_upload">浏览...</a>
+      <input class="btn_savepic" value="上传" type="submit" />
+
+    </p>
+
+    <input type="hidden" name="tou_img" value="1">
+    <div style="text-align:center; margin-top:30px;"><span>支持word、pdf文件</span>
+
+ <a class="but_su">确定</a>
+    </div>
+    <div class="op"></div>
+  </div>
+</form> -->
+ {% include "candidate_tpl/common.html" %}
+
+<div class="detail_con" style="padding-bottom: 63px;">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ phonenum  }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/logout">退出</a>
+</li>
+</ul>
+<!-- <h1 class="resume-tit">我的简历</h1> -->
+  <div class="detail_middle"> 
+  <iframe name="saveinfo" width="400" height="400" style="display: none" ></iframe>
+    <!-- <a class="btn_new" style="cursor:pointer;">新注册用户</a><a class="btn_old" style="margin-left:30px;cursor:pointer;">老用户</a> -->
+
+<p></p>
+ <!-- UseTemplete@30050 size=1 param=-->
+
+
+
+
+
+     <!-- 放上传简历的div -->
+
+
+
+
+        <!-- <div class="detail_middle_sc" >
+        <span></span>
+        <div class="note_font3" style="margin-left:-3px"><span>NOTE:</span><p>我的简历</p></div>
+<div class="detail">
+        <p>姓名 : </p>
+      <span>[.uname@30050]</span>
+    </div> 
+
+<div class="detail">
+       <p>学历 :</p>
+      <span><script type="text/javascript">get_edu2('[.education]')</script></span>
+     </div>
+       <div class="detail">           
+       <p>经验 :</p>
+     
+    <span><script type="text/javascript">get_work_year('[.work_year]')</script></span>
+      </div>
+      <div class="detail">
+      
+        <p>期望薪资 :</p>
+     <span>[.wish_salary]元</span>
+     </div>
+
+  
+   <div>
+  
+   <a href="upload_jl.htm?e=1" class="save">修改</a>
+   <a href="upload2/[.resume_url]" class="save color">下载</a>
+   </div>
+        </div> -->
+
+
+
+  <span style="display:block;margin-top:0px;margin-left:16px;width:865px;border: 1px solid #D9D9D9;float:left; margin-bottom:100px;" class="jl_whole">
+    <div class="seeker">
+               <! -- # 基本资料 -->
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+        <h2 class="introduce_tit jibenziliao_tit">基本资料<span style="padding:2px 6px;background-color:#029774;color:#fff;font-weight:normal;margin-left: 15px;">必填</span></h2>
+       
+        <div class="my_resumeinfo" [BASIC_INFO1]>
+           <div class="seeker-info clearfix">
+
+              {% if avatar_url != '' %}
+               <div class="head_img"><img src="{{ avatar_url }}" width="100" height="100" style="border-radius:50px;" rel="{{ user_cv['basic']['avatar'] }}"> </div> 
+               {% else %}
+               <div class="head_img"><img src="/static/images/avatar/avatar.png" width="100" height="100" style="border-radius:50px;" rel="{{ user_cv['basic']['avatar'] }}"> </div> 
+
+               {% endif %}
+
+             <div class="info_con">
+                 <p class="user_name"><span>{{ user_cv['basic']['name'] }}</span></p>
+                 <p class="user_place"><span>{{ user_cv['basic']['current_area'] }}</span></p>
+               <p class="user_other">
+               <!--性别 -->
+               <span style="padding-left:0;">{{ user_cv['basic']['gender'] }}</span>|
+               <span>{{ user_cv['basic']['birthday'] }}年</span>|
+                  <span>{{ user_cv['basic']['education'] }}</span>|
+                      <span>{{ user_cv['basic']['marital_status'] }}</span>|
+                          <span>{{ user_cv['basic']['work_years'] }}</span>|
+                              <span>{{ user_cv['basic']['phonenum'] }}</span>|
+                              <span>{{ user_cv['basic']['email'] }}</span>
+               
+                </p>
+            </div>
+          </div>
+          <div class="edit_info" onclick="openDiv('jibenziliao');" alt="编辑" title="编辑"></div>
+        </div>
+
+        <div class="fill_resume base_info" id="jibenziliao" [BASIC_INFO2] rel="{{ user_cv['basic']['name'] }}">
+          <div class="head_img">
+              {% if avatar_url != '' %}
+               <div class="head_img"><img src="{{ avatar_url }}" width="100" height="100" style="border-radius:50px;" rel="{{ user_cv['basic']['avatar'] }}"> </div> 
+               {% else %}
+               <div class="head_img"><img src="/static/images/avatar/avatar.png" width="100" height="100" style="border-radius:50px;" rel="{{ user_cv['basic']['avatar'] }}"> </div> 
+               {% endif %}
+            <div style="text-align:center;">
+              <a class="lock modify_pic">修改</a>
+              <a class="lock delete_pic">删除</a>
+            </div>
+          </div>
+
+
+          <form method="post" id="basics_info">
+            <table>
+              <tr>
+                <td align="right"><label for="real_name">姓名：</label></td>
+                <td><input type="text" id="real_name" maxlength="5" min="2" name="real_name" autofocus placeholder="请输入您的真实姓名" value="{{ user_cv['basic']['name'] }}" /></td>
+
+                <td align="right"><label>性别：</label></td>
+                {% if user_cv['basic']['gender'] == '男' %}
+                <td id="sex_label" rel="1">
+                {% else %}
+                <td id="sex_label" rel="0">
+                {% endif %}
+
+                  <input type="radio" id="male" name="sex"  checked="checked" value="男"/><label name="male" class="sex_tag male select" rel='1'>男</label>
+                  <input type="radio" id="female" name="sex" value="女"/><label name="female" class="sex_tag female" rel='0'>女</label>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"><label>出生年份：</label></td>
+                <td>
+                    <select class="year" id="birth_year" rel="{{ user_cv['basic']['birthday'] }}">
+                    <option value="" selected="selected">出生年份</option>
+                  </select>
+                </td>
+                
+                
+                <td align="right"><label for="marriage">婚姻状况：</label></td>
+                <td>
+                    <select id="marriage" rel="{{ user_cv['basic']['marital_status'] }}">
+                    <option value="保密" selected="selected">保密</option>
+                    <option value="未婚">未婚</option>
+                    <option value="已婚">已婚</option>
+                  </select>
+                </td>              
+              </tr>
+
+              <tr>
+                <td align="right"><label for="mobile">手机：</label></td>
+                <td><input type="text" id="mobile" name="mobile" maxlength="11" placeholder="请输入您的手机号" value="{{ user_cv['basic']['phonenum'] }}" /></td>
+                <td align="right"><label for="email">邮箱：</label></td>
+                <td><input type="text" id="email" name="email" placeholder="请输入您的邮箱" value="{{ user_cv['basic']['email'] }}" /></td>
+              </tr>
+
+              <tr>
+                <td align="right"><label>常住地区：</label></td>
+                <td>
+                    <input type="text" id="place" readonly="readonly" name="place" placeholder="请选择您的常住地区" value="{{ user_cv['basic']['current_area'] }}" />
+                </td>
+                <td align="right"><label>工作年限：</label></td>
+                <td>
+                    <select id="work_year" rel="{{ user_cv['basic']['work_years'] }}">
+                    <option value="应届毕业生" selected="selected">应届毕业生</option>
+                    <option value="1年">1年</option>
+                    <option value="2年">2年</option>
+                    <option value="3年">3年</option>
+                    <option value="4年">4年</option>
+                    <option value="5年">5年</option>
+                    <option value="6年">6年</option>
+                    <option value="7年">7年</option>
+                    <option value="8年">8年</option>
+                    <option value="9年">9年</option>
+                    <option value="10年">10年</option>
+                    <option value="10年以上">10年以上</option>
+                  </select>
+                </td>
+              </tr>
+                 
+
+              <tr>
+                <td align="right"><label for="expect_salary">学历：</label></td>
+                <td colspan="3">
+                  <select class="edu_bg" rel="{{ user_cv['basic']['education'] }}">
+                    <option value="中专" selected="selected">中专</option>
+                    <option value="大专">大专</option>
+                    <option value="本科">本科</option>
+                    <option value="硕士">硕士</option>
+                    <option value="博士">博士</option>
+                    <option value="其他">其他</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" rel="1">
+                  <input type="button" class="btn btn_save" value="保 存" style="margin-left:187px;" />
+                  <input type="button" class="btn btn_cancle" value="取消" />
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+    
+      </span>
+    </div>
+
+
+        <!--  工作状态 -->
+        <div class="work_state" rel="{{ user_cv['intension']['status'] }}">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+      <h2 class="introduce_tit state_tit">工作状态<span style="padding:2px 6px;background-color:#029774;color:#fff;font-weight:normal;margin-left: 15px;">必填</span></h2>
+      <div class="my_resumeinfo">
+          <p style="font-size:14px;">{{ user_cv['intension']['status'] }}</p>
+        <div class="edit_info" style="top: 21px;" onclick="openDiv('gzzt');" alt="编辑" title="编辑"></div>
+      </div>
+
+      <div class="fill_resume" id="gzzt">
+        <form>
+            <table width="100%">
+              <tr>
+                <td>
+                  <select>
+                    <option value="正在找工作" selected="selected">正在找工作</option>
+                    <option value="在职，看看新机会">在职，看看新机会</option>
+                    <option value="在职，急寻新机会">在职，急寻新机会</option>
+                    <option value="在职，暂无跳槽打算">在职，暂无跳槽打算</option>
+                  </select>
+                </td>              
+              </tr>
+
+              <tr>
+                <td align="center" rel="2">
+                  <input type="button" class="btn btn_save" value="保 存" />
+                  <input type="button" class="btn btn_cancle" value="取消"/>
+                </td>
+              </tr>
+
+            </table>
+          </form>
+         
+       </div>
+     </span>
+    </div>
+
+
+    <div class="work_will" rel="{% if user_cv['intension']['trade']|length >0 %}{{  user_cv['intension']['trade'] }}{% endif %}">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+       <h2 class="introduce_tit will_tit" style="margin-bottom:20px;">职业意向<span style="padding:2px 6px;background-color:#029774;color:#fff;font-weight:normal;margin-left: 15px;">必填</span></h2>
+       <div class="my_resumeinfo">
+         <ul id="zhiye">
+             <li><span>期望行业：</span><span class="will_value">{% if user_cv['intension']['trade']|length >0 %}{{  user_cv['intension']['trade'] }}{% endif %}</span></li>
+             <li><span>期望职位：</span><span class="will_value">{% if user_cv['intension']['title']|length >0 %}{{ user_cv['intension']['title'] }}{% endif %}</span></li>
+             <li><span>期望地点：</span><span class="will_value">{% if user_cv['intension']['area']|length >0 %}{{ user_cv['intension']['area'] }}{% endif %}</span></li>
+             <li><span>期望月薪：</span><span class="will_value">{% if user_cv['intension']['expect_salary']|length >0 %}{{ user_cv['intension']['expect_salary'] }}元{% endif %}</span></li>
+         </ul>
+
+         <div class="edit_info" onclick="openDiv('yixiang');" alt="编辑" title="编辑"></div>
+       </div>
+
+       <div class="fill_resume" id="yixiang" rel="[.wish_industry]">
+          <form>
+            <table>
+              <tr>
+                <td align="right"><label>期望行业：</label></td>
+                <td><input type="text" id="expect_trade" name="trade_name"  placeholder="请选择您期望的行业" value="{% if user_cv['intension']['trade']|length >0 %}{{  user_cv['intension']['trade'] }}{% endif %}" /></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="expect_job">期望职位：</label></td>
+                <td><input type="text" id="expect_job" name="job_name" placeholder="请选择您期望的职位" value="{% if user_cv['intension']['title']|length >0 %}{{ user_cv['intension']['title'] }}{% endif %}" rel="{{ user_cv['intension']['title'] }}" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label for="expect_city">期望地点：</label></td>
+                <td><input type="text" id="expect_city" name="city_name" placeholder="请选择您期望的工作地点" value="{% if user_cv['intension']['area']|length >0 %}{{ user_cv['intension']['area']  }}{% endif %}" /></td>
+              </tr>
+
+              <tr>
+                <td align="right"><label for="expect_salary">期望月薪：</label></td>
+                <td>
+                    <input type="text" id="expect_salary" name="salary" placeholder="填写格式如：5000 或 5000-8000" value="{{ user_cv['intension']['expect_salary'] }}"  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" rel="3">
+                  <input type="button" class="btn btn_save" value="保 存" />
+                  <input type="button" class="btn btn_cancle" value="取消" />
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+      </span>
+    </div>
+
+    <div class="good_skills" style="float:left;" rel="{{ user_cv['tags'] }}" >
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+       <h2 class="introduce_tit skill_tit">擅长技能</h2>
+       <div class="my_resumeinfo">   
+         <div class="skill_con">      
+            <p>企业文化</p>
+            <p>演讲阐述</p>
+          </div> 
+          <div class="edit_info" style="top:21px" onclick="openDiv('scjn');" alt="编辑" title="编辑"></div>
+       </div>
+
+       <div class="fill_resume" style="border:none; padding:0;">
+         <p>更准确的技能标签，让HR/猎头找到你？</p>
+         <p class="p_add"><a onclick="openDiv('scjn');">+ 添加技能标签</a></p>
+       </div>
+
+       <div class="fill_resume2" id="scjn" style="position:relative;">
+          <form method="post">
+            <div class="search_tag">
+              <p>更准确的技能标签，让HR/猎头找到你？</p>
+              <p class="p_search">
+                <input type="text" name="skill_name" placeholder="添加技能标签" value="" style="width:300px;padding:6px 4px;" />
+                <a class="btn_addskill">添加</a>
+              </p>
+              <div class="have_skill">
+                <span>已有技能</span>
+                <div class="my_skill">
+                  <!-- <p>java<span><img src="/static/images/close.png" alt="" /></span></p> -->
+                  <!-- <p>jfowehgohhgo<span><img src="/static/images/close.png" alt="" /></span></p> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="hot_skill">
+              <p>填写示例</p>
+              <div class="hot_tag">
+                <p class="skill_tag">企业文化</p>
+                <p class="skill_tag">演讲阐述</p>
+                <p class="skill_tag">客户研究</p>
+                <p class="skill_tag">组织架构</p>
+                <p class="skill_tag">战略规划</p>
+                <p class="skill_tag">团队建设</p>
+                <p class="skill_tag">预算编制</p>
+                <p class="skill_tag">策略</p>
+                <p class="skill_tag">在线营销</p>
+                <p class="skill_tag">并购</p>
+                <p class="skill_tag">谈判</p>
+                <p class="skill_tag">产品营销</p>
+                <p class="skill_tag">商业模式</p>
+                <p class="skill_tag">商业策略</p>
+                <p class="skill_tag">业务发展</p>
+                <p class="skill_tag">战略发展</p>
+                <p class="skill_tag">沟通技巧</p>
+                <p class="skill_tag">账户管理</p>
+
+              </div>
+            </div>
+
+            <div style="clear:both; padding:20px 0 15px; text-align:center;" rel="4">
+              <input type="button" class="btn btn_save" value="保 存" />
+              <a class="btn btn_cancle">取消</a>
+            </div>
+          </form>
+        </div>
+      </span>
+    </div>
+
+
+     
+      <div class="education" style="float:left;" rel="[EDU_B]"> 
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit education_tit">教育经历 <span style="padding:2px 6px;background-color:#029774;color:#fff;font-weight:normal;margin-left: 15px;">必填</span></h2>
+
+            {% if user_cv['education']|length >0 %}           
+            <div class="my_resumeinfo">
+                
+                <!--
+              <ul class="edu_con edus_[.id]" rel="[.id]">
+                    <li class="edu_con_fst s_n">[.school]</li>
+                    <li class="z_n">[.major]</li>
+                    <li class="x_n" rel='[.edu]'><script type="text/javascript">get_edu('[.edu]')</script></li>
+                    <li class="t_n">[.start_time] - [.end_time]</li>
+                    <div class="edit_info" style="top:2px;right:45px" alt="编辑" title="编辑"></div>
+                    <div class="delete_info" alt="删除" title="删除"></div>
+              </ul>
+              -->
+
+              <!-- 教育经历 -->
+               {% for edu in user_cv['education'] %}
+
+               <ul class="edu_con edus_{{ loop.index0 }}" rel="{{ loop.index0 }}">
+
+                     <li class="edu_con_fst s_n">{{ edu['school'] }}</li>
+                     <li class="z_n">{{ edu['major'] }}</li>
+                     <li class="x_n" rel='{{ edu['degree'] }}'>{{ edu['degree'] }}</li>
+                     <li class="t_n">{{ edu['start_time'] }} - {{ edu['end_time'] }}</li>
+                    <div class="edit_info" style="top:2px;right:45px" alt="编辑" title="编辑"></div>
+                    <div class="delete_info" alt="删除" title="删除"></div>
+                </ul>
+
+               {% endfor %}
+
+              <p class="p_add"><a>+ 添加教育经历</a></p>
+
+              
+           </div>
+
+           {% else %}
+
+           <div class="fill_resume" style="display:block;border:none;padding:0;">
+             <p>教育经历最能体现你的能力，且完善后才可投递简历哦！</p>
+             <p class="p_add"><a onclick="openDiv('edu_jingli');">+ 添加教育经历</a></p>
+           </div>
+           {% endif %}
+
+       <div class="fill_resume2" id="edu_jingli">
+          <form method="post">
+            <table>
+              <tr>
+                <td align="right"><label for="school">学校名称：</label></td>
+                <td><input type="text" id="school" name="school_name" autofocus placeholder="请输入您的毕业院校" value="" style="width:500px;" /></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="major">专业名称：</label></td>
+                <td><input type="text" id="major" name="major_name" placeholder="请输入您所学专业名称" value="" style="width:500px;" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label>就读时间：</label></td>
+                <td>
+                  <select class="year" id="start_year" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始年份</option>
+                  </select>
+                  <select class="month" id="start_month" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始月份</option>
+                  </select>
+                  <select class="year" id="end_year" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束年份</option>
+                  </select>
+                  <select class="month" id="end_month" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束月份</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="right"><label for="expect_salary">学历：</label></td>
+                <td>
+                  <select class="xueli">
+                    <option value="博士及以上" selected="selected">博士及以上</option>
+                    <option value="博士">博士</option>
+                    <option value="硕士">硕士</option>
+                    <option value="本科">本科</option>
+                    <option value="大专">大专</option>
+                    <option value="大专及以下">大专及以下</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" rel="5">
+                  <input type="button" class="btn btn_save" value="保 存" rel="" />
+                  <input type="button" class="btn btn_cancle" value="取消" />
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+      </span>
+        </div>
+
+    <div class="work_exp" style="float:left;" rel="[WORK_B]">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+        <h2 class="introduce_tit work_exp_tit">工作经历 <span style="padding:2px 6px;background-color:#029774;color:#fff;font-weight:normal;margin-left: 15px;">必填</span></h2>
+            {% if user_cv['career']|length > 0 %}
+            
+            <div class="my_resumeinfo">
+
+
+               {% for career in user_cv['career'] %}
+
+               <div class="work_com w_tab_{{ loop.index0 }}" rel='{{ loop.index0 }}'>
+                  <div class="edit_info" style="top:5px;right:45px;" alt="编辑" title="编辑"></div>
+                  <div class="delete_info" style="top:-3px;" alt="删除" title="删除"></div>
+                  <h3 class="work_tit clearfix" style="margin-bottom:10px;"><span class="com_name">{{ career['company'] }}</span><span class="work_time">{{ career['start_time'] }} - {{ career['end_time'] }}</span></h3>
+                    <p>
+                    <span>工作地点：</span><span class="didian">{{ career['area'] }}</span>
+                      <span  style="margin:0 20px; color:#999;">|</span>
+                      <span>行业：</span><span class="hangye">{{ career['trade'] }}</span>
+                    </p>
+                    <p>
+                    <span>职位名称：</span><span class="zhiwei">{{ career['title'] }}</span>
+                    </p>
+                    <p>
+                    <span>工作职责：</span><span class="zhize">{{ career['duty'] }}</span>
+                    </p>
+
+              </div>
+
+               {% endfor %}
+
+              <p class="p_add"><a>+ 添加工作经历</a></p>
+
+           </div>
+           {% else %}
+
+           <div class="fill_resume" style="display:block;border:none; padding:0;">
+             <p>工作经历最能体现你的能力，且完善后才可投递简历哦！</p>
+             <p class="p_add"><a onclick="openDiv('work_jingli');">+ 添加工作经历</a></p>
+           </div>
+           {% endif %}
+
+       <div class="fill_resume2" id="work_jingli">
+          <form>
+            <table>
+              <tr>
+                <td align="right"><label for="gs">公司名称：</label></td>
+                <td><input type="text" id="gs" name="gs_name" autofocus placeholder="请输入公司名称" value="" style="width:500px;" /></td>
+              </tr>
+              <tr>
+                <td align="right"><label>公司行业：</label></td>
+                <td><input type="text" id="gs_trade" name="gs_trade_name" placeholder="请选择您从事的行业名称" value="" style="width:500px;" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label for="gs_job">职位名称：</label></td>
+                <td><input type="text" id="gs_job" name="gs_job_name" placeholder="请输入您从事的职位名称" value="" style="width:500px;" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label>工作地点：</label></td>
+                <td><input type="text" id="gs_address" name="gs_address_name" placeholder="请选择工作地点" value="" style="width:500px;" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label>任职时间：</label></td>
+                <td>
+                  <select class="year" id="start_year2" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始年份</option>
+                  </select>
+                  <select class="month" id="start_month2" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始月份</option>
+                  </select>
+                  <select class="year" id="end_year2" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束年份</option>
+                  </select>
+                  <select class="month" id="end_month2" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束月份</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="right" style="vertical-align:top;"><label for="zhize">工作职责：</label></td>
+                <td>
+                  <textarea id="zhize" style="width:507px; border:1px solid #D9D9D9;border-radius:3px;" rows="6" placeholder="请描述您的工作内容或工作成绩"></textarea>
+                </td>            
+              </tr>
+
+              <tr>
+                <td colspan="2" align="center" rel="6">
+                  <input type="button" class="btn btn_save" value="保 存" rel="" />
+                  <input type="button" class="btn btn_cancle" value="取消" />
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+      </span>
+    
+        </div>
+
+
+        <div class="xiangmu_exp" style="float:left;" rel="[JOB_B]">
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit pro_exp_tit">项目经验</h2>
+            {% if user_cv['experience']|length > 0 %}
+            
+            <div class="my_resumeinfo">
+
+                <!-- 项目 经验 -->
+            
+            {% for exper in user_cv['experience'] %}
+
+            <div class="work_com item_tab_{{ loop.index0 }}" rel="{{ loop.index0 }}">
+                    <h3 class="work_tit clearfix" style="margin-bottom: 10px;">
+                        <span class="com_name">{{ exper['project_name'] }}</span>
+                        <span class="work_name">{{ exper['title'] }}</span><span class="work_time">{{ exper['start_time'] }} - {{ exper['end_time'] }}</span></h3>
+                    <p>{{ exper['description'] }}</p>
+                    <div class="edit_info" style="top:5px;right:45px;" alt="编辑" title="编辑"></div>
+                    <div class="delete_info" style="top:-3px;"alt="删除" title="删除"></div>
+              </div>
+
+            {% endfor %}
+
+
+              <p class="p_add"><a>+ 添加项目经验</a></p>
+           </div>
+           {% else %}
+
+           <div class="fill_resume" style="display:block;border:none; padding:0;">
+             <p>项目经验是用人单位衡量人才能力的重要指标哦！</p>
+             <p style="margin-top:10px;">来说说令你难忘的项目经历吧</p>
+             <p class="p_add"><a>+ 添加项目经验</a></p>
+           </div>
+           {% endif %}
+
+       <div class="fill_resume2" id="xiangmu_jingli">
+          <form>
+            <table>
+              <tr>
+                <td align="right"><label for="xiangmu">项目名称：</label></td>
+                <td><input type="text" id="xiangmu" name="xiangmu_name" autofocus placeholder="请输入项目名称" value="" style="width:500px;" /></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="xiangmu_zhiwu">项目职务：</label></td>
+                <td><input type="text" id="xiangmu_zhiwu" name="xiangmu_zhiwu_name" placeholder="请输入项目职务" value="" style="width:500px;" /></td>            
+              </tr>
+
+              <tr>
+                <td align="right"><label>项目时间：</label></td>
+                <td>
+                  <select class="year" id="start_year3" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始年份</option>
+                  </select>
+                  <select class="month" id="start_month3" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">开始月份</option>
+                  </select>
+                  <select class="year" id="end_year3" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束年份</option>
+                  </select>
+                  <select class="month" id="end_month3" style="width:120px; margin-right:6px;">
+                    <option value="" selected="selected">结束月份</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="right" style="vertical-align:top;"><label for="xiangmu_miaoshu">项目描述：</label></td>
+                <td>
+                  <textarea id="xiangmu_miaoshu" style="width:507px; border:1px solid #D9D9D9;border-radius:3px;resize:none;" rows="6" placeholder="请详细描述项目内容"></textarea>
+                </td>            
+              </tr>
+
+              <tr>
+                <td colspan="2" align="center" rel="7">
+                  <input type="button" class="btn btn_save" value="保 存" rel="" />
+                  <input type="button" class="btn btn_cancle" value="取消" />
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+      </span>   
+    </div>
+        
+        <div class="self_describe" style="float:left;" rel="{{ user_cv['description'] }}">
+
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit self_pingjia_tit">自我描述</h2>
+            <div class="my_resumeinfo">
+              
+              <p style="line-height:30x; font-size:14px;">
+              {{ user_cv['description'] }}
+              </p>
+              <div class="edit_info" style="top:21px" alt="编辑" title="编辑" onclick="openDiv('self_miaoshu');"></div>
+           </div>
+
+           <div class="fill_resume" style="border:none; padding:0;">
+             <p style="line-height:25px; font-size:14px;">建议您对自己做一个简短评价，简明扼要的描述您的职业优势，让猎头顾问和企业HR快速了解您！</p>
+             <p class="p_add"><a onclick="openDiv('self_miaoshu');">+ 添加自我描述</a></p>
+           </div>
+
+           <div class="fill_resume2"  id="self_miaoshu">
+              <form>
+                <div style="margin:10px 10px 15px;">
+                  <textarea id="my_miaoshu" style="width:703px; border:1px solid #D9D9D9;border-radius:3px;resize:none;" rows="8" placeholder="建议你对自己做一个简短的评价，简明扼要的描述您的职业优势，让猎头顾问和企业HR快速了解您！">
+                      {{ user_cv['description'] }}
+                  </textarea>
+                </div>
+
+                <div style="clear:both; padding:20px 0 15px; text-align:center;" rel="8">
+                  <input type="button" class="btn btn_save" value="保 存" />
+                  <a class="btn btn_cancle">取消</a>
+                </div>
+              </form>
+
+            </div>
+        
+      </span>
+
+    </div>
+
+
+    <div class="other_info" style="float:left;" rel="{{ user_cv['extra'] }}">
+
+          <span style="width:100%; display:block;padding-bottom:25px;">
+            <h2 class="introduce_tit other_info_tit">其他信息</h2>
+            <div class="my_resumeinfo" style="position:relative;">
+              <p style="line-height:30x; font-size:14px;">
+              {{ user_cv['extra'] }}
+              </p>
+              <div class="edit_info" style="top: -32px;right: 11px;" onclick="openDiv('qitaxinxi');" alt="编辑" title="编辑"></div>
+           </div>
+
+           <div class="fill_resume" style="border:none; padding:0;">
+             <p style="line-height:25px; font-size:14px;">如：获奖项、技能资格证书、专利等</p>
+             <p class="p_add"><a onclick="openDiv('qitaxinxi');">+ 添加其他信息</a></p>
+           </div>
+
+       <div class="fill_resume2" id="qitaxinxi">
+          <form>
+            <div style="margin:10px 10px 15px;">
+              <textarea id="other_miaoshu" style="width:703px; border:1px solid #D9D9D9;border-radius:3px;resize:none;" rows="8" placeholder="如：获奖项、技能资格证书、专利等">
+              
+                  {{ user_cv['extra'] }}
+
+              </textarea>
+            </div>
+
+            <div style="clear:both; padding:20px 0 15px; text-align:center;" rel="9">
+              <input type="button" class="btn btn_save" value="保 存" />
+              <a class="btn btn_cancle">取消</a>
+            </div>
+          </form>
+
+        </div>
+      </span>
+
+    </div>
+        <!-- Wrap@30050 -->
+        <!-- Fill@30050 -->
+        <!-- Null@30050 -->
+        <!-- UseTemplete@30050; -->    
+    </span> 
+
+  </div>
+  <div style="   width: 225px;float: left;margin-left:45px;">
+  <!-- <p class="ruk"><a href="upload_jl.htm">上传简历</a></p> -->
+    <div class="bar" style="margin-top:0px">
+
+    <p></p>
+<div style="line-height:39px">HR最青睐的简历</div>
+<div>
+  <p><img src="/static/images/data_08.jpg" style="margin-top:10px"></p>
+  <p>按照500强企业HR的阅读习惯制作。</p>
+</div>
+<div>
+  <p><img src="/static/images/data_03.jpg" style="margin-top:15px"></p>
+  <p>简历信息越详细，企业HR越重视。</p>
+</div>
+</div>
+
+  </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

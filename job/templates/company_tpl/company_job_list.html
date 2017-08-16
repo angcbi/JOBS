@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 已发布职位列表</title>
+    <link rel="icon" href="images/logo_tiny.png" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/css/myjoblist.css?v=2015121019">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/qy_joblist.js?v=1"></script>
+    <script type="text/javascript" src="/static/js/split_page.js?v=1"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+    <meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+
+</head>
+<body>
+<div class="body_con" >
+
+
+{% include "company_tpl/common.html" %}
+<div class="detail_con">
+
+
+
+
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ company_user_email }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/company/logout" style="color:#fff">退出</a>
+</li>
+</ul>
+<script type="text/javascript">var iii=1;</script>
+	<div class="detail_middle">
+		 <div class="note_font2" style="margin-left:-3px;width:1157px;margin-top:31px"><span >NOTE:</span><p>原有招聘网站的职位同步结果</p>
+<div class="add_posit">
+
+<a href="/company/add_company_job">一键新增职位</a>
+</div>
+
+<!-- <div class="add_posit data_sync" style="margin-right:50px;cursor: pointer;" rel='1'>
+	<a>数据同步</a>
+</div> -->
+
+         </div>
+    	<!-- <div class="table_list"> -->
+    	
+
+          	<ul class="con_dtl" style="width:1140px;margin-top:19px">
+               	<li class="title" >
+                    <ul class="clearfix dtl_tit" style="background-color:#037158;color:#fff">
+                        <li class="num">序号</li>
+                         
+                        <li style="width:300px">职位名称</li>
+                        <li style="width:150px">已收取简历</li>
+                        
+
+                        <li style="width:200px">工作地点</li>
+                          <li style="width:200px">薪酬范围</li>
+                    <!--     <li class="choose state" style="width:121px">
+                        	<div class="dropdown">
+                                <a class="toggle" id="title_op_state" href="javascript:void(0);" onclick="choose_title_dropdown('state');" style="color:#000;
+                                font-weight:normal">
+                                    <span class="dept" id="stauts" rel="[F_STATUS]">[OPT_STATUS]</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" id="nav_op_state" style="width: 80px;" >
+                                    <li><a href="javascript:void(0);" rel="">全部</a></li>
+                                    <li><a href="javascript:void(0);" rel='0'>正在招聘</a></li>
+                                    <li><a href="javascript:void(0);" rel="1">已暂停</a></li>
+                                  
+                                </ul>
+                            </div>
+                        </li> -->
+                        <li style="width:200px">一键操作</li>
+		            </ul>
+               	</li>
+                
+                {% if company_job_list | length %}
+                {% for job in company_job_list %}
+               	<li class="row_con_li" id="row_dropdown_[.id]" style="background-color:#F5F6FA">
+                    <ul class="clearfix">
+                        <li class="num">{{ loop.index }}</li>
+                        
+                        <li class="job_name" style="width:300px;overflow:hidden">{{ job.job_name }}</li>
+
+                       
+                        <li class="job_name" style="width:150px;overflow:hidden">{{ job.cv_number }}</li>
+                        
+
+                        <li class="job_city" style="width:200px;overflow:hidden">{{ job.job_city }}</li>
+
+                        <li class="job_salary" style="width:200px;overflow:hidden">{{ job.salary_start }}k - {{ job.salary_end }}k</li>
+
+                        <li class="op" style="width:200px" rel="[.id]">
+                            <a href="modify_job?company_job_id={{job.id}}" style="margin-right:10px;">编辑</a>|<a class="qy_delte" style="cursor: pointer;" onclick="deljob({{job.id}})">删除</a>
+                        </li>
+		            </ul>
+               	</li>
+                {% endfor %}
+                {% else %}
+               <li><p style="width: 100%;text-align: center;line-height: 30px;"> 暂无相关数据</p></li>
+                {% endif %}
+
+          	</ul>
+
+
+
+
+            <!-- PageControl -->
+            <div id="page" class="page_new">
+           
+             <span id="index_page"></span>
+                
+             <span id="prev_page" onclick="skip(0)"><!-- PageBefore -->上一页<!-- PageBefore; --></span>
+                <script type="text/javascript">
+                    var zong = '{{ page_number }}';
+                    var dangq = '{{  page }}';
+                    var baseurl = '/company/company_job_list?';
+                    page_list_js(zong,dangq,baseurl);
+                </script>   
+                <span id="next_page" onclick="skip(1)"><!-- PageNext -->下一页<!-- PageNext; --></span>
+                <span id="last_page" onclick="skip(2)"><!-- LastPage -->尾页<!-- LastPage; --></span>
+                    <span>共计{{ page_number }}页</span>
+            </div>
+            
+            <!-- PageControl; -->
+ 
+            
+	</div>	
+</div>
+
+
+<script>
+function skip(type) {
+    var baseurl = '/company/company_job_list';
+    var page = {{ page  }};
+    var page_number =  {{ page_number }};
+
+    skip_page(baseurl, page, page_number, type);
+
+}
+</script>
+
+	
+</div>
+<!-- <script src="/static/js/action.js" cid="ZZ716326956C966A86A7E771FEA0F093" qid="0001" charset="utf-8" type="text/javascript" id="J_QDDScript_XYZ"></script> -->
+<script type="text/javascript">
+    //var three_id = [.t];
+    $("#li_tuijian2").attr('href','/company/job_cv_list');
+    $("#li_tuijian2").find('span').html('候选人推荐');
+    var cm = '[COMPANY_ID]';
+    if(cm !=0)
+    {
+        $(".qy_resume").show();
+    }
+    if(dangq == zong){
+        $("#last_page").hide();
+    }
+     if(zong == 1){
+        $("#last_page").hide();
+    }
+    
+    // 点击空白，不显示下拉框
+    $(".dropdown .toggle").click(function(e){
+        e.stopPropagation();
+    });
+
+    $(document).click(function(){
+        if($(".dropdown-menu").hasClass("show")){
+            $(".dropdown-menu").removeClass("show");
+        }               
+    });
+
+    function choose_title_dropdown(tid){
+        $('li.'+tid).siblings().children().children('ul').removeClass('show');
+        $('.row_con_li .dropdown-menu').removeClass('show');
+        $("#nav_op_"+tid).toggleClass('show');
+    }
+  
+    function choose_con_dropdown(jobid){
+        $('#row_'+jobid).siblings().children('ul').children().children().children('ul').removeClass('show');
+        $('.title .dropdown-menu').removeClass('show');
+        $("#nav_"+jobid).toggleClass('show');
+    }  
+
+    var t = '[!t]';
+    if( t== ''){  $('#three_id').attr('rel','');  $('#three_id').html('发布渠道');} 
+    if( t != ''){ 
+        $('#three_id').attr('rel',t);  
+        var ly = $(".laiyuan_"+t).html();
+        $('#three_id').html(ly);
+    } 
+
+    // 删除
+
+    function deljob(job_id) {
+    
+    $.ajax({
+            url: "/company/api_deljob",
+            type: "POST",
+            data: JSON.stringify({"company_jd_id": job_id}),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+
+                if (data['errcode'] == 0) {
+                    location.href='/company/company_job_list';
+                }
+            },
+            
+            fail: function(data) {
+
+            }
+    });
+}
+
+</script>
+</body>
+</html>
+

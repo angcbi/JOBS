@@ -1,0 +1,222 @@
+body, div,iframe, ul, ol, dl, dt, dd, li, dl, 
+h1, h2, h3, h4, table,th, td, input, button, select,
+ textarea,p{margin:0; padding:0;;font-family: microsoft yahei;font-size: 12px}
+ a{ text-decoration:none;}
+ ul,ol,li{
+    list-style: none;
+}
+ button, select,
+ textarea,img{ border:none;}
+
+ul, ol, li{
+	list-style: none;
+}
+
+
+.list1{
+    width: 360px;height: auto;float: left;margin-left: 40px;
+}
+.list1>div{width: 100%;height:auto;margin-top:20px;z-index: 10000;background-color: #fff;padding-left: 10px}
+
+.list1>div:first-child{margin-top: 40px}
+.pie{
+	width: 470px;height:755px;float: left;margin-left: 30px;
+background-image: url("../images/bg.png");background-size:100%;background-repeat: no-repeat;background-position: top;
+}
+#main{
+	height: 570px;
+}
+.list2{width: 372px;height: auto;float: right;font-family: '黑体';margin-right: 38px;background-color: #fff}
+.list2>div{width: 100%;height: auto;margin-top:10px;z-index: 10000;background-color: #fff;padding-left: 10px;padding-right: 10px}
+.list2>div:first-child{margin-top: 40px}
+.hiden{
+	display: none;
+	color: #505050;
+	font-size: 14px;
+}
+
+#only-show{display: block}
+a{text-decoration: none;}
+.pie p{position: relative;top:59%;float: left;left:28%;cursor: pointer;width: 216px;}
+.pie img{width:197px}
+.pie img:hover{border-bottom: 3px solid #037458 }
+.list1 div a p:hover{font-weight: 600}
+.list2 div a p:hover{font-weight: 600}
+#cainiao_welcome_two{
+	    float: right; margin-right: 64px;cursor: pointer;
+}
+
+/*用户名*/
+#cainiao_welcome_two a{color:#fff;}
+
+
+
+/*#cainiao_welcome_two span{margin-left: 10px}*/
+.login_again{overflow: hidden}
+.no_login ul{
+width: auto;
+height: 50px;
+list-style-type: none;
+overflow: hidden;
+/*margin-left: 936px;*/
+position: absolute;
+right:20px;
+}
+.no_login ul li{
+	
+margin-bottom: 8px;
+
+/*padding-left: 30px;*/
+color: #FFF;
+height: 50px;
+line-height: 39px;
+float: left;
+margin-right: 20px;
+}
+.no_login ul li a{font-size: 15px;cursor: pointer;text-decoration: none;color:#fff;}
+.logoin_first a{
+ display: inline-block;
+padding:0px 7px 0px 7px;
+height: 35px;
+line-height: 35px;
+background: #CBCECE;
+text-align: center;
+color: #000000 !important;
+margin-top: 3px;
+}
+.l_menu a:hover{
+    color:#000;
+    /*text-decoration: underline;*/
+}
+.logoin_first a:hover{
+    color:#FF3700 !important;
+     /*text-decoration: underline;*/
+
+}
+.login_one img{
+	cursor: pointer;
+	width:100%;
+}
+.middle{ display:table-cell; vertical-align:middle;position: static;}
+.text-content {
+    width: 351px;
+}
+h1.border1 {
+    border-bottom: 2px solid #44b549;
+}
+.text-content h1 {
+    color: #000;
+    display: inline-block;
+    font-family: "Microsoft YaHei";
+    font-size: 35px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+}
+h1.border2 {
+    border-bottom: 2px solid #ccc;
+}
+.text-content h1.border2 {
+    margin-left: -5px;
+    padding-left: 16px;
+    padding-right: 40px;
+}
+.text-content p {
+    font-size: 14px;
+    line-height: 33px;
+    color: #666;
+}
+.text-content p  a span{
+        font-size: 16px;
+    position: relative;
+    top: -12px;
+    left: 7px;
+    font-weight: bold;
+    text-decoration: none;
+    color:#029774;
+}
+.text-content p  a span:hover{
+color:#FF3700;
+}
+.outer{float:right;height:356px;display: table;}
+.middle{ display:table-cell; vertical-align:middle;position: static;}
+.login_con3_inner{width: 80%;
+margin: 23px auto;}
+.log_wrap{ position:fixed;top:0;left:0; width:100%; z-index:9999; background-color:#029774;}
+.login_one{
+	margin-top: 36px;
+width: 180px;
+}
+
+
+/*搜索*/
+.main_select{
+    width:100%;
+    /*height:300px;*/
+    /*border:1px solid black;*/
+    margin-top:60px;
+    margin-bottom: 50px;
+
+}
+.logo_index{
+    width:100%;
+    text-align: center;
+}
+.select_high{
+    width:100%;
+    /*height:60px;*/
+    text-align: center;
+    margin-top: 22px;
+}
+.s_ipt_zw{
+float: right;
+}
+.s_ipt_wr {
+    border: 2px solid #029774;
+    display: inline-block;
+    vertical-align: top;
+    width: 645px;
+
+    border-right-width: 0;
+    border-color: #029774 transparent #029774 #029774;
+    overflow: hidden;
+    height:34px;
+    float: left;
+}
+.s_ipt{
+        height: 22px;
+    font: 16px/18px arial;
+ width: 539px;
+    margin: 6px 0 0 7px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    border: none;
+    /*cursor: pointer;*/
+    z-index: 20000;
+}
+.bg_wr{
+  width: 100px;
+    height: 38px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: #029774;
+    border-bottom: 1px solid #029774;
+    outline: medium;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+        position: relative;
+    left: -3px;
+    cursor: pointer;
+
+}
+
+#cainiao_welcome_two a:hover {
+    color: #FF3700;
+}
+.bg_wr:hover{
+  background: #036F55;
+}
+

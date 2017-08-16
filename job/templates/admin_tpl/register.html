@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="renderer" content="webkit">
+    <title>招聘头条 - 注册</title>
+<link rel="icon" href="/static/images/logo_tiny.png" type="image/x-icon">
+    <link href="static/css/register.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+     <link href="static/css/index.css?v=2015121019" rel="stylesheet" type="text/css">
+	<link href="static/css/jquery.fullPage.css?v=2015121019" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="static/js/jquery-1.91.js"></script>
+	<script src="static/js/layer/layer.js"></script>
+	<script type="text/javascript" src="static/js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="static/js/login.js?v=2015121019"></script>
+	<link rel="stylesheet" href="static/css/max.css" media="all and (max-width:581px)">
+<!--    <meta name="Description" content="招聘头条，国内顶级的大数据招聘管家，中国企业招聘指数（CHI）与中国企业薪酬指数(CSI)发布平台，由中国人力资源管理业界先驱与代表性人物彭剑锋教授担任领衔专家，为企业提供一站式招聘服务和人岗智能匹配服务，是目前国内最具公信力的人力资源大数据服务商。"/> 
+<meta name="keywords" content="招聘头条,中国企业招聘指数,CHI,中国企业薪酬指数,CSI" /> -->
+<script>
+window.onload = function()
+{
+    document.getElementById("email_add").focus();
+}
+$(function(){
+
+	$('#dowebok').fullpage({
+		// sectionsColor: ['#3b5b98', '#fff', '#eaeaea', '#f90'],
+		'navigation': true,
+	});
+});
+$(document).ready(function() {  
+	
+	var v=($(window).height()-40)/2-285;
+
+
+   // alert((($(window).height()-40)*50%));
+	$(".login_div").css("margin-top",v+"px");
+	$(".img_div").css("margin-top",v+"px");
+
+	}); 
+</script>
+<script>
+
+$(document).keyup(function(event){
+	if(event.keyCode ==13){
+		$('.go_register').trigger("click");
+	}
+});
+</script>
+</head>
+
+<body style=" height: 100%;" class="fp-viewing-0">
+
+
+
+
+	<div class="logo">
+        <!-- <div class="logo clearfix"> -->
+            <div class="header" style="margin-bottom:0;">
+            <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+             <div class="no_login">
+              <ul>
+              <li class="logoin_first"><a href="login.htm" target="_blank" style="color: #fff;font-size:15px">登陆</a>
+              </li>
+               <li class="logoin_first"><a href="register.htm" target="_blank" style="color: #fff;font-size:15px">注册</a>
+              </li>
+              </ul>
+           
+            </div>   
+         
+            </div>
+		<!-- </div> -->
+	</div>
+	<div id="dowebok" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 400ms ease;">
+		    <div class="section section-1 fp-section fp-table active" id="fg-color" style="background-color:#037458"><div class="fp-tableCell" style="height: 677px;">
+				<div class="login_con"  >
+
+					<div class="login_inner" >
+						<!-- 登录的部分 -->
+					<div class="login_div" style="height:410px;">
+			<!-- <div id="ind_login"><span>登录邮箱地址</span><span >企业注册</span></div> -->
+			<div class="register_mag" style="text-align:center;width:100%">
+			<p class="two_login" id="personal">个人</p>
+							<p class="two_login click_dz" id="enterprise">企业</p>
+			</div>
+		<div>
+			
+			<!-- <span style="float:right;font-size:14px;color:#037458;font-weight:bold">企业注册</span> -->
+			<span style="font-size:14px;display: inline-block;float:left;">手机号码</span>
+			<p><input type="text" placeholder="请输入大陆手机号码" id="email_add">
+			
+
+			</p>
+			</div>
+           
+			<div>
+				<span style="font-size:14px;display: inline-block;">设置密码</span>
+				<input type="password" placeholder="请输入注册密码（至少6位数字或字母）"  id="psd" >
+				<!-- <button class="get_num" id="get_num">获取验证码</button> -->
+			</div>
+			<div>
+				<span style="font-size:14px;display: inline-block;">确认密码</span>
+				<input type="password" placeholder="请再次输入密码" id="psd_conf">
+			</div>
+			<div>
+			<span style="font-size:14px;display: inline-block;">短信验证</span>
+			<!-- <p> -->
+			<input type="text" placeholder="请填写短信验证码" id="verify_code" >
+			<button class="get_yz" id="get_code">获取短信验证码</button>
+			<!-- </p> -->
+			</div>
+
+			<!-- <div style="height: 69px;"> -->
+		
+				<!-- <span style="font-size:14px;display: inline-block;">邀请码</span> -->
+					<!-- (<span style="color:red;">仅限招聘头条邀请用户</span>)</span> -->
+				<!-- <input type="text" autocomplete="off" placeholder="您的邀请码"  id="num_input2" name="captcha" />
+				<p style="height:30px;line-height:30px;width: 81%;margin-left: auto;"><span style="color:red;clear:both;font-size:14px">仅限招聘头条邀请用户</span></p> -->
+				<!--
+				<span style="font-size:14px;display: inline-block;">请输入验证码</span>
+				<input type="text" autocomplete="off" placeholder="请输入验证码"  id="num_input" name="captcha"  style="margin-top:10px" />
+				<p id="bt-img">
+						<img  title="看不清，点击换一张" src="captcha.htm" >
+						<span >换一换</span>
+				</p>
+				-->
+				
+			<!-- </div> -->
+
+			<div style="height: 39px;text-align: center;">
+				<label>
+					<input type="checkbox" checked="checked" style="vertical-align:middle;" id="xieyi">
+					<span style="font-size:14px;display: inline-block;">同意并接受《<a href="service.htm" target="_blank"> 招聘头条网站服务协议</a>》</span>
+				</label>
+			</div>
+			<button id="go_job" class="go_register" style="margin-top:10px">申请愉快的智能招聘之旅!</button>
+		</div>
+		<!-- 广告图片 -->
+		<div class="img_div">
+			<img src="static/images/hrlogin1_03.png">
+		</div>
+		</div>
+	</div>
+	</div></div>
+			
+	<!-- 		<div class="section section-3 fp-section fp-table" style="height: 677px;"><div class="fp-tableCell" style="height: 677px;">
+
+				  <div class="login_con3_inner clearfix">
+						<div class="login_con3">
+						 <img src="static/images/bg.png" style="width: 557px;margin:-73px -94px">
+						</div>
+						<div class="outer">
+							  <div class="middle">
+									<div class="inner text-content pull-right">
+										<h1 class="border1">顶级的简历共享平台</h1>
+										<p>在这里……您可以一键分享闲置简历……</p>
+										<p>在这里……您可以免费实现简历精准搜索、智能匹配……</p>
+										<p>在这里……HR的招聘效率得到了指数级的提升……</p>
+										<h1 class="border1" style="font-size:23px;margin-top:20px">免费、海量、优质的简历库</h1>
+										<p>2000余个招聘网站，拓展简历渠道……</p>
+										<p>海量候选人简历，实现智能推送和高效匹配……</p>
+									</div>
+							  </div>
+						</div>
+				  </div>
+			
+			</div></div> -->
+			<!-- <div class="section section-2 fp-section fp-table" style="height: 677px; background-color: rgb(255, 255, 255);"><div class="fp-tableCell" style="height: 677px;">
+				<div class="login_con2">
+					<img src="static/images/hrlogin2_03.png">
+				</div>
+			</div></div> -->
+	</div>
+
+<div id="fp-nav" class="right" style="color: rgb(0, 0, 0); margin-top: -33.5px;overflow:hidden;height:48px;display:none"><ul><li><a href="http://probie.cn/hr/login.html" class="active"><span></span></a></li><li><a href="http://probie.cn/hr/login.html" class=""><span></span></a></li><li><a href="http://probie.cn/hr/login.html"><span></span></a></li></ul></div>
+<script type="text/javascript">
+	$(function(){
+	$("#bt-img").click(function(){
+		$(this).find('img').attr("src",'captcha.htm?' + Math.random());
+	})
+	
+})
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257074139'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257074139%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</body></html>

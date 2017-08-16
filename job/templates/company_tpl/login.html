@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh" style="overflow: hidden; height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="renderer" content="webkit">
+    <title>招聘头条 - 登录</title>
+<link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    <link href="/static/css/hr_login.css?v=2015121019" rel="stylesheet" type="text/css">
+     <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+     <link href="/static/css/index.css?v=2015121019" rel="stylesheet" type="text/css">
+	<link href="/static/css/jquery.fullPage.css?v=2015121019" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/static/css/max.css" media="all and (max-width:400px)">
+	<script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+	<script src="/static/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/static/js/company_login.js?v=2016021511"></script>
+	
+	<script type="text/javascript" src="/static/js/jquery.fullPage.min.js?v=2015121019"></script>
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+<script>
+
+window.onload = function()
+{
+    document.getElementById("email_add").focus();
+}
+$(function(){
+	$('#dowebok').fullpage({
+		// sectionsColor: ['#3b5b98', '#fff', '#eaeaea', '#f90'],
+		'navigation': true,
+	});
+
+});
+
+var r_go = '[!r]';
+</script>
+
+<script>
+// window.onload=function(){
+	
+// 	document.getElementById("fg-color").style.cssText="background-color:#037458";
+// }
+
+$(document).keydown(function(event){
+	if(event.keyCode != 13 ) return;
+	
+	event.returnValue=false;
+	if(document.activeElement) 
+	{
+		var id1 = document.activeElement.id;
+		if('|email_add|psd|num_input|'.indexOf('|' + id1 + '|') == -1)	return;
+	}
+	
+	$('.go_job').trigger("click");
+	
+	event.returnValue=false;
+
+});
+$(document).ready(function() {  
+	var v=($(window).height()-40)/2-280;
+// var v=($(window).height()-40)*50%+235;
+$(".img_div").css("margin-top",v+"px");
+$(".login_con3_inner").css("margin-top",v+60+"px");
+	// var s=($(window).height()-30)*50%+235;
+	var s=($(window).height()-30)/2-285;
+	 $(".login_div").css("margin-top",s+"px");
+	}); 
+</script>
+</head>
+
+<body style=" height: 100%; font-size: 82.06%;" class="fp-viewing-0">
+
+<!-- 弹出层（代替alert） -->
+
+ <div class="window" style="top:10%">
+<p class="info">提示</p>
+<p class="erro">请输入正确的xxxxxx</p>
+<input type="button" value="确定">
+</div>
+
+<!-- 弹出层结束 -->
+
+	<div class="logo">
+        <!-- <div class="logo clearfix"> -->
+            <div class="header" style="margin-bottom:0;">
+            <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+             <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+              <!-- <li class="l_menu"><a href="subscribe.htm" target="_blank">一站订阅</a>
+              </li>
+              <li class="l_menu"><a href="deliver.htm" target="_blank">一站投递</a>
+              </li> -->
+              <li class="logoin_first"><a href="/login" target="_blank" style="width:85px;">求职者登录</a>
+              </li>
+                <li class="logoin_first"><a href="/register" target="_blank" >求职者注册</a>
+              </li>
+              </ul>
+           
+            </div>    
+         
+            </div>
+		<!-- </div> -->
+	</div>
+	<div id="dowebok" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 400ms ease;">
+
+		    <div id="fg-color" class="section section-1 fp-section fp-table active" style="background-color:#037458">
+		    <div class="fp-tableCell" style="height: 677px;">
+				<div class="login_con">
+
+					<div class="login_inner">
+						<!-- 登录的部分 -->
+
+						<div class="login_div">
+							<div id="ind_login" style="text-align:center">
+
+							<!-- <p class="two_login [GEREN]" id="personal" rel=2>求职者登录</p> -->
+							<p class="two_login" id="enterprise" rel=1>企业登录</p>
+
+							</div>
+					<form onsubmit="return false;">
+							<div>
+								<input type="text" placeholder="请输入邮箱"   id="email_add" name="phone">
+							</div>
+					
+							<div>
+								<input type="password" placeholder="请输入登录密码" id="psd" name="passwd">
+							</div>
+							<div >
+									<p>
+								<input type="text" autocomplete="off" placeholder="请输入验证码"  id="num_input" name="captcha" />
+								</p>
+							<p id="bt-img">
+								<img  title="看不清，点击换一张" src="/company/checkcode?rcode={{ rcode  }}" >
+								<span >换一换</span>
+							</p>
+							</div>
+					</form>
+		
+							<div style="margin-top:-20px;">
+								<label style="padding-left:5px;">
+									<input type="checkbox" style="vertical-align:middle;" name="savestate" id="savestate" checked >
+									<span style="font-size:14px;display:inline-block;margin-top:4px;">自动登录</span>
+									<!-- <span style="float:right;padding-right:8px;font-size:16px;padding-top:3px;"><a href="fget_password.htm">忘记密码</a></span>
+									<span style="float:right;padding-right:18px;font-size:16px;padding-top:3px;"><a href="register.htm">立即注册</a></span> -->
+								</label>
+							</div>
+							<button id="go_job" class="go_job">开启愉快的智能之旅!</button>
+						</div>
+						
+						<!-- 广告图片 -->
+						<div class="img_div">
+							<img src="/static/images/hrlogin1_03.png" width="100%">
+						</div>
+					</div>
+					
+				</div>
+			</div></div>
+			
+		<!-- 	<div class="section section-3 fp-section fp-table" style="height: 677px;">
+			<div class="fp-tableCell" style="height: 677px;">
+
+				  <div class="login_con3_inner clearfix">
+						<div class="login_con3">
+						 <img src="/static/images/bg.png" style="width: 557px;margin:-73px -94px"> 
+						</div>
+						<div class="outer">
+							  <div class="middle">
+									<div class="inner text-content pull-right">
+										<h1 class="border1">顶级的简历共享平台</h1>
+										<p>在这里……您可以一键分享闲置简历……</p>
+										<p>在这里……您可以免费实现简历精准搜索、智能匹配……</p>
+										<p>在这里……HR的招聘效率得到了指数级的提升……</p>
+										<h1 class="border1" style="font-size:23px;margin-top:20px">免费、海量、优质的简历库</h1>
+										<p>2000余个招聘网站，拓展简历渠道……</p>
+										<p>海量候选人简历，实现智能推送和高效匹配……</p>
+									</div>
+							  </div>
+						</div>
+				  </div>
+			
+			</div>
+			</div> -->
+			<!-- <div class="section section-2 fp-section fp-table" style="height: 677px; background-color: rgb(255, 255, 255);"><div class="fp-tableCell" style="height: 677px;">
+				<div class="login_con2">
+					<img src="/static/images/hrlogin2_03.png">
+				</div>
+			</div></div> -->
+	</div>
+
+<div id="fp-nav" class="right" style="color: rgb(0, 0, 0); margin-top: -33.5px;overflow:hidden;height:48px;display:none"><ul><li><a href="http://probie.cn/hr/login.html" class="active"><span></span></a></li><li><a href="http://probie.cn/hr/login.html" class=""><span></span></a></li><li><a href="http://probie.cn/hr/login.html"><span></span></a></li></ul></div>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257074139'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257074139%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	$("#bt-img").click(function(){
+		$(this).find('img').attr("src",'/company/checkcode?r=' + Math.random());
+	})
+	
+})
+</script>

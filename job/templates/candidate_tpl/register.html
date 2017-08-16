@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="renderer" content="webkit">
+    <title>招聘头条 - 注册</title>
+<link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    <link href="/static/css/register.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+     <link href="/static/css/index.css?v=2015121019" rel="stylesheet" type="text/css">
+	<link href="/static/css/jquery.fullPage.css?v=2015121019" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+	<script src="/static/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="/static/js/login.js?v=2015121019"></script>
+	<link rel="stylesheet" href="/static/css/max.css" media="all and (max-width:581px)">
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+<script>
+window.onload = function()
+{
+    document.getElementById("email_add").focus();
+}
+$(function(){
+
+	$('#dowebok').fullpage({
+		// sectionsColor: ['#3b5b98', '#fff', '#eaeaea', '#f90'],
+		'navigation': true,
+	});
+});
+$(document).ready(function() {  
+	
+	var v=($(window).height()-40)/2-285;
+
+
+   // alert((($(window).height()-40)*50%));
+	$(".login_div").css("margin-top",v+"px");
+	$(".img_div").css("margin-top",v+"px");
+
+	}); 
+</script>
+<script>
+
+$(document).keyup(function(event){
+	if(event.keyCode ==13){
+		$('.go_register').trigger("click");
+	}
+});
+</script>
+</head>
+
+<body style=" height: 100%;" class="fp-viewing-0">
+
+
+
+
+	<div class="logo">
+        <!-- <div class="logo clearfix"> -->
+            <div class="header" style="margin-bottom:0;">
+            <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+             <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+             <li class="l_menu"><a href="/subscribe" target="_blank">一站订阅</a>
+              </li> 
+              <li class="l_menu"><a href="/post_job_list" target="_blank">一站投递</a>
+              </li>  
+              <li class="logoin_first"><a href="/login" target="_blank" >登录</a>
+              </li>
+               <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+              </li>
+              </ul>
+           
+            </div>    
+         
+            </div>
+		<!-- </div> -->
+	</div>
+	<div id="dowebok" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 400ms ease;">
+		    <div class="section section-1 fp-section fp-table active" id="fg-color" style="background-color:#037458"><div class="fp-tableCell" style="height: 677px;">
+				<div class="login_con"  >
+
+					<div class="login_inner" >
+						<!-- 登录的部分 -->
+					<div class="login_div" style="height:410px;">
+			<!-- <div id="ind_login"><span>登录邮箱地址</span><span >企业注册</span></div> -->
+			<div class="register_mag" style="text-align:center;width:100%">
+			<p class="two_login"  style="width:100%">求职者注册</p>
+							<!-- <p class="two_login click_dz" id="enterprise">企业注册</p> -->
+			</div>
+		<div>
+			
+			<!-- <span style="float:right;font-size:14px;color:#037458;font-weight:bold">企业注册</span> -->
+			<span style="font-size:14px;display: inline-block;float:left;">手机号码</span>
+			<p><input type="text" placeholder="请输入大陆手机号码" id="email_add">
+			
+
+			</p>
+			</div>
+           
+			<div>
+				<span style="font-size:14px;display: inline-block;">设置密码</span>
+				<input type="password" placeholder="请输入注册密码（至少6位数字或字母）"  id="psd" >
+				<!-- <button class="get_num" id="get_num">获取验证码</button> -->
+			</div>
+			<div>
+				<span style="font-size:14px;display: inline-block;">确认密码</span>
+				<input type="password" placeholder="请再次输入密码" id="psd_conf">
+			</div>
+			<div>
+			<span style="font-size:14px;display: inline-block;">短信验证</span>
+			<!-- <p> -->
+			<input type="text" placeholder="请填写短信验证码" id="verify_code" >
+			<button class="get_yz" id="get_code">获取短信验证码</button>
+			<!-- </p> -->
+			</div>
+
+
+			<div style="height: 39px;text-align: center;">
+				<label>
+					<input type="checkbox" checked="checked" style="vertical-align:middle;" id="xieyi">
+					<span style="font-size:14px;display: inline-block;">同意并接受《<a href="/service" target="_blank"> 招聘头条网站服务协议</a>》</span>
+				</label>
+			</div>
+			<button id="go_job" class="go_register" style="margin-top:10px">申请愉快的智能之旅!</button>
+		</div>
+		<!-- 广告图片 -->
+		<div class="img_div">
+			<img src="/static/images/hrlogin1_03.png">
+		</div>
+		</div>
+	</div>
+	</div></div>
+			
+
+	</div>
+
+<div id="fp-nav" class="right" style="color: rgb(0, 0, 0); margin-top: -33.5px;overflow:hidden;height:48px;display:none"><ul><li><a href="http://probie.cn/hr/login.html" class="active"><span></span></a></li><li><a href="http://probie.cn/hr/login.html" class=""><span></span></a></li><li><a href="http://probie.cn/hr/login.html"><span></span></a></li></ul></div>
+<script type="text/javascript">
+	$(function(){
+	$("#bt-img").click(function(){
+		$(this).find('img').attr("src",'/checkcode?r=' + Math.random());
+	})
+	
+})
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</body></html>

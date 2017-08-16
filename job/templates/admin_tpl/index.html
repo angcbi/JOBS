@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>招聘头条 -发现好工作</title>
+<link rel="icon" href="/static/images/logo_tiny.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/index.css?v=2015121019">
+  <link rel="stylesheet" href="/static/css/header.css?v=2015121019"/>
+  <link rel="stylesheet" href="/static/css/hrindex_h.css?v=2015121019"/>
+<link rel="stylesheet" type="text/css" href="/static/css/hrindex.css"/>
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+   <!--  <script type="text/javascript" src="http://www.cnsalary.com/cache/probie_job.js?_v=1448261439"></script> -->
+   <script src="/static/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>     
+ <script type="text/javascript" src="/static/js/index.js?v=2015121019"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/joblist.css?v=2016011117">
+
+
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+
+<script> var phone = ''; </script>
+<script>
+window.onload = function()
+{
+   document.getElementById("search_resume").focus();
+}
+
+$(document).keyup(function(event){
+    if(event.keyCode ==13){
+        $('.bg_wr').trigger("click");
+    }
+});
+
+</script>
+</head>
+<body>
+  
+    <div class="black_overlay" style="width:100%; position:fixed;"></div>
+  
+ <div class="logo" >
+    <div class="header">
+       
+            <p><a href="/"><img src="/static/images/logo_5.png" style=" width: 150px;" ></a>
+            <!-- <span class="header-sm">聪明你的求职</span> -->
+              </p>
+            
+            <!-- UseTemplete@99999 size=1 param=-->
+      <div class="detail_con" style="display: none;">
+          <span id="cainiao_welcome_two"><a href="[MURL]" title="进入主页" alt="进入主页">{{ phonenum  }}</a><span><a href="/logout" title="退出" alt="退出">，退出</a></span></span>
+      
+      </div>
+      
+      <script> phone = '{{ phonenum }}'; </script>
+      
+      <!-- Wrap@99999 -->
+      <!-- Fill@99999 -->
+      <!-- Null@99999 -->
+      <!-- UseTemplete@99999; -->
+      <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+             <!--  <li class="l_menu"><a href="subscribe.htm" target="_blank">一站订阅</a>
+              </li> -->
+              <!-- <li class="l_menu"><a href="deliver.htm" target="_blank">一站投递</a>
+              </li> -->
+              <li class="logoin_first"><a href="/login" target="_blank" >登录</a>
+              </li>
+               <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+              </li>
+              </ul>
+           
+            </div>           
+      </div>
+        </div>
+<!-- <img src="/static/images/weixin_logo.jpg" style="width: 120px; position: fixed;right: 0px;top: 50%;margin-top: -60px;"> -->
+   <div class="main_select">
+        <div class="logo_index">
+        <a href="/" ><img src="/static/images/logo_4.png" style=" width: 270px;border:none" ></a>
+        <span class="header-sm" style="top: -15px;font-size: 18px;">大数据薪酬报告</span>
+        </div>
+        <div class="select_high">
+        <div class=".s_ipt_zw">
+        <span class="s_ipt_wr"><input type="text" class="s_ipt"  id="search_resume" placeholder="仅限输入职位名称"></span>
+        <button class="bg_wr">一站比薪</button>
+        </div>
+        </div>
+
+  </div>
+ 
+  <div class="cb_more" style="top: 10%;left: 50%;margin-left:-550px">
+  <div class="cb_choose">
+  <div class="note">请输入您想从事的职位</div>
+    <table style="width:1062px;border: 1px solid #ccc" border="1" id="zhiwei_str">
+
+<!-- 数据块 -->
+
+<!-- 数据块 -->
+    <tr class="whole">
+
+    <th style="width:222px;border: 1px solid #ccc;font-size: 14px;">互联网/游戏/软件
+    </th>
+
+    <td style="border: 1px solid #ccc">
+
+    <table style="width:100%;margin-bottom:5px">
+    <tr>
+
+    <td class="list">
+    <span>互联网/移动互联网/电子商务</span>
+    </td>
+    <td class="list"><span>计算机软件</span></td>
+    <td class="list"><span>计算机软件</span></td>
+    </tr>
+    <tr>
+    <td class="list"><span>计算机软件</span></td>
+    <td class="list"><span>互联网/移动互联网/电子商务</span></td>
+    <td class="list"><span>计算机软件</span></td>
+    </tr>
+
+    </table>
+    </td>
+    </tr>
+
+<!-- 数据块 -->
+    </table>
+    </div>
+        <div style="position: absolute;bottom:0px;width:100%;height:45px">
+        <!-- <input type="button" value="提交" class="btn1"> -->
+        <input type="button" value="取消" class="btn2"></div>
+  </div>
+
+  <div class="main" style="margin-top: -20px;margin-bottom: 0px;">
+  <!-- <div class="section section-3 fp-section fp-table" style="height: 677px;"> -->
+      <!-- <div class="fp-tableCell" style="height: 677px;"> -->
+
+          <div class="login_con3_inner clearfix">
+            <div class="login_con3">
+             <img src="/static/images/bg.png" style="width: 423px;margin: 7px 12px;"> 
+          
+            <div class="outer">
+                <div class="middle">
+                  <div class="inner text-content pull-right">
+                                     <!-- <h1 class="border1" style="font-size:30px">第一时间发现所有好工作</h1> -->
+                                     <h1 class="border1" style="font-size:30px">企业大数据薪酬报告</h1>
+               <!--     <p>2000余个招聘网站，拓展简历渠道……</p>
+                    <p>海量候选人简历，实现智能推送和高效匹配……</p> -->
+               <p style="font-size:20px">已收录<span style="position: relative;top: 1px;color: #E5000D; font-size: 28px;padding-left: 5px;padding-right: 5px;font-weight: bold;">{{ resume_num  }}</span>个招聘职位</p>
+
+                    <h1 class="border1" style="font-size:23px; ;margin-top:50px;width: 330px;">网站四大功能</h1>
+                    <p style="float: left;margin-right: 70px;"><a href="/joblist" target="_blank"><img src="/static/images/manage8_zwss.png" style="width:40px" ><span>一站式搜索</span></a></p>
+                    <p style="float: left"><a href="index.htm" target="_blank" class="c_bixin"><img src="/static/images/manage8_qwbx.png" style="width:40px"><span>一站式比薪</span></a></p>
+                    <p style="float: left;margin-right: 70px;"><a href="subscribe.htm" target="_blank"><img src="/static/images/manage8_zwdy.png" style="width:40px"><span>一站式订阅</span></a></p>
+                    <p style="float: left;"><a href="deliver.htm" target="_blank"><img src="/static/images/manage8_tdg.png" style="width:40px"><span>一站式投递</span></a></p>
+                  </div>
+                  <!--  <p class="login_one"><a href="login.htm" target="_blank" alt="大数据招聘管家入口" title="大数据招聘管家入口"><img src="/static/images/anniu_1.png" ></a></p> -->
+                </div>
+            </div>
+              </div>
+          </div>
+       <!--    <div class="footer_copy">
+            <div>
+                <span class="a_span">
+                <a href="http://probie.cn/Index/aboutus.html" target="_blank">关于我们</a>
+                <a href="http://probie.cn/Index/contactus.html" target="_blank">联系我们</a>
+                <a href="http://probie.cn/Index/duty.html" target="_blank">权利声明</a>
+                <a href="http://probie.cn/Index/no_duty.html" target="_blank">免责声明</a>
+                </span>
+                <span class="copy_span">专利保护-侵权必究　Copyright@probie.cn　ICP备15000692号</span>
+            </div>
+          </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
+  </div>
+  <script type="text/javascript">
+        
+     if(phone !="")
+        {
+            $(".c_bixin").attr('href','/');
+            $(".detail_con").show();
+
+
+            $(".logoin_first").hide();
+  $(".no_login ul").css("right","185px");
+
+        }
+        else
+        {
+            $(".detail_con").hide();
+
+
+            $(".logoin_first").show();
+ $(".no_login ul").css("right","20px");
+
+
+        }
+
+
+ // 点击空白，不显示下拉框
+    $("#search_resume").click(function(e){
+        e.stopPropagation();
+        // alert("ff");
+    });
+  $(document).click(function(){
+    // alert($(".cb_list").css('display'))
+        if($(".black_overlay").css('display')=='block'&&$(".cb_more").css('display')=='block'){
+          // alert("p");
+            $(".black_overlay").hide();
+             $(".cb_more").hide();
+        }               
+    });
+    </script>
+  {% include "/footer.html" %}
+</body>
+</html>
+

@@ -12,21 +12,19 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 class Config(object):
     SECRET_KEY = os.getenv('SECRET_KEY') or 'JLI1N-!NL8V-(M0VB-$*Vs8'
     SQLALCHEM_COMMIT_ON_TEARDOWN = True
-    SQLALCHEM_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SUBJECT_PREFIX = '[焦博思]'
     MAIL_SENDER = '焦博思管理员<vip_susan@sina.cn>'
     JOBS_ADMIN = '1371998102@qq.com'
-    LOG_FORMAT = logging.Formatter("""
-            Message type:      %(levelname)s
-            Location:          %(pathname)s:%(lineno)s
-            Module:            %(module)s
-            Function:          %(funcName)s
-            Time:              %(asctime)s
-            Message:           %(message)s""")
+    LOG_FORMAT = logging.Formatter('%(asctime)s %(filename)s[line:%(lineno)d] - %(levelname)s %(message)s')
 
-    @staticmethod
+    CACHE_TYPE = 'redis'
+    CACHE_DEFAULT_TIMEOUT = 60
+    CACHE_REDIS_URL = 'redis://:@localhost:6379/1'
+
+    @classmethod
     def init_app(cls, app):
-       file_handler = logging.handlers.RotatingFileHandler(
+       file_handler = logging.handlers.TimedRotatingFileHandler(
            filename=os.path.join(BASE_DIR, 'logs', 'jobs.log'),
            when='D',
            interval=2,
@@ -47,9 +45,6 @@ class Development(Config):
     SQLALCHEMY_DATABASE_URI = os.getenv('DEV_DATABASE_URI') or \
         'mysql://jobs:JOBS@)!&@localhost:3306/r'
 
-    @classmethod
-    def init_app(cls, app):
-        Config.init_app(app)
 
 
 class TestingConfig(Config):
@@ -61,10 +56,19 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI') or \
         'sqlite:////' + os.path.join(BASE_DIR, 'data.sqlite')
+    LOG_FORMAT = logging.Formatter("""
+            Message type:      %(levelname)s
+            Location:          %(pathname)s:%(lineno)s
+            Module:            %(module)s
+            Function:          %(funcName)s
+            Time:              %(asctime)s
+            Message:           %(message)s""")
 
     @classmethod
     def init_app(cls, app):
-        Config.init_app(app)
+        # 推荐采用super方式调用父类的类方法
+        # Config.init_app(app)
+        super(ProductionConfig, cls).init_app(app)
 
         credentials, secure = None, None
 
@@ -82,6 +86,7 @@ class ProductionConfig(Config):
                 secure=secure
             )
 
+            mail_handler.setFormat(cls.LOG_FORMAT)
             mail_handler.setLevel(logging.ERROR)
             app.logger.addHandler(mail_handler)
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 账号管理列表，中国企业招聘指数（CHI），中国企业薪酬指数（CSI）</title>
+<link rel="icon" href="http://www.probie.cn/images/logo_tiny.png" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/css/myjoblist.css?v=2015121019">
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css?v=20151221">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/admin_manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/admin.js?v=20151221"></script>
+    <script type="text/javascript" src="/static/js/split_page.js?v=1"></script>
+    <script type="text/javascript" src="/static/js/admin_radd.js?v=20160312"></script>
+   <meta name="Description" content="招聘头条，国内顶级的大数据招聘管家，中国企业招聘指数（CHI）与中国企业招聘指数(CSI)发布平台，由中国人力资源管理业界先驱与代表性人物彭剑锋教授担任领衔专家，为企业提供一站式招聘服务和人岗智能匹配服务，是目前国内最具公信力的人力资源大数据服务商。"/> 
+<meta name="keywords" content="招聘头条,中国企业招聘指数,CHI,中国企业招聘指数,CSI" />
+</head>
+
+<body>
+<div class="body_con">
+{% include "admin_tpl/common.html" %}
+
+<div class="detail_con">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ admin_email }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/admin/logout">退出</a>
+</li>
+</ul>
+	<div class="detail_middle">
+	<div class="note_font2" style="margin-left:-3px;width:1157px;margin-top:31px"><span >NOTE:</span><p>简历列表</p> </div>
+    	<!-- <div class="table_list"> -->
+    	 
+
+          	<ul class="con_dtl" style="width:1000px;">
+               	<li class="title" >
+                    <ul class="clearfix dtl_tit" style="background-color:#037158;color:#fff">
+                       <li style="width:240px">姓名</li>
+                        <li style="width:100px">手机号码</li>
+                       <li style="width:200px">学历</li>
+                        <li style="width:130px">经验</li>
+                        <li style="width:150px">期望薪资</li>
+                        <li style="width:150px">操作</li>
+		            </ul>
+               	</li>
+              
+
+                {% if cv_info_list | length > 0 %}
+                {% for cv in cv_info_list %}
+                <li class="row_con_li" id="row_dropdown_{{ loop.index0 }}">
+                    
+                    <ul class="clearfix">
+                        <li style="width:240px; overflow:hidden"> {{ cv['name'] }}</li>
+                        <li style="width:100px; overflow:hidden"> {{ cv['phonenum'] }}</li>
+                        <li style="width:200px; overflow:hidden"> {{ cv['education'] }} </li>
+                        <li style="width:130px; overflow:hidden"> {{ cv['work_years'] }} </li>
+                        <li style="width:150px; overflow:hidden"> {{ cv['expect_salary'] }} </li>
+                        <li><a href="/admin/cv_detail?cv_id={{ cv['cv_id'] }}">查看详情</a></li>
+
+                      <!--   <li class="job_name" style="width:80px;overflow:hidden">
+                        <a style="cursor: pointer;" target="_self" href="upload2/[.resume_url]">下载</a>
+                        </li> -->
+  
+                      <!--   <li style="width: 100px;" rel="[.id]">
+                        <a target="_blank" class="direct_del" style="cursor: pointer;">删除</a>&nbsp;|&nbsp;
+                        <a target="_self" href="admin_radd.htm?id=[.id]" style="cursor: pointer;">编辑</a>
+                        </li> -->
+
+		            </ul>
+
+               	</li>
+
+                {% endfor %}
+                {% else %}
+                <li><p style="width: 100%;text-align: center;line-height: 30px;">暂无相关数据</p></li>
+                {% endif %}
+
+          	</ul>
+            
+            <!-- PageControl -->
+            <div id="page" class="admin_page_new">
+                 <span id="index_page"><a href="/admin/cv_list">首页</a></span>
+                <span id="prev_page" onclick="skip(0)"><!-- PageBefore -->上一页<!-- PageBefore; --></span>
+                <script type="text/javascript">
+                    var zong = '{{ page_number }}';
+                    var dangq = '{{ page  }}';
+                    var baseurl = '/admin/cv_list?';
+                    page_list_js(zong,dangq,baseurl);
+                </script>   
+                <span id="next_page" onclick="skip(1)"><!-- PageNext -->下一页<!-- PageNext; --></span>
+                <span id="last_page" onclick="skip(2)"><!-- LastPage -->尾页<!-- LastPage; --></span>
+
+            </div>
+            <!-- PageControl; -->
+	
+	</div>	
+</div>
+	
+</div>
+<!-- <script src="/static/js/action.js" cid="ZZ716326956C966A86A7E771FEA0F093" qid="0001" charset="utf-8" type="text/javascript" id="J_QDDScript_XYZ"></script> -->
+
+
+<script>
+function skip(type) {
+    var baseurl = '/admin/cv_list';
+    var page = {{ page  }};
+    var page_number =  {{ page_number }};
+
+    skip_page(baseurl, page, page_number, type);
+
+}
+</script>
+
+
+
+<script type="text/javascript">
+    if(dangq == zong){
+        $("#next_page").hide();
+    }
+     if(zong == 1){
+        $("#last_page").hide();
+    }
+    //var three_id = [.t];
+
+    // 点击空白，不显示下拉框
+    $(".dropdown .toggle").click(function(e){
+        e.stopPropagation();
+    });
+
+    $(document).click(function(){
+        if($(".dropdown-menu").hasClass("show")){
+            $(".dropdown-menu").removeClass("show");
+        }               
+    });
+
+    function choose_title_dropdown(tid){
+        $('li.'+tid).siblings().children().children('ul').removeClass('show');
+        $('.row_con_li .dropdown-menu').removeClass('show');
+        $("#nav_op_"+tid).toggleClass('show');
+    }
+  
+    function choose_con_dropdown(jobid){
+        $('#row_'+jobid).siblings().children('ul').children().children().children('ul').removeClass('show');
+        $('.title .dropdown-menu').removeClass('show');
+        $("#nav_"+jobid).toggleClass('show');
+    }   
+    var t = '[!t]';
+    var h = '[!h]';
+    var f = '[!f]';
+    if(f != '')
+    {
+        var b_v = $("#bstatus_"+f).html();
+        $("#bstatus").html(b_v);
+    }
+    if( t== ''){  $('#three_id').attr('rel','');  $('#three_id').html('发布渠道');} 
+    if( t != ''){ 
+        $('#three_id').attr('rel',t);  
+        var ly = $(".laiyuan_"+t).html();
+        $('#three_id').html(ly);
+    } 
+</script>
+</body>
+</html>
+

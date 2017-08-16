@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>招聘头条 -发现好工作</title>
+<link rel="icon" href="/static/images/logo_tiny.png?v=354585" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/index.css?v=2015121019">
+   <link rel="stylesheet" href="/static/css/index_new.css?v=2015121019">
+  <link rel="stylesheet" href="/static/css/header.css?v=2015121019"/>
+  <link rel="stylesheet" href="/static/css/hrindex_h.css?v=2015121019"/>
+<link rel="stylesheet" type="text/css" href="/static/css/hrindex.css"/>
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+   <!--  <script type="text/javascript" src="http://www.cnsalary.com/cache/probie_job.js?_v=1448261439"></script> -->
+   <script src="/static/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+<script type="text/javascript" src="/static/js/index_new.js?v=2015121019"></script>     
+ <script type="text/javascript" src="/static/js/index.js?v=2015121019"></script>
+  
+
+
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+
+<script> var phone = ''; </script>
+<script>
+window.onload = function()
+{
+   document.getElementById("search_resume").focus();
+}
+
+$(document).keyup(function(event){
+    if(event.keyCode ==13){
+        $('.bg_wr').trigger("click");
+    }
+});
+
+</script>
+</head>
+<body>
+  
+    <div class="black_overlay" style="width:100%; position:fixed;"></div>
+    <a id="gotop" title="返回顶部"></a>
+    <script>
+
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>300)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+
+
+
+
+    </script>
+
+
+
+    
+ <div class="logo" >
+    <div class="header">
+       
+            <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+            
+            <!-- UseTemplete@99999 size=1 param=-->
+      <div class="detail_con" style="display: none;">
+          <span id="cainiao_welcome_two"><a href="/user_cv" title="进入主页" alt="进入主页">{{ phonenum  }}</a><span><a href="/logout" title="退出" alt="退出">，退出</a></span></span>
+      
+      </div>
+      
+      <script> phone = '{{ phonenum }}'; </script>
+      
+      <!-- Wrap@99999 -->
+      <!-- Fill@99999 -->
+      <!-- Null@99999 -->
+      <!-- UseTemplete@99999; -->
+      <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+               <li class="l_menu"><a href="/subscribe" target="_blank">一站订阅</a>
+              </li> 
+              <li class="l_menu"><a href="/post_job_list" target="_blank">一站投递</a>
+              </li>  
+              <li class="logoin_first"><a href="/login" target="_blank">登录</a>
+              </li>
+               <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+              </li>
+              </ul>
+           
+            </div>           
+      </div>
+        </div>
+<!-- <img src="/static/images/weixin_logo.jpg" style="width: 120px; position: fixed;right: 0px;top: 50%;margin-top: -60px;"> -->
+   <div class="main_select">
+        <div class="logo_index">
+        <a href="/" ><img src="/static/images/logo_4.png" style=" width: 270px;border:none" ></a>
+        <span class="header-sm" style="top: -13px;font-size: 18px;">发现好工作</span>
+        </div>
+
+<div class="main_w">
+      <div class="zw_left">
+		<div class="sidebar">
+           <!-- //职位循环 -->
+           {% for job_name in job_name_list %}
+            <div class="menu_box">
+	            <div class="menu_main">
+				<!-- 一级分类 -->
+                {% for key,value in job_name.items() %}
+                <h2>{{ key  }}<span></span></h2>
+				   <!-- //一级分类结束 -->
+				   <!-- //该一级分类下随机职位 -->
+                   <!--
+                   {% for job in value %}
+                   {% if loop.index0 <= 5 %}
+                   <span><a href="/joblist?search={{ job }}">{{ job }}</a></span>
+                   {% endif %}
+                   {% endfor %}
+                    -->
+
+                     <!-- //该一级分类下随机职位结束 -->
+                {% endfor %}
+
+	            </div>
+
+	            <div class="menu_sub dn" >
+	            <dl>
+				<!-- //循环职位 -->
+                 {% for k, v in job_name.items() %} 
+                 {% for s in v %}
+                 {% for h,m in s.items() %}
+                 <dt><span><a href="/joblist?search={{ h }}">{{ h  }}</a></span></dt>
+	            <dd>
+                    {% for j in  m %}
+                    <span><a href="/joblist?search={{ j }}">{{ j  }}</a></span>
+                    {% endfor %}
+	            </dd>
+                {% endfor %}
+                {% endfor %}
+				<!-- //循环结束 -->
+
+                {% endfor %}
+
+	            </dl>
+	            </div>
+
+            </div>
+            {% endfor %}
+
+
+
+
+
+
+
+
+
+		</div>
+		</div>
+       <div class="select_right">
+        <div class="s_ipt_zw">
+        <span class="s_ipt_wr"><input type="text" class="s_ipt"  id="search_resume" placeholder="仅限输入职位名称"></span>
+        <button class="bg_wr">一站比薪</button>
+        </div>
+
+
+          <div class="bar">
+             <img src="/static/images/bg.png" style="width: 333px;margin: 16px 31px 0px 0px;"> 
+          
+            <div class="outer">
+                <div class="middle">
+                  <div class="inner text-content pull-right">
+
+                                     <h1 class="border1" style="font-size:24px">第一时间发现好工作</h1>
+
+                    <p style="font-size:18px">已收录<span style="position: relative;top: 1px;color: #E5000D; font-size: 26px;padding-left: 5px;padding-right: 5px;font-weight: bold;">{{ resume_num  }}</span>个招聘职位</p>
+
+                    <!-- <h1 class="border1" style="font-size:17px; ;margin-top:23px;width: 330px;">网站四大功能</h1>-->
+                    <p style="float: left;margin-right: 70px"><a href="/joblist" target="_blank"><img src="/static/images/manage8_zwss.png" style="width:35px;margin-top:40px" ><span>一站式搜索</span></a></p>
+                    <p style="float: left;margin-top:40px"><a href="/" target="_blank" class="c_bixin"><img src="/static/images/manage8_qwbx.png" style="width:35px"><span>一站式比薪</span></a></p>
+                    <p style="float: left;margin-right: 70px;"><a href="/subscribe" target="_blank"><img src="/static/images/manage8_zwdy.png" style="width:35px"><span>一站式订阅</span></a></p>
+                    <p style="float: left;"><a href="/post_job_list" target="_blank"><img src="/static/images/manage8_tdg.png" style="width:35px"><span>一站式投递</span></a></p>
+                  </div>
+
+                </div>
+            </div>
+           
+        </div>
+
+
+
+<div class="updata">
+<span>最新职位</span>
+</div>
+
+<!-- //循环20个职位列表 -->
+<div class="found_jobs">
+                <ul>
+                    {% if job_hot_list|length > 0 %}
+                    {% for job in job_hot_list %}
+
+                    <li>
+                    <div class="all_jobs left_jobinfo">
+                        <p class="p_first job_name" style="overflow: hidden;height: 25px;"><a href="/job_detail?job_id={{ job.id }}" title="{{ job.job_name }}">{{ job.job_name }}</a></p>
+                        <p class="p_two job_condition">
+
+
+                        <span class="c_trade">{{ job.salary_str  if job.salary_str != '' else '面议'}}</span>
+                        <span><script type="text/javascript">get_substr('{{ job.job_city }}')</script></span>
+                        <span>{{ job.work_years_str if job.work_years_str != '' else '面议'}}</span>
+                        <span>{{ job.education_str if job.education_str !='' else '不限'}}</span>  
+                        </p>
+                        <p class="job_pubtime" style="margin-bottom:0;">发布于：<script type="text/javascript">getLocalTime('{{ job.post_time }}')</script></p>
+                    </div>
+                    <div class="all_jobs right_gsinfo">
+                        <p class="p_first gs_name" style="overflow: hidden;height: 25px;"><a href="javascript:void(0);" title="{{ job.company_name }}">{{ job.company_name }}</a></p>
+                        <p class="p_two gs_condition">
+                         {% if job.trade != '' %}
+                        <span class="c_trade">{{ job.trade }}</span>
+                         {% endif %}
+                          {% if job.company_type != '' %}
+
+                        <span>{{ job.company_type }}</span>
+                         {% endif %}
+                          {% if job.scale_str != '' %}
+                        <span>{{ job.scale_str }}</span>
+                         {% endif %}
+                    
+                        </p>
+                        <p class="job_op" rel="{{ job.id }}" style="margin-bottom:6px;">
+                        <!--
+                        {% if job.post_status == 0 %}
+                        <a class="lock_applyjob" href="javascript:void(0);" title="立即申请" rel='1'>立即申请</a>
+                        {% else %}
+                        <a class="lock_applyjob apchange" href="javascript:void(0);" title="已申请" rel='1'>已申请</a>
+
+                        {% endif %}
+
+                        {% if job.collect_status == 0 %}
+
+                        <a class="lock_like" href="javascript:void(0);" title="感兴趣" rel="2">感兴趣</a>
+                        {% else %}
+                        <a class="lock_like apchange" href="javascript:void(0);" title="已收藏" rel="2" >已收藏 </a>
+                        {% endif %}
+                        -->
+
+
+                        <a class="lock_source" href="{{ job.post_url }}" title="查看来源" rel="0" target="_blank">查看来源</a>
+                        </p>
+                    </div>
+                    
+                    {% endfor %}
+                    {% else %}
+                    <li><p style="width: 100%;text-align: center;line-height: 88px;;font-size:16px;color:#029774">暂无相关数据</p>
+                    {% endif %}
+
+
+                </ul>
+
+               
+            </div>
+<!-- //循环结束 -->
+  <div class="list_more"><a href="/joblist">查看更多</a></div>
+
+</div>
+</div>
+  
+
+  <script type="text/javascript">
+        
+     if(phone !="")
+        {
+            $(".c_bixin").attr('href','/');
+            $(".detail_con").show();
+
+
+            $(".logoin_first").hide();
+  $(".no_login ul").css("right","185px");
+
+        }
+        else
+        {
+            $(".detail_con").hide();
+
+
+            $(".logoin_first").show();
+ $(".no_login ul").css("right","20px");
+
+
+        }
+
+
+ // 点击空白，不显示下拉框
+    $("#search_resume").click(function(e){
+        e.stopPropagation();
+        // alert("ff");
+    });
+  $(document).click(function(){
+    // alert($(".cb_list").css('display'))
+        if($(".black_overlay").css('display')=='block'&&$(".cb_more").css('display')=='block'){
+          // alert("p");
+            $(".black_overlay").hide();
+             $(".cb_more").hide();
+        }               
+    });
+    </script>
+  {% include "candidate_tpl/footer.html" %}
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
+

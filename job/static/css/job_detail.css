@@ -1,0 +1,240 @@
+.detail_con2{
+	  left: 161px;
+    height: auto;
+    float: left;
+    position: relative;
+    padding-top: 15px;
+    top: 60px;
+    width: 88%;
+	/*background-color:#eaedf1;*/
+}
+.detail_middle2{
+	margin-left:20px;
+	margin-top:20px;
+	background-color:#fff;
+	padding:15px 0;
+	height: auto;
+	
+}
+.detail_middle2 h1{
+	padding-left: 40px;
+	line-height: 30px;
+	height:30px;
+	background-image: url(../images/job_detail_01.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color:#fff;
+	font-size:14px;
+	background-color:#174577;
+	margin:-15px 0px 30px 0px;
+}
+.job{
+	/*width: 1000px;*/
+	margin-left: 30px;
+	/*position: relative;*/
+	font-family: 'microsoft yahei';
+}
+.job_name{
+	height: 33px;
+}
+.job_name h2{
+	float:left; 
+	font-size:24px; 
+	padding-right:20px;
+	color:#000;
+}
+.job_name p{
+	float:left;
+	color:#ff6600; 
+	font-size:20px; 
+	margin:0;
+}
+p.job-type{ 
+	font-size:12px;
+	width:40px;
+	line-height:21px; 
+	background-color:#ff9900;
+	margin-top:7px;
+	text-align:center;
+	color:#fff;
+}
+p.pay{
+	padding-left:344px;
+}
+.company{
+	font-size: 14px;
+	color: #3e3e3e;
+	background-image: url(../images/job_detail_06.png);
+	background-repeat: no-repeat;
+	background-position: 230px center;
+	padding:20px 0;
+}
+.publish-info{
+	height:30px;
+	line-height: 30px;
+
+}
+.publish-info li{ 
+	float:left; 
+	margin-right:45px; 
+	display:inline;
+	padding-left:30px;
+	font-size:12px;
+	color:#3e3e3e;
+}
+.publish-time{
+	background: url(../images/job_detail_07.png) no-repeat left center;
+}
+.flush{
+	background: url(../images/job_detail_07.png) no-repeat left center;
+}
+.scan-num{
+	background: url(../images/job_detail_09.png) no-repeat left center;
+}
+.apply-num{
+	background: url(../images/job_detail_08.png) no-repeat left center;
+}
+.job-dis ul{
+	float:left;
+	padding-right:135px;
+	color:#3e3e3e;
+}
+.job-dis ul li{
+	line-height:34px;
+}
+.job-dis{
+	color:#3e3e3e;
+	margin-left: 2px;
+}
+.job-dis h3{ 
+	font-size:16px;
+	border-left:5px solid #174577;
+	margin:30px 0 20px; 
+	padding-left:11px;
+}
+.base_info{
+	height:109px;
+}
+.job-dis ol li{
+	line-height:34px;
+}
+.job-ditail a{
+	display:inline-block;
+	color:#fff;
+	width:72px;
+	line-height:30px;
+	text-align:center;
+	margin:40px 0 45px;
+}
+a.edit{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	background-color: #029774;
+	border: none;
+	color: #fff;
+	margin-top: 50px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+a.submit{
+	background-color:#174577;
+	margin-left:27px;
+}
+.channel span{
+	display:inline-block; 
+	background-color:#029774;
+	color:#fff;padding:0 5px;
+	margin:0 7px 0 20px;
+}
+.web-link li a{ 
+	display:block;
+	color:#3e3e3e;
+}
+.web-link{ 
+	margin-top:37px;
+	padding-bottom: 30px;
+}
+.web-link li{ 
+	float:left; 
+	margin-right:28px; 
+	display:inline; 
+	padding-left:25px;
+}
+.qianchen a img{width:20px;height:20px;}
+.qianchen a span{left: 5px;position: relative;
+	top:-5px;}
+.job-info-con{ 
+	padding-left:16px;
+	font-size:14px;
+
+}
+#link_like{margin-left: 20px;cursor: pointer;}
+#link_like img{width: 25px;height:25px;}
+#link_unlike{margin-left: 20px;cursor: pointer;}
+#link_unlike img{width: 25px;height:25px;}
+#link_company{position: relative;left:20px;background-color:#029774;cursor: pointer;font-size:12px;width:70px;height:25px;line-height:25px;text-align:center;}
+#link_company a{color: #fff;}
+
+li.name a:visited, a:active{
+  color: #000;
+  font-weight: normal!important;
+}
+.add_posit{
+	font-size:14px;
+	height:40px!important;
+	width:122px!important;
+	line-height:40px;
+	text-align:center;
+	color:white;
+	background-color:#029774!important;
+	/*margin-left:30px;*/
+	/*margin-bottom: 20px;*/
+  /*margin-top: -13px;*/
+  /*position: absolute;*/
+  /*right: 0px;*/
+  /*top:0px;*/
+  float: right;
+}
+.add_posit a{
+	color:white;
+  font-size: 16px;
+}
+.goback {
+float: left;
+height: 31px;
+line-height: 31px;
+/*margin-right: 40px;*/
+cursor: pointer;
+width: 63px;
+background-color: #029774;
+text-align: center;
+border-radius: 5px;
+
+}
+.goback a {
+    color: #FFF;
+    font-size: 12px;
+}
+.goback:hover{
+	border-bottom: 3px solid #035A46;
+}
+.goback2 {
+/*float: left;*/
+margin-left: 32px;
+height: 31px;
+line-height: 31px;
+/*margin-right: 40px;*/
+cursor: pointer;
+width: 63px;
+background-color: #029774;
+text-align: center;
+border-radius: 5px;
+border-bottom: 3px solid #035A46;
+}
+.goback2 a {
+    color: #FFF;
+    font-size: 12px;
+}

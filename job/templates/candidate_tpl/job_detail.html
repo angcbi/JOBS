@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 职位详情</title>
+    <link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+     <link href="/static/css/index.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/zw_detail.css?v=2016012113" rel="stylesheet" type="text/css">
+      <link href="/static/css/index.css?v=2016012113" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/index.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/zw_detail.js?v=2"></script>
+    <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+</head>
+<body>
+<script>var  phone = ''; </script>
+<a id="gotop" title="返回顶部"></a>
+    <script>
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>500)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+    </script>
+<div class="body_con">
+<div class="logo_header" style="background-color:#029774;">
+
+    <div class="logo" >
+    <div class="header">
+       
+           <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+            
+            <!-- UseTemplete@99999 size=1 param=-->
+
+      <div   id="q_l" >
+
+          <span id="cainiao_welcome" style="top:10px"><a href="/user_cv" title="进入主页" alt="进入主页" style="color:#fff">{{ phonenum }}</a><span><a href="/logout" title="退出" alt="退出" style="color:#fff">，退出</a></span></span>
+      
+      </div>
+      
+      <script> phone = '{{ phonenum }}'; </script>
+      
+      <!-- Wrap@99999 -->
+      <!-- Fill@99999 -->
+      <!-- Null@99999 -->
+      <!-- UseTemplete@99999; -->
+         <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+            <li class="l_menu"><a href="/subscribe" target="_blank">一站订阅</a>
+              </li> 
+              <li class="l_menu"><a href="/post_job_list" target="_blank">一站投递</a>
+              </li>  
+              <li class="logoin_first"><a href="/login" target="_blank" >登录</a>
+              </li>
+               <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+              </li>
+              </ul>
+           
+            </div>          
+      </div>
+        </div>
+</div>
+
+<div class="detail_con2">
+
+<!--UseTemplete@30050 size=1 param=-->
+
+<div class="job_all">
+<div class="cam_name">
+    <h1>{{ job.job_name }}</h1>
+<span class="back" onclick="javascript:history.go(-1)">返回 &gt;&gt;</span>
+<h2>{{ company_name }}</h2>
+</div>
+<div class="job_main">
+<div class="job_left">
+    <p class="job_salary">{{ job.salary_str }}</p>
+<p class="job_area">
+<img src="/static/images/area.png"><span><script type="text/javascript">get_substr('{{ job.job_city }}')</script></span>
+    <img src="/static/images/time.png" style="width:25px"><span>发布于：<span><script type="text/javascript">getLocalTime('{{ job.post_time }}')</script></span></span>
+</p>
+<p class="job_area2">
+<span style="border:none;">{{ job.education_str }}</span>
+<span>{{ job.work_years_str }}</span>
+<!--     <span>普通话</span>
+<span style="border:none">20-65岁</span> -->
+</p>
+</div>
+<div class="job_right">
+
+    <!-- 申请 -->
+    {% if job.post_status == 0 %}
+    <p class="job_op" rel="{{ job.id  }}"><a class="lock_applyjob2 apply" rel="[.is_rel]" style="cursor: pointer;">立即申请</a><a style="display: none">&nbsp;</a></p>
+    {% elif job.post_status == 'post' %}
+    <p class="job_op" rel="{{ job.id }}"><a class="lock_applyjob apply" rel="[.is_rel]" style="cursor: pointer; background-color:#ccc; color:black">已申请</a><a style="display: none">&nbsp;</a></p>
+    {% elif job.post_status == 'viewed' %}
+    <p class="job_op" rel="{{ job.id }}"><a class="lock_applyjob apply" rel="[.is_rel]" style="cursor: pointer; background-color:#ccc; color:black">已查看</a><a style="display: none">&nbsp;</a></p>
+    {% elif job.post_status == 'apply' %}
+    <p class="job_op" rel="{{ job.id }}"><a class="lock_applyjob apply" rel="[.is_rel]" style="cursor: pointer; background-color:#ccc; color:black">邀请面试</a><a style="display: none">&nbsp;</a></p>
+    {% elif job.post_status == 'deny' %}
+    <p class="job_op" rel="{{ job.id }}"><a class="lock_applyjob apply" rel="[.is_rel]" style="cursor: pointer; background-color:#ccc; color:black">不合适</a><a style="display: none">&nbsp;</a></p>
+    {% endif %}
+
+    {% if job.collect_status == 0 %}
+
+    <!-- 收藏 -->
+    <p class="fank job_op" rel="{{ job.id }}"><a rel="2" class="lock_like" ><span style="background-color:#029774;color:#fff">感兴趣</span></a><a href="{{ job.post_url }}" target="_blank" ><span style="background-color:#ccc">查看来源</span></a></p>
+
+    {% else %}
+
+<p class="fank job_op" rel="[.jid]"><a rel="2" ><span style="background-color:#ccc;color:black">已收藏</span></a><a href="{{ job.post_url }}" target="_blank" ><span style="background-color:#ccc">查看来源</span></a></p>
+
+    {% endif %}
+
+</div>
+</div>
+<div class="massage">
+<p class="mag_title"><span>职位描述：</span></p>
+<div class="main">
+<!-- <p>岗位要求：</p> -->
+<!-- <p>1、参与分析用户需求并书写需求说明书；</p>
+<p>2、参与项目的系统体系架构设计，确定产品设计规格，关键技术决策和系统模块化工作；</p>
+<p>3、参与研发过程中的技术指导和攻关； </p>
+<p>4、具有系统分析、设计和文档编写能力； </p>
+<p>5、具有高度的团队合作精神及良好的人际沟通技巧； </p>
+<p>6、能承受压力，有责任心，能吃苦，愿意和公司一起成长。</p> -->
+<p style="width:100%">
+
+{{ job.position_des }}
+
+</p>
+</div>
+</div>
+<div class="massage" id="fuli">
+<p class="mag_title"><span>公司福利：</span></p>
+<div class="main">
+<p class="fuli" style="width:100%">
+{{ job.boon }}
+</p>
+</div>
+</div>
+<div class="massage" id="gs_info">
+<p class="mag_title"><span>企业信息：</span></p>
+<div class="main">
+<ul>
+    <li id="gs_xingzhi"><span>企业性质：</span><span class="gs_xingzhi">{{ job.company_type }}</span></li>
+    <li id="gs_dizhi"><span>公司地址：</span><span class="gs_dizhi">{{ job.address }}</span></li>
+    <li id="gs_web"><span>公司网址：</span><span><a href="{{ job.site_url }}" target="_blank" class="gs_web">{{ job.site_url }}</a></span></li>
+<li id="gs_scale"><span>企业规模：</span><span class="gs_scale">{{ job.scale }}</span></li>
+
+</ul>
+
+</div>
+</div>
+
+
+
+<div class="massage" id="gs_detail">
+<p class="mag_title"><span>企业介绍：</span></p>
+<div class="main gs_detail" style="font-size:16px; line-height:30px;width:97%;margin:0px">{{ job.company_description }}</div>
+</div>
+
+
+</div>
+<p style="display: none" id="hrid">[HRID]</p>
+</div>
+<!-- Wrap@30050 -->
+<!-- Fill@30050 -->
+<!-- Null@30050 -->
+<!-- UseTemplete@30050; -->
+</body>
+<script>
+      
+     if(phone !="") {
+
+            $("#q_l").show();
+            $(".logoin_first").hide();
+  $(".no_login ul").css("right","185px");
+
+        }
+        else
+        {
+            $("#q_l").hide();
+
+            $(".logoin_first").show();
+  $(".no_login ul").css("right","20px");
+
+
+        }
+
+
+$(function(){
+	//申请
+//	$(".job_op .lock_applyjob").click(function(){
+	$(".job_op .lock_applyjob2").click(function(){
+		 var job_id = $(this).parent().attr('rel'); //id
+		 var obj = $(this);
+		  var app_text=$(this).text();
+		 if(app_text=='立即申请'){
+          $.ajax({
+		        type:'post',
+		        url: "/api_post_job",
+		        contentType:"application/json; charset=utf-8",
+		        dataType: 'json',
+		        data: JSON.stringify({'job_id' : job_id}),
+		        success: function(msg)
+		        {
+		        	if(msg.errcode == 0)
+		        	{
+		        		obj.addClass('apchange').html("已申请");
+		        		return false;
+		        	}else if(msg.errcode == 2)
+		        	{
+		        		alert_r("请先登录","/login");
+
+		        	}else if(msg.errcode == 3)
+		        	{
+		        		alert_r("不能重复申请","");
+		        	}
+                     else if(msg.errcode == 4)
+		        	{
+		        		alert_r("请先填写简历","/user_cv");
+		        	}
+		        	else
+		        	{
+		        		alert_r("申请失败","");
+		        	}
+		        }
+		   })
+ }
+      else{
+      	return true;
+      }
+	})
+
+	//感兴趣
+	$(".job_op .lock_like").click(function(){
+		 var job_id = $(this).parent().attr('rel'); //id
+		 var obj = $(this);
+          $.ajax({
+		        type:'post',
+		        url: "/api_collection_job",
+		        contentType:"application/json; charset=utf-8",
+		        dataType: 'json',
+		        data: JSON.stringify({'job_id' : job_id}),
+		        success: function(msg)
+		        {
+		        	if(msg.errcode == 0)
+		        	{
+                        location.reload();
+		        		return false;
+		        	}else if(msg.errcode == 2)
+		        	{
+		        		alert_r("请先登录","/login");
+
+		        	}else if(msg.errcode == 3)
+		        	{
+		        		alert_r("不能重复收藏","");
+		        	}
+					else if(msg.errcode == 4)
+		        	{
+		        		alert_r("请先填写简历","/user_cv");
+		        	}
+		        	else
+		        	{
+		        		alert_r("收藏失败","");
+		        	}
+		        }
+		   })
+
+	})
+
+})
+
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</html>

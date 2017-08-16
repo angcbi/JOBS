@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 账号管理列表，中国企业招聘指数（CHI），中国企业薪酬指数（CSI）</title>
+<link rel="icon" href="/static/images/logo_tiny.png" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/css/myjoblist.css?v=2015121019">
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css?v=20151221">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/admin_manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/admin_radd.js?v=20151221"></script>
+   <meta name="Description" content="招聘头条，国内顶级的大数据招聘管家，中国企业招聘指数（CHI）与中国企业招聘指数(CSI)发布平台，由中国人力资源管理业界先驱与代表性人物彭剑锋教授担任领衔专家，为企业提供一站式招聘服务和人岗智能匹配服务，是目前国内最具公信力的人力资源大数据服务商。"/> 
+<meta name="keywords" content="招聘头条,中国企业招聘指数,CHI,中国企业招聘指数,CSI" />
+</head>
+
+<body>
+<div class="body_con">
+{% include "admin_tpl/common.html" %}
+<div class="detail_con">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ admin_email }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/admin/logout">退出</a>
+</li>
+</ul>
+  <style type="text/css">
+  table tr td{height: 40px;}
+  table tr td input{height: 28px;}
+
+  </style>
+	<div class="detail_middle">
+		<h1>添加直投简历</h1>
+        <div style="width:1048px;">
+        <!-- UseTemplete@30060 size=1 param=-->
+        <form action="#" method="post" enctype="multipart/form-data">
+            <table border="0" width="100%">
+                <tr>
+                    <td>姓名：</td>
+                    <td><input  name="candidate_name" ></td>
+                </tr>
+ 
+                <tr>
+                    <td>学历：</td>
+                    <td>
+                  <select class="edu_bg" name="education"  >
+                    <option value="0" selected="selected">中专</option>
+                    <option value="1">大专</option>
+                    <option value="2">本科</option>
+                    <option value="3">硕士</option>
+                    <option value="4">博士</option>
+                    <option value="5">其他</option>
+                  </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>经验：</td>
+                    <td>
+      <select   name="experience">
+                    <option value="0" selected="selected">应届毕业生</option>
+                    <option value="1">1年</option>
+                    <option value="2">2年</option>
+                    <option value="3">3年</option>
+                    <option value="4">4年</option>
+                    <option value="5">5年</option>
+                    <option value="6">6年</option>
+                    <option value="7">7年</option>
+                    <option value="8">8年</option>
+                    <option value="9">9年</option>
+                    <option value="10">10年</option>
+                    <option value="100">10年以上</option>
+                  </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>期望薪资：</td>
+                    <td><input  name="expect_salary"  >元(必须是数字)</td>
+                </tr>  
+                <tr>
+                    <td>投递公司：</td>
+                    <td>
+                    <select name="company" id="company" >
+                        <option value="0" selected>请选择投递公司</option>
+                        {% for company in company_list %}
+                        <option value="{{company["id"]}}">{{company["name"]}}</option>
+                        {% endfor %}
+                                              
+                    </select>
+
+                    </td>
+                </tr>
+
+
+                <tr class="qy_job">
+                    <td>选择投递职位：</td>
+                    <td>
+                    <select name="job" id="job" >
+                      <option value=0 selected>请选择职位</option>
+                 
+                   
+                                                           
+                    </select>
+
+                    </td>
+                </tr>
+             <tr>
+                  <td>选择简历文件：</td>
+                  <td><input type="file" id="file" name="cv_file">
+                <!-- <input type="hidden" value="[.resume_url]"  id="old_url"></td> -->
+              </tr>
+  <!-- <tr>
+      <td>手机：</td>
+      <td><input value="" name="moblie" size="30"></td>
+  </tr>
+   <tr>
+      <td>联系人：</td>
+      <td><input value="" name="linkman"></td>
+  </tr>  -->  
+               <tr>
+               <!-- <input type="hidden" name="id" > -->
+                <td colspan="2" align="left"><input value="提交" type="submit" name="submit" style="width: 100px;"></td>
+                </tr>                           
+            </table>
+        </form>
+    <!-- Wrap@30060 -->
+    <!-- Fill@30060 -->
+    <!-- Null@30060 -->
+    <!-- UseTemplete@30060; -->  
+        </div>
+        <iframe name="saveinfo" width="800" height="400" style="display: none;" ></iframe>
+	</div>	
+</div>
+	
+</div>
+</body>
+</html>
+<script>
+$(function(){
+    $("#company").change(function(){
+        var selected=$("#company option:selected").val();
+        console.log(selected)
+        $.ajax({
+            type: 'POST',
+            url: '/admin/api_getcompanyjd',
+            data: JSON.stringify({'company_user_id': selected}),
+            success: function(resp){
+                if(resp['errcode'] == 0){
+                    var j = $("#job");
+                    j.empty();
+                    j.append(" <option value=0 selected>请选择职位</option>");
+                    for(i=0; i < resp['data'].length; i++){
+                        j.append('<option value="'+resp['data'][i]['company_jd_id']+'">'+resp['data'][i]['company_jd_name']+'</option>');
+                    }
+                }
+            },
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+        });
+    });
+});
+</script>
+

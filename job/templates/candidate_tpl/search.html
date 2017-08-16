@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>焦博思 - 一站比薪</title>
+<meta name="Viewport" content="width=device-width, height-device-height, initial-scale=1.0, minimum-scale=1.0, maximun-scale=1.0,user-scalable=no"/>
+    <meta name = "format-detection" content = "telephone=no">
+
+<link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    
+     <link href="/static/css/search.css" rel="stylesheet" type="text/css">
+     <link rel="stylesheet" href="/static/css/index.css?v=2015121019">
+     <link rel="stylesheet" href="/static/css/header.css?v=2015121019"/>
+     <link rel="stylesheet" href="/static/css/hrindex_h.css?v=2015121019"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <!--
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    -->
+    <meta http-equiv="pragram" content="no-cache"> 
+    <meta http-equiv="expires" content="0"> 
+  
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/misc.js?v=2015121019"></script>
+   <meta name="Description" content="焦博思，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="焦博思,聪明你的求职,职位搜索引擎" />
+</head>
+<body>
+ <script> var phone = ''; </script>
+   <div class="logo" style=" min-width: 0px;">
+    <div class="header">
+       
+           <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+            
+            <!-- UseTemplete@99999 size=1 param=-->
+      <div class="detail_con" style="display: none;">
+          <span id="cainiao_welcome_two"><a href="/user_cv" title="进入主页" alt="进入主页">{{ phonenum }}</a><span><a href="/logout" title="退出" alt="退出">，退出</a></span></span>
+      
+      </div>
+      
+      <script> phone = '{{ phonenum }}'; </script>
+      
+      <!-- Wrap@99999 -->
+      <!-- Fill@99999 -->
+      <!-- Null@99999 -->
+      <!-- UseTemplete@99999; -->
+      <div class="no_login">
+              <ul>
+                <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+              </li>
+               <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+              </li>
+           <li class="l_menu"><a href="/subscribe" target="_blank">一站订阅</a>
+              </li> 
+              <li class="l_menu"><a href="/post_job_list" target="_blank">一站投递</a>
+              </li>  
+              <li class="logoin_first"><a href="/login" target="_blank" >登录</a>
+              </li>
+               <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+              </li>
+              </ul>
+           
+            </div>           
+      </div>
+        </div>
+
+<div class="in_title">
+  {{search}}<a onclick="javascript:history.go(-1)" class="hy_back">返回</a>
+</div>
+<div class="list">
+
+
+<div><span class="num">1</span>当前职位薪酬水平分位值</div>
+ <div style="margin-bottom:60px">
+   <table border="1">
+   <tr style="background-color: rgb(245, 246, 250);">
+   <td>地区
+   </td>
+    <td>10分位值
+   </td>
+    <td>25分位值
+   </td>
+    <td>中位值
+   </td>
+    <td>75分位值
+   </td>
+    <td>90分位值
+   </td>
+     <td>平均值
+   </td>
+   </tr>
+
+   <tr>
+   <td>北京
+   </td>
+   <td><a href="#">{{ tantile['10'] }}</a>
+   </td>
+   <td><a href="#">{{ tantile['25'] }}</a>
+   </td>
+   <td><a href="#">{{ tantile['50'] }}</a>
+   </td>
+   <td><a href="#">{{ tantile['75'] }}</a>
+   </td>
+   <td><a href="#">{{ tantile['90'] }}</a>
+   </td>
+   <td><a href="#">{{ tantile['avg'] }}</a>
+   </td>
+   </tr>
+   </table>
+ </div>
+
+
+<div><span class="num">2</span>当前全网高薪行业排行榜<a class="no_hy" href="/joblist?search={{search}}" target="_blank">不分行业比薪</a></div>
+{% if data|length > 0 %}
+  {% for item in data %}
+<ul>
+<li>
+<a href="/joblist?industry={{item[0]}}&search={{search}}" target="_blank"> {{item[0]}}</a>
+</li>
+<p class="in_salary">平均薪资：<span> {{item[1]}} <span style="color:#000;font-weight:normal;font-size:1.6rem">元/月</span></span></p>
+<p class="chance"><a href="/joblist?industry={{item[0]}}&search={{search}}" target="_blank">查看工作机会</a></p>
+</ul>
+  {% endfor %}
+{% else %}
+<ul  style="text-align:center;font-size:1.6rem;margin-top:10px">
+暂无数据
+</ul>
+{% endif %}
+ <!-- UseTemplete@30050; -->
+</div>
+
+<script type="text/javascript">
+        
+    if(phone !="")
+        {
+            $(".detail_con").show();
+
+
+            $(".logoin_first").hide();
+
+  $(".no_login ul").css("right","185px");
+        }
+        else
+        {
+            $(".detail_con").hide();
+
+
+            $(".logoin_first").show();
+  $(".no_login ul").css("right","20px");
+
+
+        }
+</script>
+{% include "candidate_tpl/footer.html" %}
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>

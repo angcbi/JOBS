@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>招聘头条 - 投递过的职位</title>
+<link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/css/joblist.css?v=2016011117">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/misc.js?v=2015121019"></script>
+   <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+
+</head>
+<body>
+<div class="body_con">
+ <div class="black_overlay" style="width:100%; position:fixed;height:800px"></div>
+  {% include "candidate_tpl/common.html" %}
+<div class="detail_con">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ phonenum }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/logout">退出</a>
+</li>
+</ul>
+  <div class="detail_middle" style="margin-top:0px">
+    <!-- <h1>推荐简历列表<span id="list_more"></span></h1> -->
+       <a id="gotop" title="返回顶部"></a>
+    <script>
+        var arr_jid = [];
+
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>300)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+$(function() {
+  $('label').click(function(){
+    var radioId = $(this).attr('name');
+    $('label').removeAttr('class') && $(this).attr('class', 'checked');
+    $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+  });
+});
+    </script>
+
+<style type="text/css">
+
+</style>
+<!-- <div class="goback" style="display: none"><a href="joblist.htm?ko=count_ul3" style="color: #fff">返回</a></div> -->
+
+<!-- 搜索到的职位 -->
+<div class="found_jobs">
+  <ul>
+
+  {% if job_list | length > 0 %}
+  {% for job in job_list %}
+    <script type="text/javascript">
+arr_jid[arr_jid.length] = {{ job[0].id }}
+    </script>
+    <li>
+      <div class="all_jobs left_jobinfo">
+          <p class="p_first job_name" style="overflow: hidden;height: 25px;"><a href="/job_detail?job_id={{ job[0]['id'] }}" title="{{ job[0].job_name }}">{{ job[0].job_name }}</a></p>
+        <p class="p_two job_condition">
+       <span id="c_salary">{{ job[0].salary_str  if job[0].salary_str != '' else '面议'}}</span>
+            <span id="c_city"><script type="text/javascript">get_substr('{{ job[0]['job_city'] }}')</script></span>
+              <span id="c_year"> {{ job[0].work_years_str  if job[0].work_years_str !='' else '不限'}}</span>
+              <span id="c_edu">{{ job[0].education_str  if job[0].education_str !='' else '不限'}}</span>
+        </p>
+        <!-- timestamp -->
+        <p class="job_pubtime"><span>发布于：<script type="text/javascript">getLocalTime('{{ job[0]['post_time'] }}')</script></span>
+        <span>投递时间： {{ job[1] }}</span></p>
+      
+      </div>
+      <div class="all_jobs right_gsinfo">
+          <p class="p_first gs_name" style="overflow: hidden;height: 25px;"><a href="" title="{{ job[0].company_name }}">{{ job[0].company_name }}</a></p>
+        <p class="p_two gs_condition">
+         {% if job[0].trade != '' %}
+
+        <span id="c_trade[.jid]" class="c_trade">{{ job[0].trade }}</span>
+          {% endif %}
+          {% if job[0].company_type != '' %}
+        <span id="gs_nature[.jid]">{{ job[0].company_type }}</span>
+         {% endif %}
+          {% if job[0].scale_str != '' %}
+        <span id="gs_size[.jid]">{{ job[0].scale_str }}</span>
+         {% endif %}
+        </p>
+        <p class="job_op" rel="[.jid]" ws='[JIANLI]'>
+        <!-- <a style="background-color:#ccc;color:#000" href="javascript:void(0);" title="删除" rel='{{ job[2] }}' onclick="del_post_job({{ job[2] }})">删除</a> -->
+          <a class="lock_source" href="{{ job[0].post_url }}" title="查看来源" rel="0" target="_blank">查看来源</a>
+        
+		  {% if job[3] == 'post' %}
+		  <span class="invite">已投递</span>
+		  {% elif job[3] == 'viewed' %}
+		  <span class="invite">已查看</span>
+		  {% elif job[3] == 'apply' %}
+		  <span class="invite">邀请面试</span>
+		  {% elif job[3] == 'deny' %}
+		  <span class="no_invite">不合适</span>
+		  {% endif %}
+        </p>
+      </div>
+    </li>
+  {% endfor %}
+
+    {% else %}
+    <li><p style="width: 100%;text-align: center;line-height: 88px;font-size:16px;color:#029774">暂无投递职位</p></li>
+    {% endif %}
+
+  </ul>
+
+
+
+  <div id="page" class="page_new" style="margin-bottom: 60px;">
+      <span id="index_page"><a href="/post_job_list">首页</a></span>
+      <span id="prev_page" onclick="go_prev()"><!-- PageBefore -->上一页<!-- PageBefore; --></span>
+      <script type="text/javascript">
+var zong = '{{ page_number  }}';
+var dangq = '{{  page }}';
+          var baseurl = '/post_job_list?';
+          page_list_js(zong,dangq,baseurl);
+      </script>   
+      <span id="next_page" onclick="go_next()"><!-- PageNext -->下一页<!-- PageNext; --></span>
+      <span id="last_page" onclick="go_last()"><!-- LastPage -->尾页<!-- LastPage; --></span>
+          <span>共计{{ page_number }}页</span>
+
+  </div>
+
+
+
+</div>
+
+</div>
+             
+  
+  </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+var page = parseInt({{ page }});
+var total_page = parseInt({{ page_number }});
+var base_url = '/post_job_list?';
+
+function go_next() {
+
+    if (page >= total_page) {return;}
+    var next_page = (page+1).toString();
+
+    location.href= base_url +'&page=' +next_page;
+}
+
+function go_prev() {
+    if (page <= 1 ) {
+        return;
+    };
+
+    var prev_page = (page-1).toString();
+    location.href = base_url +'&page='+ prev_page;
+}
+
+function go_last() {
+    location.href = base_url + '&page='+ total_page;
+}
+
+function del_post_job(post_id) {
+
+
+      $.ajax({
+            type:'post',
+            url: "/api_del_post_job",
+            contentType:"application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify({'post_id' : post_id}),
+            success: function(msg)
+            {
+                if(msg.errcode == 0)
+                {
+                    location.reload();
+                }
+                else
+                {
+                    alert_r("删除失败","");
+                }
+            }
+       })
+}
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    if(dangq == zong){
+        $("#next_page").hide();
+    }
+     if(zong == 1){
+        $("#last_page").hide();
+    }
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

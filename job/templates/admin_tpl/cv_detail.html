@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>招聘头条 - 查看简历</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/hrindex.css"/>
+      <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+<meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+  <link rel="icon" href="images/logo_tiny.png" type="image/x-icon">
+  <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+  <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/static/css/post_cv_detail.css">
+  <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.json.js"></script>
+  <script type="text/javascript" src="/static/js/manage.js"></script>
+  <script src="/static/js/layer/layer.js"></script>
+
+<script type="text/javascript">
+  var trade_arr = "";
+  //[TRADE_ARR]
+</script>
+<style>
+
+</style>
+<body>
+<div class="body_con">
+   <a id="gotop" title="返回顶部"></a>
+    <script>
+
+        $("#gotop").click(function(){
+
+            $('html,body').animate({ scrollTop:0}, 700);
+        });
+        $(window).scroll(function(){
+            x=$(window).scrollTop();
+            if(x>300)
+            {
+                $("#gotop").fadeIn();
+            }
+            else
+            {
+                $("#gotop").fadeOut();
+            }
+        });
+        </script>
+
+
+{% include "admin_tpl/common.html" %}
+
+<div class="detail_con" style="padding-bottom: 63px;">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ admin_email }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="/admin/logout">退出</a>
+</li>
+</ul>
+  <div class="detail_middle"> 
+  <iframe name="saveinfo" width="400" height="400" style="display: none" ></iframe>
+<p></p>
+  <span style="display:block;margin-top:0px;margin-left:16px;width:840px;border: 1px solid #D9D9D9;float:left; margin-bottom:100px;width:80%" class="jl_whole">
+    <div class="seeker">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+        <h2 class="introduce_tit jibenziliao_tit">基本资料</h2> 
+<!--
+        {% if post_cv_status == 'viewed' %}
+        <div class="choose_hs"><span id="appropriate">合适</span><span id="inappropriate">不合适</span></div>
+        {% endif %}
+        {% if post_cv_status == 'apply' %}
+              <div class="invite"><span>已接受</span></div>
+        {% endif %}
+
+        {% if post_cv_status == 'deny' %}
+        <div class="no_invite"><span>已拒绝</span></div>
+        {% endif %}
+-->
+        <div class="my_resumeinfo">
+           <div class="seeker-info clearfix">
+               {% if avatar_url != '' %}
+               <div class="head_img"><img src="{{ avatar_url }}" width="100" height="100" style="border-radius:50px;"> </div> 
+               {% else %}
+               <div class="head_img"><img src="/static/images/avatar/avatar.png" width="100" height="100" style="border-radius:50px;"> </div> 
+
+               {% endif %}
+
+             <div class="info_con">
+                 <p class="user_name"><span>{{ cv_detail['basic']['name'] }}</span></p>
+                 <p class="user_place"><span>{{ cv_detail['basic']['current_area'] }}</span></p>
+               <p class="user_other">
+               <span style="padding-left:0;">{{ cv_detail['basic']['gender'] }}</span>|
+               <span>{{ cv_detail['basic']['birthday'] }}</span>|
+               <span>{{ cv_detail['basic']['education'] }}</span>|
+               <span>{{ cv_detail['basic']['marital_status'] }}</span>|
+               <span>{{ cv_detail['basic']['work_years'] }}</span>|
+               <span>{{ cv_detail['basic']['phonenum'] }}</span>|
+               <span>{{ cv_detail['basic']['email'] }}</span>
+               
+                </p>
+            </div>
+          </div>       
+        </div> 
+      </span>
+    </div>
+    <div class="work_state">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+      <h2 class="introduce_tit state_tit">工作状态</h2>
+      <div class="my_resumeinfo">
+          <p style="font-size:14px;">{{ cv_detail['intension']['status'] }}</p>
+      </div>
+     </span>
+    </div>
+    <div class="work_will">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+       <h2 class="introduce_tit will_tit" style="margin-bottom:20px;">职业意向</h2>
+       <div class="my_resumeinfo">
+         <ul id="zhiye">
+             <li><span>期望行业：</span><span class="will_value">{{ cv_detail['intension']['trade'] }}</span></li>
+             <li><span>期望职位：</span><span class="will_value">{{ cv_detail['intension']['title'] }}</span></li>
+             <li><span>期望地点：</span><span class="will_value">{{ cv_detail['intension']['area'] }}</span></li>
+             <li><span>期望月薪：</span><span class="will_value">{{ cv_detail['intension']['expect_salary'] }}</span></li>
+         </ul>
+       </div>
+      </span>
+    </div>
+    <div class="good_skills" style="float:left;">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+       <h2 class="introduce_tit skill_tit">擅长技能</h2>
+       <div class="my_resumeinfo">   
+         <div class="skill_con">      
+             {% for tag in cv_detail['tags'] %}
+             <p>{{ tag }}</p>
+             {% endfor %}
+          </div> 
+       </div>
+      </span>
+    </div>
+      <div class="education" style="float:left;"> 
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit education_tit">教育经历 </h2>
+
+            {% for edu in cv_detail['education'] %}
+
+            <div class="my_resumeinfo">
+              <ul class="edu_con edus">
+                  <li class="edu_con_fst s_n">{{ edu['school'] }}</li>
+                  <li class="z_n">{{ edu['major'] }}</li>
+                  <li class="x_n" rel='[.edu]'>{{ edu['degree'] }}</li>
+                  <li class="t_n">{{ edu['start_time'] }} - {{ edu['end_time'] }}</li>
+              </ul>          
+           </div>
+           {% endfor %}
+      </span>
+        </div>
+    <div class="work_exp" style="float:left;">
+      <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+        <h2 class="introduce_tit work_exp_tit">工作经历 </h2>
+
+        {% for career in cv_detail['career'] %}
+            <div class="my_resumeinfo">
+              <div class="work_com w_tab">
+                  <h3 class="work_tit clearfix" style="margin-bottom:10px;"><span class="com_name">{{ career['company'] }} </span><span class="work_time">{{ career['start_time'] }} - {{ career['end_time'] }}</span></h3>
+                    <p>
+                    <span>工作地点：</span><span class="didian">{{ career['area'] }}</span>
+                      <span  style="margin:0 20px; color:#999;">|</span>
+                      <span>行业：</span><span class="hangye">{{ career['trade'] }}</span>
+                    </p>
+                    <p>
+                    <span>职位名称：</span><span class="zhiwei">{{ career['title'] }}</span>
+                    </p>
+                    <p>
+                    <span>工作职责：</span><span class="zhize">{{ career['duty'] }}</span>
+                    </p>
+              </div>
+           </div>
+
+        {% endfor %}
+
+      </span>
+        </div>
+        <div class="xiangmu_exp" style="float:left;">
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit pro_exp_tit">项目经验</h2>
+
+            {% for expe in cv_detail['experience'] %}
+            <div class="my_resumeinfo">
+
+              <div class="work_com item_tab">
+                  <h3 class="work_tit clearfix" style="margin-bottom: 10px;"><span class="com_name">{{ expe['project_name'] }}</span><span class="work_name">{{ expe['title'] }}</span><span class="work_time">{{ expe['start_time'] }} - {{ expe['end_time'] }}</span></h3>
+                    <p>{{ expe['description'] }}</p>
+              </div>
+           </div>  
+
+           {% endfor %}
+      </span>   
+    </div>     
+        <div class="self_describe" style="float:left;">
+          <span style="width:100%; display:block; border-bottom:1px dotted #E8E8E8;padding-bottom:25px;">
+            <h2 class="introduce_tit self_pingjia_tit">自我描述</h2>
+            <div class="my_resumeinfo">           
+              <p style="line-height:30x; font-size:14px;">
+              {{ cv_detail['description'] }}
+              </p>
+           </div>       
+      </span>
+    </div>
+    <div class="other_info" style="float:left;">
+
+          <span style="width:100%; display:block;padding-bottom:25px;">
+            <h2 class="introduce_tit other_info_tit">其他信息</h2>
+            <div class="my_resumeinfo" style="position:relative;">
+              <p style="line-height:30x; font-size:14px;">
+              {{ cv_detail['extra'] }}
+              </p>
+           </div>
+      </span>
+    </div>
+    </span> 
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+var cv_id="{{ post_cv_id }}";
+var states="";
+$("#appropriate").click(function(){
+ states="apply";
+  change_state();
+})
+ 
+  
+
+$("#inappropriate").click(function(){
+  states="deny";
+  change_state();
+})
+
+
+function change_state(){
+   $.ajax({
+            type:'post',
+            url: "/company/api_change_post_status",
+            data: JSON.stringify({post_cv_id:cv_id,status:states}),
+            contentType:"application/json; charset=utf-8",
+            dataType: 'json',
+            success: function(data)
+            {
+                var errcode = data['errcode'];
+
+                if (errcode == 0) {
+                    location.reload();
+                }
+                else if (errcode == 1) {
+                    layer.alert('param error');
+                }
+                else {
+                    layer.alert('更改状态失败');
+                }
+            },
+            error:function(){   
+                alert('error');   
+            }
+            
+        });
+}
+   
+  
+</script>
+
+
+</body>
+</html>

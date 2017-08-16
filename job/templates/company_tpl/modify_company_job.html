@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>招聘头条 - 发布职位</title>
+    <link rel="icon" href="images/logo_tiny.png" type="image/x-icon">
+    <link href="/static/css/hr_manage.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/header.css?v=2015121019" rel="stylesheet" type="text/css">
+    <link href="/static/css/verify.css?v=1" rel="stylesheet" type="text/css">
+    <link href="/static/css/job_edit.css?v=1" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/select.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/divselect.js?v=2015121019"></script>
+	<script type="text/javascript" src="/static/js/sitedata.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/job_edit.js?v=2015121019"></script>
+    <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+    <meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+
+<style>*{font-size:14px;}</style>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+    $("#li_tuijian2").attr('href','qy_direct.htm');
+    $("#li_tuijian2").find('span').html('候选人推荐');
+    var cm = '[COMPANY_ID]';
+    if(cm !=0)
+    {
+        $(".qy_resume").show();
+    }
+            var provinceSelector = $("#provinceSelector");
+            var citySelector = $("#citySelector");
+            var areaSelector=$("#areaSelector");
+            GetProvince();
+            provinceSelector.change(function () {
+                var provinceName = provinceSelector.val();
+                if (provinceName != '') {
+                    GetCity(provinceName);
+                    areaSelector.empty();
+                }
+                else{
+                    citySelector.empty();
+                    areaSelector.empty();
+                }
+            });
+            citySelector.change(function () {
+                var provinceName = provinceSelector.val();
+                var cityName = citySelector.val();
+                if(cityName!=''){
+                    GetArea(provinceName, cityName);
+                }
+                else{
+                    areaSelector.empty();
+                }
+            });
+        });
+
+        // 获取省份(直辖市)信息
+        function GetProvince() {
+            var provSelector = $("#provinceSelector");
+            provSelector.empty();
+            provSelector.append("<option value=''>--请选择--</option>");
+            var arrProvince = provinceInfo;
+            for (var provinceIndex in arrProvince) {
+                provSelector.append("<option value='" + arrProvince[provinceIndex]["name"] + "'>" + arrProvince[provinceIndex]["name"] + "</option>")
+            }
+
+        }
+
+        // 获取指定省份(直辖市)的城市(辖区或县)信息
+        function GetCity(provinceName) {
+            var citySelector = $("#citySelector");
+            var arrCity;
+            for (var provinceIndex in provinceInfo) {
+                if (provinceInfo[provinceIndex]["name"] == provinceName) {
+                    arrCity = provinceInfo[provinceIndex]["sub"];
+                    break;
+                }
+            }
+            citySelector.empty();
+            citySelector.append("<option value=''>--请选择--</option>")
+            for (var cityIndex in arrCity) {
+                citySelector.append("<option value='" + arrCity[cityIndex]["name"] + "'>" + arrCity[cityIndex]["name"] + "</option>")
+            }
+
+        }
+
+        // 获取指定城市(辖区或县)的地区信息
+        function GetArea(provinceName, cityName) {
+            var areaSelector = $("#areaSelector");
+            var arrCity, arrArea;
+            for (var provinceIndex in provinceInfo) {
+                if (provinceInfo[provinceIndex]["name"] == provinceName) {
+                    arrCity = provinceInfo[provinceIndex]["sub"];
+                    for (var cityIndex in arrCity) {
+                        if (arrCity[cityIndex]["name"] == cityName) {
+                            arrArea = arrCity[cityIndex]["sub"];
+                            break;
+                        }
+                    }
+                }
+            }
+            areaSelector.empty();
+            areaSelector.append("<option value=''>--请选择--</option>")
+            for (var areaIndex in arrArea) {
+                areaSelector.append("<option value='" + arrArea[areaIndex]["name"] + "'>" + arrArea[areaIndex]["name"] + "</option>")
+            }
+        }
+
+        
+    </script>
+
+  <script type="text/javascript">
+    $(function() {
+        // 为所有的 class="sec" 下的 select 绑定 onchange 事件
+        $(".pro").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv = option.val();
+            var selt = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".hid_pro").html(selt);
+        })
+         $(".pro2").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv = option.val();
+            var selt = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".hid_pro2").html(selt);
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		$(".cit").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv1 = option.val();
+            var selt1 = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".hid_city").html(selt1);
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		$(".area").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv1 = option.val();
+            var selt1 = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".hid_area").html(selt1);
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		
+		
+		 // 为所有的 class="sec" 下的 select 绑定 onchange 事件
+        $(".job_exp").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv = option.val();
+            var selt = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".j_sel").html(selt);
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		 // 为所有的 class="sec" 下的 select 绑定 onchange 事件
+        $(".education").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv = option.val();
+            var selt = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            if (selt != '--请选择--') {
+                $(".edu_sel").css('color', '#000');
+            }else{
+                $(".edu_sel").css('color', '#757575');
+            }
+            $(".edu_sel").html(selt);  
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		 // 为所有的 class="sec" 下的 select 绑定 onchange 事件
+        $(".salary").change(function() {
+            // 当选择的时候，找到当前选中的 option
+            var option = $(this).find("option:selected");
+            // 获得 value 和 对应文本
+            var selv = option.val();
+            var selt = option.text();
+            // 然后找到 select 的父节点的第0个 span，把 selt 写入到 span 中
+            $(".sly_sel").html(selt);
+        })
+        // 初始化的时候，执行一次change方法
+        $("select").change();
+		
+    });
+</script>
+<style>
+input[type=radio]{width: }
+</style>
+</head>
+<body>
+<div class="body_con">
+
+
+ <!-- <div class="black_overlay" style="width:100%; position:fixed;height:800px"></div> -->
+
+
+{% include "company_tpl/common.html" %}
+<div class="detail_con">
+<!-- UseTemplete@99999 size=1 param=-->
+<span id="cainiao_welcome">{{ company_user_email }}<p class="jiantou"><img src="/static/images/down.png"></p></span>
+<!-- Wrap@99999 -->
+<!-- Fill@99999 -->
+<!-- Null@99999 -->
+<!-- UseTemplete@99999; -->
+<ul class="all-op">
+<li class="exit">
+<a href="quit.htm" style="color:#fff">退出</a>
+</li>
+</ul>
+ <!-- UseTemplete@30050 size=1 param=-->
+	<div class="detail_middle">
+
+<!-- 弹出层（代替alert） -->
+<!-- <div class="window">
+<p class="info">提示</p>
+<p class="erro">请输入正确的xxxxxx</p>
+<input type="button" value="确定">
+</div> -->
+
+<!-- 弹出层结束 -->
+
+    <div class="note_font3" style="margin-left:-3px"><span>NOTE:</span><p>一站式发布职位，同步到各大招聘网站</p></div>
+
+		<form method="post" action="#" onsubmit="return job_edit()">
+            <input type="hidden" name="job_id" value="{{ job.id }}" />
+            <p class="job_name"><label><span>*</span>职位名称 :</label>
+			<input type="text" name="job_name" value="{{ job.job_name }}" placeholder="请填写职位名称"></p>
+			
+            <p class="job_num" style="background:#fff;height:auto"><label><span>*</span>需求人数 :</label>
+
+            <input type="text" name="job_num"  value="{{ job.need_num }}" placeholder="请填写需求人数，如：1人或不限"></p>
+
+            <p class="radiobtn">
+                  <label><span>*</span>工作性质 :</label>
+                  <label class="checked" id="full_time"><input type="radio" name="job_type" value="fulltime"  checked="checked">全职</label>
+                  <label id="part_time"><input type="radio" name="job_type" value="parttime" >兼职</label>
+                  <label id="shixi"><input type="radio" name="job_type" value="intern" >实习</label>
+            </p>
+            <script type="text/javascript">
+                  var job_type1 = '{{ job.job_type }}';
+                  //alert(job_type1);
+                  if(job_type1){
+                    $('.radiobtn label:not(:first)').removeClass('checked');
+                    if(job_type1 == 'fulltime'){
+                        $('input:radio[name="job_type"]').eq(0).attr('checked','checked');
+                        $('input:radio[name="job_type"]').eq(0).parent().addClass("checked");
+                    }
+                    if(job_type1 == 'parttime'){
+                        $('input:radio[name="job_type"]').eq(1).attr('checked','checked');
+                        $('input:radio[name="job_type"]').eq(1).parent().addClass("checked");
+                    } 
+                    if(job_type1 == 'intern'){
+                        $('input:radio[name="job_type"]').eq(2).attr('checked','checked');
+                        $('input:radio[name="job_type"]').eq(2).parent().addClass("checked");
+                    }
+                  }
+            </script>
+			<p class="job_address"><label><span>*</span>工作地点 :</label>
+			<input type="text" name="address" value="{{ job.job_city }}" placeholder="请填写工作地点" ></p>
+				
+			
+            <div class="job_experience clearfix" style="margin-bottom:2px">
+				<label class="sel_name"><span>*</span>工作经验：</label>
+                 <p class="job_key"><input type="text" name="job_years" placeholder="请填写工作经验，如1年或1-3年或1年以上" value="{{ job.work_years }}"><span style="margin-left:6px"></span></p>
+			</div>
+			<div class="education clearfix" style="height:55px;margin-bottom:20px;position:relative;">
+				<label class="sel_name"><span>*</span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历 :</label>
+				<div class="opcty_sel">
+                <span class="caret" style="position: absolute;top:16px;left:2px"></span>
+                <span class="edu_sel">--请选择--</span>
+				<select name="edu" class="edu">
+                    <option value="">--请选择--</option>
+                    <option value="1">初中</option>
+					<option value="2">中专</option>
+					<option value="3">高中</option>
+					<option value="4">大专</option>
+					<option value="5">本科</option>
+					<option value="6">硕士</option>
+                    <option value="7">博士</option>
+                    <option value="8">MBA</option>
+                    <option value="9">EMBA</option>
+				</select>
+                
+				</div>
+			</div>
+            <script type="text/javascript">
+             var edu1 = '{{ job.education }}';
+             
+             if(edu1!=''){
+                if(edu1 == '1') $('select[name="edu"] option').eq(1).attr('selected','selected');
+                if(edu1 == '2') $('select[name="edu"] option').eq(2).attr('selected','selected');
+                if(edu1 == '3') $('select[name="edu"] option').eq(3).attr('selected','selected');
+                if(edu1 == '4') $('select[name="edu"] option').eq(4).attr('selected','selected');
+                if(edu1 == '5') $('select[name="edu"] option').eq(5).attr('selected','selected');
+                if(edu1 == '6') $('select[name="edu"] option').eq(6).attr('selected','selected');
+                if(edu1 == '7') $('select[name="edu"] option').eq(7).attr('selected','selected');
+                if(edu1 == '8') $('select[name="edu"] option').eq(8).attr('selected','selected');
+                if(edu1 == '9') $('select[name="edu"] option').eq(9).attr('selected','selected');
+
+             }
+             
+             </script>
+
+			<div class="job_salary clearfix" style="margin-bottom:2px;position:relative">
+				<label class="sel_name"><span>*</span>薪酬范围 :</label>
+                  <p class="job_key"><input type="text" style="width:145px;" placeholder="最低月薪" name="s_min" value="{{ job.salary_start }}"><span style="margin-left:5px;line-height:37px;height: 37px;display: inline-block;position: absolute;">K</span><span style="margin-left:23px;margin-right:5px;line-height:37px;height: 37px;display: inline-block;position: absolute;">-</span></p>
+                  <p class="job_key" style="position: absolute;top:0px;left:320px"><input type="text" style="width:145px;" placeholder="最高月薪" name="s_max" value="{{ job.salary_end }}"><span style="margin-left:5px;line-height:37px;height: 37px;display: inline-block;position: absolute;">K</span></p>
+			</div>
+
+            <label class="sel_name" style="margin-left:32px;">公司福利 :</label>
+            <p class="job_key" ><input type="text" name="boon" value="{{ job.boon }}" style="width:650px;margin-left:0;" placeholder="描述该职位的吸引力，如：福利待遇、发展前景等"></p>
+
+            <p><label class="des"><span>*</span>职位描述 :</label><textarea name="job_des" rows="10" cols="100" placeholder="请输入岗位职责、任职要求等，建议尽量使用短句并分条列出">{{ job.major_des }}</textarea></p>
+                    
+            <input class="btn" type="submit" value="提交" id="submit"><input class="btn" type="reset" value="取消" id="reset" onclick="javascript:history.go(-1)">
+        </form>
+		
+	</div>
+
+</div>
+	
+</div>
+
+</body>
+</html>
+<script>
+
+</script>

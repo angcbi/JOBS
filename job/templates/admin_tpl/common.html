@@ -1,0 +1,125 @@
+<div class="logo_header" style="background-color:#029774;">
+
+ <div class="logo">
+		<div class="header">
+            <p><a href="/admin/add_jd_cv"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+			</div>
+        </div>
+</div>
+<div class="width:100%;">
+<div class="navi_con">
+
+	<div class="navi_bar">
+		<ul>
+		<li  class="li_hover" ></li>
+		<li id="show-up"><a  class="li_hover"><img src="/static/images/suoxiao.png" id="x_image"><span class="hide-up" style="font-size:12px">点击收起菜单</span></a></li>
+			<!-- <li><a id="cur" class="li_hover" target="_self" href="admin_user.htm"><img src="/static/images/home.png" ><span class="hide-up" style="font-size:14px">用户管理</span></a></li>  -->
+			<li><a id="cur" class="li_hover" target="_self" href="/admin/unbind_company_list"><img src="/static/images/home.png" ><span class="hide-up" style="font-size:14px">未绑定账号管理</span></a></li>
+
+			 <li class="li_hover" style="cursor: pointer;height:auto"><a id="li_tuijian2" href="/admin/add_company"><img src="/static/images/list1.jpg" ><span class="hide-up" style="font-size:14px">添加直投企业</span></a>	</li>
+
+			<!--  <li class="li_hover" style="cursor: pointer;height:auto"><a id="li_tuijian2" href="admin_rlist.htm"><img src="/static/images/list1.jpg" ><span class="hide-up" style="font-size:14px">投递简历列表</span></a>	</li> -->
+
+	 		<li class="li_hover" style="cursor: pointer;height:auto"><a id="li_tuijian2" href="/admin/add_jd_cv"><img src="/static/images/list1.jpg" ><span class="hide-up" style="font-size:14px">添加直投简历</span></a>	</li>
+
+			 <li class="li_hover" style="cursor: pointer;height:auto"><a id="li_tuijian2" href="/admin/cv_list"><img src="/static/images/list1.jpg" ><span class="hide-up" style="font-size:14px">简历列表</span></a>	</li> 
+			
+
+		</ul>
+	
+	</div>
+</div>	
+
+
+<script>
+var s_need_show = '[!ko]';
+
+// Need to show it
+if(s_need_show.length)
+{
+	$("#" + s_need_show).show();
+}
+</script>
+
+<style>
+		#right_notice{
+			bottom: 20px;
+			right: 20px;
+			position: fixed;
+			width: auto;
+			max-width: 40%;
+			height: auto;
+		}
+		.add_lock{
+			text-decoration: none;
+			padding: 8px 10px;
+			background: #029774;
+			margin-left: 10px;
+			color: #fff;
+			font-size: 14px;
+			border-radius: 3px;
+		}
+		input#notice{
+			width: 400px;
+			height: 32px;
+			border-radius: 3px;
+			border: 1px solid #ccc;
+		}
+		#right_notice ul li{
+			padding: 6px 10px;
+			list-style-type: none;
+			background: #029774;
+			border-radius: 3px;
+			margin-bottom: 10px;
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			position: relative;
+		}
+		#right_notice li a{
+			background: url(images/close_notice.png) center no-repeat;
+			background-size: 16px;
+			width: 30px;
+			height: 30px;
+			right: -14px;
+			top: -14px;
+			position: absolute;
+			display: block;
+			cursor: pointer;
+		}
+	</style>
+
+	<script type="text/javascript">
+		$(function (){
+			$(".add_lock").click(function(){
+				var con = $("#notice").val();
+				creatednotice(con);
+			});
+		});
+		
+	
+
+		function closenotice(obj){
+			obj.hide();
+		}
+	</script>
+	
+
+<script>
+	function chk_notify()
+	{
+		$.ajax({
+            type:'get',
+            url: "notify_system.htm",
+            dataType: 'html',
+            success: function(msg){
+                $('#right_notice').append(msg);
+               }
+        });
+    }
+    
+	setInterval('chk_notify()', 5000);
+</script>
+

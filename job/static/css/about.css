@@ -1,0 +1,119 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.main_two{
+width:1200px;
+margin: 10px auto;
+height: 600px;
+border-top:3px solid #029774;
+}
+.left{
+	width:13%;
+	height: 100%;
+	/*outline: 1px solid red;*/
+	float: left;
+}
+.right{
+	width:85%;
+	height: 100%;
+	/*outline: 1px solid blue;*/
+	float: right;
+	position: relative;
+}
+.left ul{
+	list-style-type: none;
+    margin-top: 10px;
+    /*border:1px solid gray;*/
+}
+.left ul li{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+	/*background-color: #029774;*/
+	/*color:#fff;*/
+	/*margin-top: 10px;*/
+	/*border-bottom: 3px solid #034D3B;*/
+	/*border-radius: 5px;*/
+	cursor: pointer;
+	border-bottom:1px solid #fff;
+	background-color: #029774;
+	color: #fff;
+}
+.left ul li:hover{
+	background-color:#037458;
+}
+.one{
+	width: 99%;
+	height: auto;
+	margin: 10px;
+	/*background-color: pink;*/
+	/*border:1px dotted black;*/
+	position: absolute;
+	/*padding:10px;*/
+}
+.shouhang{
+	text-indent: 33px;
+	line-height: 40px;
+	font-size: 15px;
+	/*padding: 10px;*/
+}
+.count_one{
+	width:47%;
+	height: 100%;
+	float:left;
+	/*background-color: #F5F5F5;*/
+	border:1px solid black;
+}
+.count_two{
+	width:47%;
+	height: 100%;
+	float:right;
+    /*border:1px solid #F5F5F5;*/
+    border:1px solid black;
+}
+.font{
+	font-weight: 900;
+	font-size: 17px;
+	padding-left:30px;
+	height:50px;
+	line-height: 50px;
+	/*border:1px solid black;*/
+	border-radius: 5px;
+	background-color: #F5F5F5;
+	margin-top: -10px;
+}
+.right div{
+	display: none;
+}
+.about_bg{
+	height:300px;
+	background-image: url(../images/about.png);
+	background-size: 800px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.no_login ul{
+width: auto;
+height: 50px;
+list-style-type: none;
+overflow: hidden;
+/*margin-left: 936px;*/
+position: absolute;
+right:20px;
+}
+.no_login ul li{
+	
+margin-bottom: 8px;
+
+padding-left: 30px;
+color: #FFF;
+height: 50px;
+line-height: 39px;
+float: left;
+}
+.no_login ul li a{color: #fff;font-size: 15px;cursor: pointer;}
+.footer ul{list-style-type: none}

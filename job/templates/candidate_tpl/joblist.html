@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>招聘头条 - 一站搜索 </title>
+    <link rel="icon" href="/static/images/logo_tiny.png?v=2015121019" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css?v=2015121019">
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css?v=2015121019">
+    <link rel="stylesheet" type="text/css" href="/static/css/joblist.css?v=2016011117">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css?v=2015121019">
+    <link rel="stylesheet" type="text/css" href="/static/css/hrindex_h.css?v=2015121019"/>
+
+    <script type="text/javascript" src="/static/js/jquery-1.91.js"></script>
+    <script type="text/javascript" src="/static/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/js/manage.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/index.js?v=2015121019"></script>
+    <script type="text/javascript" src="/static/js/misc.js?v=2015121019"></script>
+<script type="text/javascript" src="/static/js/joblist_new.js?v=2015121019"></script>
+    <meta name="Description" content="招聘头条，职位搜索引擎，一站式搜索全网招聘职位，一站式比较全网高薪职位，一站式投递全网优质工作，一站式订阅全网意向职位，是一款基于大数据智能算法的求职神器。"/> 
+    <meta name="keywords" content="招聘头条,聪明你的求职,职位搜索引擎" />
+</head>
+<script>
+$(function(){
+  
+        $("#search_resume").focus();
+        $("#search_resume").focus(function(){
+            $("#search_resume").css({'border':'2px solid #029774','height':'34px'});
+        });
+        $("#search_resume").blur(function(){
+            $("#search_resume").css({'border':'2px solid #029774','height':'34px'});
+        });
+
+
+        //搜索
+        $("#button_search").click(function(){
+            var searc = $.trim($("#search_resume").val());
+            if(searc == ''){
+                layer.alert('搜索内容不能为空！', {
+                    title: '提示',
+                })
+            return false;
+            }
+            window.location.href = "/joblist?search="+encodeURIComponent(searc);
+        })
+
+})
+//绑定enter
+$(document).keyup(function(event){
+        if(event.keyCode ==13){
+            $('#button_search').trigger("click");
+        }
+});
+
+
+
+</script>
+<body>
+<script>var  phone = ''; </script>
+<div class="body_con">
+    <div class="black_overlay" style="width:100%; position:fixed;height:800px"></div>
+    <div class="logo_header" style="background-color:#029774;">
+        <div class="logo" style=" min-width: 0px;">
+            <div class="header">
+                <p><a href="/"><img src="/static/images/logo_5.png" id="header_logo"  ></a>
+             <span class="header-sm">发现好工作</span> 
+              </p>
+
+                {% if current_user.is_authenticated %}
+                <div class="detail_con">
+                              
+                    <span id="cainiao_welcome_two"><a href="/joblist" target="_blank">一站搜索</a><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+					<a href="/subscribe" target="_blank" class="c_bixin">一站订阅</a>
+					<a href="/post_job_list" target="_blank" class="c_bixin">一站投递</a>
+					<a href="/user_cv" title="进入主页" alt="进入主页">{{ phonenum }}</a><span><a href="/logout" title="退出" alt="退出">，退出</a></span></span>
+                </div>
+                 <script> phone = '{{ phonenum }}'; </script>
+                {% else %}
+               
+                <div class="no_login">
+                    <ul>
+                        <li class="l_menu"><a href="/joblist" target="_blank">一站搜索</a>
+                        </li>
+                        <li class="l_menu"><a href="/" target="_blank" class="c_bixin">一站比薪</a>
+                        </li>
+                        <li class="l_menu"><a href="/subscribe" target="_blank">一站订阅</a>
+              </li> 
+              <li class="l_menu"><a href="/post_job_list" target="_blank">一站投递</a>
+              </li>  
+                        <li class="logoin_first"><a href="/login" target="_blank" >登录</a>
+                        </li>
+                        <li class="logoin_first"><a href="/register" target="_blank" >注册</a>
+                        </li>
+                    </ul>
+                </div>           
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="detail_middle" style="margin-top:0px;margin: auto;width: 1100px;">
+        <a id="gotop" title="返回顶部"></a>
+        <script>
+            $("#gotop").click(function(){
+                $('html,body').animate({ scrollTop:0}, 700);
+            });
+            $(window).scroll(function(){
+                x=$(window).scrollTop();
+                if(x>300){
+                    $("#gotop").fadeIn();
+                } else {
+                    $("#gotop").fadeOut();
+                }
+            });
+        </script>
+        <div id="title_one" style="width:100%; margin-left:0;">
+            <p class="select_input"><input type="text" id="search_resume" placeholder="请输入职位名称、公司名称或技能关键词" value="{{ search }}" ></p>
+            <div style="overflow:hidden;">
+                <p id="button_search"><span></span><span style="font-size:15px" id="select_button">一站搜索</span></p><span class="shengji">升级ing！</span>
+            </div>
+            <div class="advanced_search" style="margin-top:-21px">
+                <div class="detail" style="height: auto;">
+                    <div class="high_search">
+                        <div class="whole_area_o" id="pop">
+                            <ul class="s_area">
+                                <span>工作地点：</span>
+                                <li class="{{ 'show' if address=='全国' else '' }}"><a href="javascript:;">全国</a></li>
+                                <li class="{{ 'show' if address=='北京' else '' }}"><a href="javascript:;">北京市</a></li>
+                            </ul>
+                        </div>
+                        <div class="whole_area_o">
+                            <ul class="s_exp">
+                                <span>工作经验：</span>
+                                <li class="{{ 'show' if exp=='不限' else '' }}"><a href="javascript:;">不限</a></li>
+                                <li class="{{ 'show' if exp=='应届毕业生' else '' }}"><a href="javascript:;">应届毕业生</a></li>
+                                <li class="{{ 'show' if exp=='1-3年' else '' }}"><a href="javascript:;">1-3年</a></li>
+                                <li class="{{ 'show' if exp=='3-5年' else '' }}"><a href="javascript:;">3-5年</a></li>
+                                <li class="{{ 'show' if exp=='5-10年' else '' }}"><a href="javascript:;">5-10年</a></li>
+                                <li class="{{ 'show' if exp=='10年以上' else '' }}"><a href="javascript:;">10年以上</a></li>
+                            </ul>
+                            <ul class="s_edu">
+                                <span>学历要求：</span>
+                                <li class="{{ 'show' if edu=='不限' else ''}}"><a href="javascript:;">不限</a></li>
+                                <li class="{{ 'show' if edu=='中专' else ''}}"><a href="javascript:;">中专</a></li>
+                                <li class="{{ 'show' if edu=='大专' else ''}}"><a href="javascript:;">大专</a></li>
+                                <li class="{{ 'show' if edu=='本科' else ''}}"><a href="javascript:;">本科</a></li>
+                                <li class="{{ 'show' if edu=='硕士' else ''}}"><a href="javascript:;">硕士</a></li>
+                                <li class="{{ 'show' if edu=='博士' else ''}}"><a href="javascript:;">博士</a></li>
+                            </ul>
+                            <ul class="s_salary">
+                                <span>薪资范围：</span>
+                                <li class="{{ 'show' if salary=='不限' else '' }}"><a href="javascript:;">不限</a></li>
+                                <li class="{{ 'show' if salary=='面议' else '' }}"><a href="javascript:;">面议</a></li>
+                                <li class="{{ 'show' if salary=='3k以下' else '' }}"><a href="javascript:;">3k以下</a></li>
+                                <li class="{{ 'show' if salary=='3k-5k' else '' }}"><a href="javascript:;">3k-5k</a></li>
+                                <li class="{{ 'show' if salary=='5k-10k' else '' }}"><a href="javascript:;">5k-10k</a></li>
+                                <li class="{{ 'show' if salary=='10k-20k' else '' }}"><a href="javascript:;">10k-20k</a></li>
+                                <li class="{{ 'show' if salary=='20k-50k' else '' }}"><a href="javascript:;">20k-50k</a></li>
+                                <li class="{{ 'show' if salary=='50k以上' else '' }}"><a href="javascript:;">50k以上</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+			
+
+            <div class="sear_c">
+                {% if total_number == 0 %}
+                <p class="select_font"> 暂无相关数据，为您推荐最新职位 </p>
+                {% else %}
+                <p class="select_font"> 招聘头条为您搜索到 </p>
+                <p class="select_font"><span id="search_num">{{ total_number }}</span></p>
+                <p class="select_font">个相关职位</p>
+                {% endif %}
+
+            </div>
+
+            <!-- 搜索到的职位 -->
+            <div class="found_jobs">
+                <ul>
+                    {% if job_list|length > 0 %}
+                    {% for job in job_list %}
+
+                    <li>
+                    <div class="all_jobs left_jobinfo">
+                        <p class="p_first job_name" style="overflow: hidden;height: 25px;"><a href="/job_detail?job_id={{ job.id }}" title="{{ job.job_name }}">{{ job.job_name }}</a></p>
+                        <p class="p_two job_condition"> 
+
+
+                        <span class="c_trade">{{ job.salary_str if job.salary_str != '' else '面议'}}</span>
+                        <span><script type="text/javascript">get_substr('{{ job.job_city }}')</script></span>
+                        <span>{{ job.work_years_str if job.work_years_str != '' else '面议'}}</span>
+                        <span>{{ job.education_str if job.education_str !='' else '不限' }}</span>  
+                        </p>
+                        <p class="job_pubtime" style="margin-bottom:0;">发布于：<script type="text/javascript">getLocalTime('{{ job.post_time }}')</script></p>
+                    </div>
+                    <div class="all_jobs right_gsinfo">
+                        <p class="p_first gs_name" style="overflow: hidden;height: 25px;"><a href="javascript:void(0);" title="{{ job.company_name }}">{{ job.company_name }}</a></p>
+                        <p class="p_two gs_condition">
+                        {% if job.trade != '' %}
+                        <span class="c_trade">{{ job.trade }}</span>
+                          {% endif %}
+                          {% if job.company_type != '' %}
+                        <span>{{ job.company_type }}</span>
+                          {% endif %}
+                          {% if  job.scale_str  != '' %}
+                        <span>{{ job.scale_str }}</span>
+                        {% endif %}
+                        </p>
+                        <p class="job_op" rel="{{ job.id }}" style="margin-bottom:6px;">
+                        {% if job.post_status == 0 %}
+                        <a class="lock_applyjob" href="javascript:void(0);" title="立即申请" rel='1'>立即申请</a>
+                        {% elif job.post_status == 'post' %}
+                        <a class="lock_applyjob apchange" href="javascript:void(0);" title="已申请" rel='1'>已申请</a>
+                        {% elif job.post_status == 'viewed' %}
+                        <a class="lock_applyjob apchange" href="javascript:void(0);" title="已查看" rel='1'>已查看</a>
+                        {% elif job.post_status == 'apply' %}
+                        <a class="lock_applyjob apchange" href="javascript:void(0);" title="邀请面试" rel='1'>邀请面试</a>
+                        {% elif job.post_status == 'deny' %}
+                        <a class="lock_applyjob apchange" href="javascript:void(0);" title="不合适" rel='1'>不合适</a>
+
+                        {% endif %}
+
+                        {% if job.collect_status == 0 %}
+
+                        <a class="lock_like" href="javascript:void(0);" title="感兴趣" rel="2">感兴趣</a>
+                        {% else %}
+                        <a class="lock_like apchange" href="javascript:void(0);" title="已收藏" rel="2" >已收藏 </a>
+                        {% endif %}
+
+
+                        <a class="lock_source" href="{{ job.post_url }}" title="查看来源" rel="0" target="_blank">查看来源</a>
+                        </p>
+                    </div>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <li><p style="width: 100%;text-align: center;line-height: 88px;;font-size:16px;color:#029774">暂无相关数据</p></li>
+                    {% endif %}
+
+
+                </ul>
+
+                <div id="page" class="page_new" style="margin-bottom: 60px;">
+                    <span id="index_page"><a href="{{ base_url }}">首页</a></span>
+                    <span id="prev_page" onclick="go_prev()"><!-- PageBefore -->上一页<!-- PageBefore; --></span>
+                    <script type="text/javascript">
+                        var zong = '{{ page_number }}';
+                        var dangq = '{{ page }}';
+                        var baseurl = '{{ base_url }}';
+                        page_list_js(zong,dangq,baseurl);
+                    </script>   
+                    <span id="next_page" onclick="go_next()"><!-- PageNext -->下一页<!-- PageNext; --></span>
+                    <span id="last_page" onclick="go_last()"><!-- LastPage -->尾页<!-- LastPage; --></span>
+                    <span>共计{{ page_number }}页</span>
+
+                </div>
+                <!-- PageControl; -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+var se = '{{ search }}';
+if(dangq == zong){
+    $("#next_page").hide();
+}
+if(zong == 1){
+    $("#last_page").hide();
+}
+</script>
+
+
+
+<script type="text/javascript">
+
+var page = parseInt({{ page }});
+var total_page = parseInt({{ page_number }});
+var base_url = '{{ base_url | safe }}';
+
+function go_next() {
+    console.log(page)
+
+    if (page >= total_page) {return;}
+    var next_page = (page+1).toString();
+
+    location.href= base_url +'&page=' +next_page;
+}
+
+function go_prev() {
+    if (page <= 1 ) {
+        return;
+    };
+
+    var prev_page = (page-1).toString();
+    location.href = base_url +'&page='+ prev_page;
+}
+
+function go_last() {
+    location.href = base_url + '&page='+ total_page.toString();
+}
+
+
+$(function(){
+  $(".advanced_search .detail ul li").hover(
+function(){
+$(this).find("a").css("color","#fff")
+},function(){
+$(this).find("a").css("color","#000")
+$(".show").find("a").css("color","#fff")
+}
+)
+        $(".s_area li").click(function(event){
+             var searc = $.trim($("#search_resume").val());
+            if(searc == ''){
+                layer.alert('请先搜索，再进行条件筛选！', {
+                    title: '提示',
+                })
+            return false;
+            }
+            else{
+            var obj = $(this);
+            obj.addClass("show");
+            obj.siblings().removeClass("show").find("a").css("color","black");
+            jump_to();
+        }
+        });
+        $(".s_exp li").click(function(event){
+              var searc = $.trim($("#search_resume").val());
+            if(searc == ''){
+                layer.alert('请先搜索，再进行条件筛选！', {
+                    title: '提示',
+                })
+            return false;
+            }
+            else{
+            var obj = $(this);
+            obj.addClass("show");
+            obj.siblings().removeClass("show").find("a").css("color","black");
+          jump_to();
+        }
+        });
+        $(".s_edu li").click(function(event){
+              var searc = $.trim($("#search_resume").val());
+            if(searc == ''){
+                layer.alert('请先搜索，再进行条件筛选！！', {
+                    title: '提示',
+                })
+            return false;
+            }
+            else{
+            var obj = $(this);
+            obj.addClass("show");
+            obj.siblings().removeClass("show").find("a").css("color","black");
+            jump_to();
+        }
+        });
+        $(".s_salary li").click(function(event){
+              var searc = $.trim($("#search_resume").val());
+            if(searc == ''){
+                layer.alert('请先搜索，再进行条件筛选！', {
+                    title: '提示',
+                })
+            return false;
+            }
+            else{
+            var obj = $(this);
+            obj.addClass("show");
+            obj.siblings().removeClass("show").find("a").css("color","black");
+            jump_to();
+        }
+        });
+});
+var jump_to = function(){
+    var search = $("#search_resume").val();
+    var area = $(".s_area .show a").html();
+    var exp = $(".s_exp .show a").html();
+    var edu = $(".s_edu .show a").html();
+    var salary = $(".s_salary .show a").html();
+    var jump_str = "/joblist?";
+    jump_str += 'search='+search;
+    jump_str += '&address='+area;
+    jump_str += '&exp='+exp;
+    jump_str += '&edu='+edu;
+    jump_str += '&salary='+salary;
+    jump_str += '&industry='+"{{ industry }}";
+    window.location=jump_str;
+}
+
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258314713'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258314713%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
